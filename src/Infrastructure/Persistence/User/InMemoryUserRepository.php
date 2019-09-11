@@ -49,4 +49,9 @@ class InMemoryUserRepository implements UserRepository
 
         return $this->users[$id];
     }
+
+    public function getPassword(int $id): string
+    {
+        // TODO: Implement getPassword() method.
+    }
 }

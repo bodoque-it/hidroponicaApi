@@ -18,6 +18,8 @@ if (false) { // Should be set to true in production
 }
 
 // Set up settings
+$dotenv = Dotenv\Dotenv::create(__DIR__ . '/..' );
+$dotenv->load();
 $settings = require __DIR__ . '/../app/settings.php';
 $settings($containerBuilder);
 

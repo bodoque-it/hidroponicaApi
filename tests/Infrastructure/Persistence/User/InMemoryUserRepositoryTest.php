@@ -21,7 +21,7 @@ class InMemoryUserRepositoryTest extends TestCase
 
     public function testFindUserOfId()
     {
-        $user = new User(1, 'bill.gates', 'Bill', 'Gates');
+        $user = new User(1, 'bill.gates', 'Bill', 'Gates',"h");
 
         $userRepository = new InMemoryUserRepository([1 => $user]);
 
