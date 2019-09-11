@@ -16,4 +16,6 @@ interface UserRepository
      * @throws UserNotFoundException
      */
     public function findUserOfId(int $id): User;
+
+    public function getPassword(int $id):string;
 }

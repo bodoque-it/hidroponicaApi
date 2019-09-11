@@ -28,17 +28,23 @@ class User implements JsonSerializable
     private $lastName;
 
     /**
+     * @var string
+     */
+    private $email;
+    /**
      * @param int|null  $id
      * @param string    $username
      * @param string    $firstName
      * @param string    $lastName
+     * @param string    $email
      */
-    public function __construct(?int $id, string $username, string $firstName, string $lastName)
+    public function __construct(?int $id, string $username, string $firstName, string $lastName,string $email)
     {
         $this->id = $id;
         $this->username = $username;
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+        $this->email = $email;
     }
 
     /**
@@ -83,6 +89,7 @@ class User implements JsonSerializable
             'username' => $this->username,
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
+            'email' => $this->email,
         ];
     }
 }
