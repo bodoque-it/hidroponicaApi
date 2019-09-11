@@ -28,8 +28,12 @@ class MySqlUserRepository implements UserRepository
      */
     public function findAll(): array
     {
-        $s = $this->conn->prepare("SELECT * FROM pet");
-        return array("hola"=>$s->execute());
+        $query = "SELECT * FROM pet";
+        $res = array();
+        foreach ($this->conn->query($query) as $row){
+            array_push($res,$row['name']);
+        }
+        return $res;
     }
 
     /**
