@@ -1,3 +1,4 @@
+DROP DATABASE IF EXISTS hidroponica;
 create database hidroponica;
 use hidroponica;
 
@@ -41,10 +42,10 @@ add fk_contenedor int,
 add fk_microclima int, 
 add Nombre varchar(255), 
 add Fecha_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-add Fecha_estimada TIMESTAMP DEFAULT CURRENT_TIMESTAMP, (DUDA)
-add Fecha_termino TIMESTAMP DEFAULT CURRENT_TIMESTAMP, (DUDA)
+add Fecha_estimada TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+add Fecha_termino TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
 add FOREIGN KEY (fk_user) REFERENCES Usuario(id_user), 
-add FOREIGN KEY (fk_contenedor) REFERENCES Contenedor(id_contenedor), 
+add FOREIGN KEY (fk_contenedor) REFERENCES Contenedores(id_contenedor),
 add FOREIGN KEY (fk_microclima) REFERENCES Microclimas(id_microclima);
 
 alter table Microclimas 
