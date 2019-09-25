@@ -3,7 +3,7 @@ create database hidroponica;
 use hidroponica;
 
 create table Usuario ( id_user int NOT NULL AUTO_INCREMENT,
-Nombre varchar(255) NOT NULL,
+Username varchar(255) NOT NULL,
 first_name varchar(255),
 last_name varchar(255),
 Contraseña varchar(255),
@@ -21,7 +21,7 @@ create table Contenedores( id_contenedor int NOT NULL AUTO_INCREMENT,
 fk_user int,
 fk_riel int,
 Volumen float,
-Active BOOLEAN,
+Activo BOOLEAN,
 Nombre varchar(255),
 PRIMARY KEY(id_contenedor),
 FOREIGN KEY (fk_user) REFERENCES Usuario(id_user),
