@@ -133,8 +133,10 @@ abstract class Action
         if($this->getHeader("Authorization")){
             $jwt = $this->getHeader("Authorization");
             $decoded = JWT::decode($jwt,getenv("SECRET_KEY"),array('HS256'));
+            $jwt = JWT::encode($jwt,getenv("SECRET_KEY"));
+            JWT::$leeway = 60;
 
-            return $decoded;
+            return $jwt;
         }
         return null;
     }

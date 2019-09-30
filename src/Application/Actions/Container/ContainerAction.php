@@ -4,6 +4,7 @@
 namespace App\Application\Actions\Container;
 
 
+use App\Domain\Container\ContainerRepository;
 use App\Domain\DomainException\DomainRecordNotFoundException;
 use App\Domain\User\UserRepository;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -16,15 +17,15 @@ abstract  class ContainerAction extends Action
     /**
      * @var UserRepository
      */
-    protected $userRepository;
+    protected $containerRepository;
 
     /**
      * @param LoggerInterface $logger
-     * @param UserRepository  $userRepository
+     * @param ContainerRepository $containerRepository
      */
-    public function __construct(LoggerInterface $logger, UserRepository $userRepository)
+    public function __construct(LoggerInterface $logger, ContainerRepository $containerRepository)
     {
         parent::__construct($logger);
-        $this->userRepository = $userRepository;
+        $this->containerRepository = $containerRepository;
     }
 }

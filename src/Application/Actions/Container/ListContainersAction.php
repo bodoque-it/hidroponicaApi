@@ -18,19 +18,21 @@ class ListContainersAction extends ContainerAction
      */
     protected function action(): Response
     {
+        /*
         $jwt = $this->auth();
 
         if(isset($jwt)){
-            $jwt = JWT::encode($jwt,getenv("SECRET_KEY"));
-            JWT::$leeway = 60;
+            $result = $this->containerRepository->findAll();
             $res = array(
-                "message"=>"User Acepted ",
-                "jwt"=>$jwt
+                "jwt"=>$jwt,
+                "container"=>$result
             );
-            return $this->respondWithData($res);
-        }else{
-            return $this->respondWithData("hello from Containers");
-        }
+            return $this->respondWithData($res);*/
+        $result = $this->containerRepository->findAll(1);
+        return $this->respondWithData($result);
+        /*}else{
+            return $this->respondWithError(401,"Access Denied");
+        }*/
 
 
     }
