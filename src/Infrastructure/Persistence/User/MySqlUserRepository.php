@@ -64,15 +64,11 @@ class MySqlUserRepository implements UserRepository
     }
     public function createUser(string $username, string $first_name, string $last_name, string $password, string $email): User
     {
-        $query = "INSERT INTO Usuario(Username,first_name,last_name,Contraseña,Email) VALUES(?,?,?,?)";
+
+        $query = "INSERT INTO Usuario(Username,first_name,last_name,Contraseña,Email) VALUES (?,?,?,?,?)";
         $sth = $this->db->prepare($query);
-        $sth->bindParam(1,$username);
-        $sth->bindParam(2,$first_name);
-        $sth->bindParam(3,$last_name);
-        $sth->bindParam(4,$password);
-        $sth->bindParam(5,$email);
-        $sth->execute();
-        $row = $sth->fetch();
-        return new User(row["id_user"],$row["Username"],$row["first_name"],$row["last_name"],$row["Email"]);
+        $sth->execute([$username,$first_name,$last_name,$password,$email]);
+        return new User(0,$username,$first_name,$last_name,$email);
     }
+    
 }
