@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Application\Actions;
 
 use App\Domain\DomainException\DomainRecordNotFoundException;
+use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Log\LoggerInterface;
@@ -121,5 +122,20 @@ abstract class Action
     {
         $payload = new ActionPayload($status, $data);
         return $this->respond($payload);
+    }
+    protected  function getHeader(string $headerName){
+        return $this->request->getHeaderLine($headerName);
+    }
+    protected  function hasJwt(): bool {
+        return $this->request->hasHeader("Autorization");
+    }
+    protected  function auth(){
+        if($this->getHeader("Authorization")){
+            $jwt = $this->getHeader("Authorization");
+            $decoded = JWT::decode($jwt,getenv("SECRET_KEY"),array('HS256'));
+
+            return $decoded;
+        }
+        return null;
     }
 }
