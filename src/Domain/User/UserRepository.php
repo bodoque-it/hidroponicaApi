@@ -25,6 +25,8 @@ interface UserRepository
                                string $first_name,
                                string $last_name,
                                string $password,
-                               string $email):bool;
+                               string $email):int;
     public function existUserByUsername(string $username):bool;
+
+    public function findUserOfUsername(string $username):int;
 }

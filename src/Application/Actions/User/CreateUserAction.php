@@ -20,8 +20,12 @@ class CreateUserAction extends  UserAction
     {
         $contents = $this->getFormData();
         $password = hash("sha256",$contents["password"]);
-        $newUser = $this->userRepository->createUser($contents["username"],$contents["first_name"],$contents["last_name"],$password,$contents["email"]);
-        //$this->logger->info("User Created");
-        return $this->respondWithData($newUser);
+        $id_user = $this->userRepository->createUser($contents["username"],$contents["first_name"],$contents["last_name"],$password,$contents["email"]);
+        if($id_user>0){
+            $this->logger->info("User Created with id_user : ".$id_user);
+            return $this->respondWithData($id_user);
+        }else{
+            return $this->respondWithError(403,"El usuario no ha podido ser creado");
+        }
     }
 }
