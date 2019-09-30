@@ -18,4 +18,10 @@ interface UserRepository
     public function findUserOfId(int $id): User;
 
     public function getPassword(int $id):string;
+
+    public function createUser(string $username,
+                               string $first_name,
+                               string $last_name,
+                               string $password,
+                               string $email):User;
 }
