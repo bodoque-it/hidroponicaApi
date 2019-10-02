@@ -18,7 +18,7 @@ class ListContainersAction extends ContainerAction
      */
     protected function action(): Response
     {
-        /*
+/*
         $jwt = $this->auth();
 
         if(isset($jwt)){
