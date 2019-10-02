@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Application\Actions;
 
 use App\Domain\DomainException\DomainRecordNotFoundException;
+use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Log\LoggerInterface;
@@ -74,7 +75,7 @@ abstract class Action
      */
     protected function getFormData()
     {
-        $input = json_decode(file_get_contents('php://input'));
+        $input = json_decode(file_get_contents('php://input'),true);
 
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new HttpBadRequestException($this->request, 'Malformed JSON input.');
@@ -116,5 +117,27 @@ abstract class Action
         $json = json_encode($payload, JSON_PRETTY_PRINT);
         $this->response->getBody()->write($json);
         return $this->response->withHeader('Content-Type', 'application/json');
+    }
+    protected function respondWithError($status,$data):Response
+    {
+        $payload = new ActionPayload($status, $data);
+        return $this->respond($payload);
+    }
+    protected  function getHeader(string $headerName){
+        return $this->request->getHeaderLine($headerName);
+    }
+    protected  function hasJwt(): bool {
+        return $this->request->hasHeader("Autorization");
+    }
+    protected  function auth(){
+        if($this->getHeader("Authorization")){
+            $jwt = $this->getHeader("Authorization");
+            $decoded = JWT::decode($jwt,getenv("SECRET_KEY"),array('HS256'));
+            $jwt = JWT::encode($jwt,getenv("SECRET_KEY"));
+            JWT::$leeway = 60;
+
+            return $jwt;
+        }
+        return null;
     }
 }

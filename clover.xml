@@ -1,0 +1,471 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1570024002">
+  <project timestamp="1570024002">
+    <package name="App\Application\Actions">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/Action.php">
+        <class name="App\Application\Actions\Action" namespace="App\Application\Actions">
+          <metrics complexity="15" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="0" elements="41" coveredelements="0"/>
+        </class>
+        <line num="39" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="52" type="method" name="__invoke" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="76" type="method" name="getFormData" visibility="protected" complexity="2" crap="6.00" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="92" type="method" name="resolveArg" visibility="protected" complexity="2" crap="6.00" count="0"/>
+        <line num="94" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <line num="98" type="stmt" count="0"/>
+        <line num="105" type="method" name="respondWithData" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="107" type="stmt" count="0"/>
+        <line num="108" type="stmt" count="0"/>
+        <line num="115" type="method" name="respond" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="117" type="stmt" count="0"/>
+        <line num="118" type="stmt" count="0"/>
+        <line num="119" type="stmt" count="0"/>
+        <line num="121" type="method" name="respondWithError" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="123" type="stmt" count="0"/>
+        <line num="124" type="stmt" count="0"/>
+        <line num="126" type="method" name="getHeader" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="127" type="stmt" count="0"/>
+        <line num="129" type="method" name="hasJwt" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="130" type="stmt" count="0"/>
+        <line num="132" type="method" name="auth" visibility="protected" complexity="2" crap="6.00" count="0"/>
+        <line num="133" type="stmt" count="0"/>
+        <line num="134" type="stmt" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="137" type="stmt" count="0"/>
+        <line num="139" type="stmt" count="0"/>
+        <line num="141" type="stmt" count="0"/>
+        <metrics loc="143" ncloc="98" classes="1" methods="10" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="31" coveredstatements="0" elements="41" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/ActionError.php">
+        <class name="App\Application\Actions\ActionError" namespace="App\Application\Actions">
+          <metrics complexity="8" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="18" coveredelements="0"/>
+        </class>
+        <line num="34" type="method" name="__construct" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="43" type="method" name="getType" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="52" type="method" name="setType" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="61" type="method" name="getDescription" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="70" type="method" name="setDescription" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="79" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="86" type="stmt" count="0"/>
+        <metrics loc="88" ncloc="61" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="18" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/ActionPayload.php">
+        <class name="App\Application\Actions\ActionPayload" namespace="App\Application\Actions">
+          <metrics complexity="9" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="18" coveredelements="0"/>
+        </class>
+        <line num="30" type="method" name="__construct" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="37" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="43" type="method" name="getStatusCode" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="51" type="method" name="getData" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="59" type="method" name="getError" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="67" type="method" name="jsonSerialize" visibility="public" complexity="3" crap="12.00" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <metrics loc="81" ncloc="55" classes="1" methods="5" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="13" coveredstatements="0" elements="18" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Application\Actions\Container">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/Container/ContainerAction.php">
+        <class name="App\Application\Actions\Container\ContainerAction" namespace="App\Application\Actions\Container">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="26" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <metrics loc="30" ncloc="23" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/Container/ListContainersAction.php">
+        <class name="App\Application\Actions\Container\ListContainersAction" namespace="App\Application\Actions\Container">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+        </class>
+        <line num="19" type="method" name="action" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <metrics loc="38" ncloc="20" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Application\Actions\User">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/User/CreateUserAction.php">
+        <class name="App\Application\Actions\User\CreateUserAction" namespace="App\Application\Actions\User">
+          <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="8" coveredelements="0"/>
+        </class>
+        <line num="19" type="method" name="action" visibility="protected" complexity="2" crap="6.00" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <metrics loc="30" ncloc="25" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="7" coveredstatements="0" elements="8" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/User/ListUsersAction.php">
+        <class name="App\Application\Actions\User\ListUsersAction" namespace="App\Application\Actions\User">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="13" type="method" name="action" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="15" type="stmt" count="0"/>
+        <line num="17" type="stmt" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <metrics loc="21" ncloc="18" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/User/LoginUserAction.php">
+        <class name="App\Application\Actions\User\LoginUserAction" namespace="App\Application\Actions\User">
+          <metrics complexity="4" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="0" elements="23" coveredelements="0"/>
+        </class>
+        <line num="20" type="method" name="action" visibility="protected" complexity="3" crap="12.00" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="51" type="method" name="password_verify" visibility="private" complexity="1" crap="2.00" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <metrics loc="54" ncloc="43" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="21" coveredstatements="0" elements="23" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/User/UserAction.php">
+        <class name="App\Application\Actions\User\UserAction" namespace="App\Application\Actions\User">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="21" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <metrics loc="26" ncloc="19" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Actions/User/ViewUserAction.php">
+        <class name="App\Application\Actions\User\ViewUserAction" namespace="App\Application\Actions\User">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+        </class>
+        <line num="13" type="method" name="action" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="15" type="stmt" count="0"/>
+        <line num="16" type="stmt" count="0"/>
+        <line num="18" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <metrics loc="22" ncloc="19" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Application\Handlers">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Handlers/HttpErrorHandler.php">
+        <class name="App\Application\Handlers\HttpErrorHandler" namespace="App\Application\Handlers">
+          <metrics complexity="12" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="30" coveredelements="0"/>
+        </class>
+        <line num="25" type="method" name="respond" visibility="protected" complexity="12" crap="156.00" count="0"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="36" type="stmt" count="0"/>
+        <line num="38" type="stmt" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <metrics loc="69" ncloc="66" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="29" coveredstatements="0" elements="30" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Handlers/ShutdownHandler.php">
+        <class name="App\Application\Handlers\ShutdownHandler" namespace="App\Application\Handlers">
+          <metrics complexity="7" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="32" coveredelements="0"/>
+        </class>
+        <line num="34" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="44" type="method" name="__invoke" visibility="public" complexity="6" crap="42.00" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="50" type="stmt" count="0"/>
+        <line num="51" type="stmt" count="0"/>
+        <line num="52" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="72" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <metrics loc="83" ncloc="67" classes="1" methods="2" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="30" coveredstatements="0" elements="32" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Application\Middleware">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/Middleware/SessionMiddleware.php">
+        <class name="App\Application\Middleware\SessionMiddleware" namespace="App\Application\Middleware">
+          <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+        </class>
+        <line num="16" type="method" name="process" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="18" type="stmt" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <metrics loc="25" ncloc="22" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Application\ResponseEmitter">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Application/ResponseEmitter/ResponseEmitter.php">
+        <class name="App\Application\ResponseEmitter\ResponseEmitter" namespace="App\Application\ResponseEmitter">
+          <metrics complexity="3" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="13" coveredelements="0"/>
+        </class>
+        <line num="14" type="method" name="emit" visibility="public" complexity="3" crap="12.00" count="0"/>
+        <line num="17" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <metrics loc="34" ncloc="29" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="12" coveredstatements="0" elements="13" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Domain\Container">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Domain/Container/Container.php">
+        <class name="App\Domain\Container\Container" namespace="App\Domain\Container">
+          <metrics complexity="3" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="6" elements="14" coveredelements="8"/>
+        </class>
+        <line num="13" type="method" name="__construct" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="15" type="stmt" count="2"/>
+        <line num="16" type="stmt" count="2"/>
+        <line num="17" type="stmt" count="2"/>
+        <line num="18" type="stmt" count="2"/>
+        <line num="19" type="stmt" count="2"/>
+        <line num="21" type="method" name="isActivate" visibility="public" complexity="1" crap="1" count="2"/>
+        <line num="22" type="stmt" count="2"/>
+        <line num="26" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="31" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <metrics loc="35" ncloc="35" classes="1" methods="3" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="6" elements="14" coveredelements="8"/>
+      </file>
+    </package>
+    <file name="/home/antilef/Dev/hidroponicaApi/src/Domain/Container/ContainerRepository.php">
+      <metrics loc="15" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="App\Domain\DomainException">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Domain/DomainException/DomainException.php">
+        <class name="App\Domain\DomainException\DomainException" namespace="App\Domain\DomainException">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+        </class>
+        <line num="10" type="method" name="errorMessage" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="12" type="stmt" count="0"/>
+        <metrics loc="14" ncloc="14" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="1" coveredstatements="0" elements="2" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Domain/DomainException/DomainRecordNotFoundException.php">
+        <class name="App\Domain\DomainException\DomainRecordNotFoundException" namespace="App\Domain\DomainException">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Domain\User">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Domain/User/User.php">
+        <class name="App\Domain\User\User" namespace="App\Domain\User">
+          <metrics complexity="8" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="21" coveredelements="0"/>
+        </class>
+        <line num="41" type="method" name="__construct" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="48" type="stmt" count="0"/>
+        <line num="53" type="method" name="getId" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="61" type="method" name="getUsername" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="69" type="method" name="getFirstName" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="71" type="stmt" count="0"/>
+        <line num="77" type="method" name="getLastName" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="85" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <metrics loc="95" ncloc="58" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="15" coveredstatements="0" elements="21" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Domain/User/UserNotFoundException.php">
+        <class name="App\Domain\User\UserNotFoundException" namespace="App\Domain\User">
+          <metrics complexity="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+        </class>
+        <metrics loc="11" ncloc="11" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      </file>
+    </package>
+    <file name="/home/antilef/Dev/hidroponicaApi/src/Domain/User/UserRepository.php">
+      <metrics loc="32" ncloc="24" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
+    <package name="App\Infrastructure\Persistence\Container">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Infrastructure/Persistence/Container/MySqlContainerRepository.php">
+        <class name="App\Infrastructure\Persistence\Container\MySqlContainerRepository" namespace="App\Infrastructure\Persistence\Container">
+          <metrics complexity="7" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="17" coveredelements="0"/>
+        </class>
+        <line num="15" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="17" type="stmt" count="0"/>
+        <line num="18" type="stmt" count="0"/>
+        <line num="20" type="method" name="findAll" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="31" type="method" name="findById" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="34" type="stmt" count="0"/>
+        <line num="36" type="method" name="createContainer" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="39" type="stmt" count="0"/>
+        <line num="41" type="method" name="deleteContainer" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="46" type="method" name="updateContainer" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <metrics loc="49" ncloc="41" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="11" coveredstatements="0" elements="17" coveredelements="0"/>
+      </file>
+    </package>
+    <package name="App\Infrastructure\Persistence\User">
+      <file name="/home/antilef/Dev/hidroponicaApi/src/Infrastructure/Persistence/User/MySqlUserRepository.php">
+        <class name="App\Infrastructure\Persistence\User\MySqlUserRepository" namespace="App\Infrastructure\Persistence\User">
+          <metrics complexity="11" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="0" elements="49" coveredelements="0"/>
+        </class>
+        <line num="16" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="18" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="25" type="method" name="findAll" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="29" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="32" type="stmt" count="0"/>
+        <line num="40" type="method" name="findUserOfId" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="44" type="stmt" count="0"/>
+        <line num="45" type="stmt" count="0"/>
+        <line num="46" type="stmt" count="0"/>
+        <line num="47" type="stmt" count="0"/>
+        <line num="51" type="method" name="getPassword" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="56" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="60" type="method" name="createUser" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="62" type="stmt" count="0"/>
+        <line num="63" type="stmt" count="0"/>
+        <line num="64" type="stmt" count="0"/>
+        <line num="65" type="stmt" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="67" type="stmt" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="74" type="method" name="existUserByUsername" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="77" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="80" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="85" type="method" name="findUserOfUsername" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="89" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <metrics loc="98" ncloc="90" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="42" coveredstatements="0" elements="49" coveredelements="0"/>
+      </file>
+    </package>
+    <metrics files="23" loc="1102" ncloc="862" classes="19" methods="57" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="254" coveredstatements="6" elements="311" coveredelements="8"/>
+  </project>
+</coverage>

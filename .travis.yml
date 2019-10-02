@@ -4,7 +4,6 @@ dist: trusty
 
 matrix:
   include:
-  - php: 7.1
   - php: 7.2
   - php: 7.3
     env: ANALYSIS='true'
@@ -22,3 +21,4 @@ script:
 
 after_success:
 - if [[ "$ANALYSIS" == 'true' ]]; then vendor/bin/php-coveralls --coverage_clover=clover.xml -v ; fi
+

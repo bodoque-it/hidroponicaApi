@@ -3,6 +3,8 @@ declare(strict_types=1);
 
 namespace App\Domain\User;
 
+use phpDocumentor\Reflection\Types\Boolean;
+
 interface UserRepository
 {
     /**
@@ -17,5 +19,14 @@ interface UserRepository
      */
     public function findUserOfId(int $id): User;
 
-    public function getPassword(int $id):string;
+    public function getPassword(string $username):string;
+
+    public function createUser(string $username,
+                               string $first_name,
+                               string $last_name,
+                               string $password,
+                               string $email):int;
+    public function existUserByUsername(string $username):bool;
+
+    public function findUserOfUsername(string $username):int;
 }
