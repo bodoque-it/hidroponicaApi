@@ -1,71 +1,72 @@
-DROP DATABASE IF EXISTS test_h;
-create database test_h;
-use test_h;
+DROP DATABASE IF EXISTS hidroponica;
+create database hidroponica;
+use hidroponica;
 
-create table Usuario ( id_user int NOT NULL AUTO_INCREMENT,
-Username varchar(255) NOT NULL,
+create table users ( id_user int NOT NULL AUTO_INCREMENT,
+username varchar(255) NOT NULL,
 first_name varchar(255),
 last_name varchar(255),
-Contraseña varchar(255),
-Email varchar(255),
+pass_word varchar(255),
+email varchar(255),
 PRIMARY KEY (id_user) );
 
-create table Rieles( id_riel int NOT NULL AUTO_INCREMENT,
+create table rails( id_rail int NOT NULL AUTO_INCREMENT,
 fk_user int, 
-Nombre varchar(255),
-Ubicacion varchar(255),
+name varchar(255),
+location varchar(255),
 PRIMARY KEY (id_riel),
-FOREIGN KEY (fk_user) REFERENCES Usuario(id_user) );
+FOREIGN KEY (fk_user) REFERENCES users(id_user) );
 
-create table Contenedores( id_contenedor int NOT NULL AUTO_INCREMENT,
+create table containers( id_container int NOT NULL AUTO_INCREMENT,
 fk_user int,
-fk_riel int,
-Volumen float,
-Activo BOOLEAN,
-Nombre varchar(255),
-PRIMARY KEY(id_contenedor),
-FOREIGN KEY (fk_user) REFERENCES Usuario(id_user),
-FOREIGN KEY (fk_riel) REFERENCES Rieles(id_riel) );
+fk_rail int,
+volume float,
+active BOOLEAN,
+name varchar(255),
+PRIMARY KEY(id_container),
+FOREIGN KEY (fk_user) REFERENCES users(id_user),
+FOREIGN KEY (fk_rail) REFERENCES rails(id_rail) );
 
-create table Ciclos( id_ciclo int NOT NULL AUTO_INCREMENT,
-PRIMARY KEY (id_ciclo));
+create table cycles( id_cycle int NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (id_cycle));
 
-create table Microclimas( id_microclima int NOT NULL AUTO_INCREMENT,
-PRIMARY KEY (id_microclima));
+create table microclimates( id_microclimate int NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (id_microclimate));
 
-create table Mediciones( id_medicion int NOT NULL AUTO_INCREMENT,
-PRIMARY KEY (id_medicion));
+create table measurements( id_measurement int NOT NULL AUTO_INCREMENT,
+PRIMARY KEY (id_measurement));
 
-alter table Ciclos 
+alter table cycles 
 add fk_user int, 
-add fk_contenedor int, 
-add fk_microclima int, 
-add Nombre varchar(255), 
-add Fecha_inicio TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-add Fecha_estimada TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-add Fecha_termino TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-add FOREIGN KEY (fk_user) REFERENCES Usuario(id_user), 
-add FOREIGN KEY (fk_contenedor) REFERENCES Contenedores(id_contenedor),
-add FOREIGN KEY (fk_microclima) REFERENCES Microclimas(id_microclima);
+add fk_container int, 
+add fk_microclimate int, 
+add name varchar(255), 
+add start_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+add estimated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+add end_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+add FOREIGN KEY (fk_user) REFERENCES users(id_user), 
+add FOREIGN KEY (fk_container) REFERENCES containers(id_container),
+add FOREIGN KEY (fk_microclimate) REFERENCES microclimates(id_microclimate);
 
-alter table Microclimas 
+alter table microclimates 
 add fk_user int, 
-add fk_ciclo int, 
-add Nombre varchar(255), 
-add Intensidad int, 
-add Tipo_de_luz varchar(255), 
-add Ph_agua float, 
-add Horas_diarias float, 
-add Hora_inicio_luz float, 
-add FOREIGN KEY (fk_user) REFERENCES Usuario(id_user), 
-add FOREIGN KEY (fk_ciclo) REFERENCES Ciclos(id_ciclo);
+add fk_cycle int, 
+add name varchar(255), 
+add intensity int, 
+add type_of_light varchar(255), 
+add Ph_water float, 
+add daily_hours float, 
+add light_start_time float, 
+add FOREIGN KEY (fk_user) REFERENCES users(id_user), 
+add FOREIGN KEY (fk_cycle) REFERENCES cycles(id_cycle);
 
-alter table Mediciones 
-add fk_ciclo int, 
-add Temperatura float, 
-add Humedad float, 
-add Fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
-add FOREIGN KEY (fk_ciclo) REFERENCES Ciclos(id_ciclo);
+alter table measurements 
+add fk_cycle int, 
+add temperature float, 
+add dampness float, 
+add present_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
+add FOREIGN KEY (fk_cycle) REFERENCES cycles(id_cycle);
+
 
 
 
