@@ -19,13 +19,13 @@ return function (App $app) {
     });
     $app->get('/login',LoginUserAction::class);
 
-    $app->group('/users', function (Group $group) use ($container) {
+    $app->group('/api/users', function (Group $group) use ($container) {
         $group->get('', ListUsersAction::class);
         $group->get('/{id}', ViewUserAction::class);
         $group->post('',CreateUserAction::class);
 
     });
-    $app->group('/containers',function(Group $group) use($container){
+    $app->group('/api/containers',function(Group $group) use($container){
        $group->get('',ListContainersAction::class);
     });
 };

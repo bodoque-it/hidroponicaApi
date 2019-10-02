@@ -10,11 +10,8 @@ use Tests\TestCase;
 
 class MySqlUserReposityTest extends  TestCase
 {
-    private $db;
-    public function setUp()
-    {
-    }
 
     public function testSelect(){
+        self::assertEquals(true,true);
     }
 }

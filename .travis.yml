@@ -21,3 +21,4 @@ script:
 
 after_success:
 - if [[ "$ANALYSIS" == 'true' ]]; then vendor/bin/php-coveralls --coverage_clover=clover.xml -v ; fi
+
