@@ -14,7 +14,7 @@ create table rails( id_rail int NOT NULL AUTO_INCREMENT,
 fk_user int, 
 name varchar(255),
 location varchar(255),
-PRIMARY KEY (id_riel),
+PRIMARY KEY (id_rail),
 FOREIGN KEY (fk_user) REFERENCES users(id_user) );
 
 create table containers( id_container int NOT NULL AUTO_INCREMENT,
@@ -53,8 +53,8 @@ add fk_user int,
 add fk_cycle int, 
 add name varchar(255), 
 add intensity int, 
-add type_of_light varchar(255), 
-add Ph_water float, 
+add type_of_light varchar(255),
+add ph_water float,
 add daily_hours float, 
 add light_start_time float, 
 add FOREIGN KEY (fk_user) REFERENCES users(id_user), 
@@ -67,6 +67,18 @@ add dampness float,
 add present_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
 add FOREIGN KEY (fk_cycle) REFERENCES cycles(id_cycle);
 
+INSERT INTO users (username,first_name,last_name,pass_word,email) VALUES ('heinzsiano','Alexander','Oses Runge','123','McFlaco@gmail.com');
+INSERT INTO rails(fk_user,name,location) VALUES (1,'chuchu','a');
+INSERT INTO rails(fk_user,name,location) VALUES (1,'MostFastWestOld','b');
+INSERT INTO containers(fk_user,fk_rail,volume,active,name) VALUES(1,1,300,0,'cont_izq');
+INSERT INTO containers(fk_user,fk_rail,volume,active,name) VALUES(1,2,250.8,0,'cont_der');
+INSERT INTO cycles(fk_user,fk_container,fk_microclimate,name,start_date,estimated_date,end_date) VALUES(1,1,default,'ciclito',default,default,default);
+INSERT INTO microclimates(fk_user,fk_cycle,name,intensity,type_of_light,Ph_water,daily_hours,light_start_time) VALUES(1,1,'Tropical',7,'solarium',17.3,4,6);
+INSERT INTO microclimates(fk_user,fk_cycle,name,intensity,type_of_light,Ph_water,daily_hours,light_start_time) VALUES(1,1,'lluvioso',9,'sendo sol',20.6,3,8);
+INSERT INTO cycles(fk_user,fk_container,fk_microclimate,name,start_date,estimated_date,end_date) VALUES(1,2,2,'ciclazo',default,default,default);
+UPDATE cycles SET fk_microclimate = 1 WHERE id_cycle = 1;
+INSERT INTO measurements(fk_cycle,temperature,dampness,present_date) VALUES(1,25.6,13.9,default);
+INSERT INTO measurements(fk_cycle,temperature,dampness,present_date) VALUES(2,10.3,25.7,default);
 
 
 

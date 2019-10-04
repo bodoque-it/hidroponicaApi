@@ -14,7 +14,7 @@ create table rails( id_rail int NOT NULL AUTO_INCREMENT,
 fk_user int, 
 name varchar(255),
 location varchar(255),
-PRIMARY KEY (id_riel),
+PRIMARY KEY (id_rail),
 FOREIGN KEY (fk_user) REFERENCES users(id_user) );
 
 create table containers( id_container int NOT NULL AUTO_INCREMENT,
