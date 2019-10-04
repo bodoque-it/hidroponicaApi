@@ -20,7 +20,7 @@ class MySqlContainerRepository implements ContainerRepository
     public function findAll(int $user_id): array
     {
         try{
-            $sql = "SELECT * FROM Contenedores";
+            $sql = "SELECT * FROM containers";
             $stmt = $this->db->query($sql);
             return $stmt->fetchAll();
         }catch (\PDOException $e){

@@ -29,4 +29,8 @@ interface UserRepository
     public function existUserByUsername(string $username):bool;
 
     public function findUserOfUsername(string $username):int;
+
+    public function getUserParams():array;
+
+    public function updateUser(string $id,array $params):bool;
 }
