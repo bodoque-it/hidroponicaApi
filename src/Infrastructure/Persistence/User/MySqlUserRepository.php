@@ -156,4 +156,13 @@ class MySqlUserRepository implements UserRepository
         return true;
 
     }
+
+    public function deleteUser($id_user): bool
+    {
+        $sql = "DELETE FROM users WHERE id_user=:id_user";
+        $result = $this->db->prepare($sql);
+        $result->bindParam(":id_user",$id_user);
+        $result->execute();
+        return true;
+    }
 }

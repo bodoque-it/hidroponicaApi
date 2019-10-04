@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use App\Application\Actions\User\CreateUserAction;
+use App\Application\Actions\User\DeleteUserAction;
 use App\Application\Actions\User\EditUserAction;
 use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\LoginUserAction;
@@ -30,6 +31,7 @@ return function (App $app) {
         $group->post('', CreateUserAction::class);
         $group->get('/{id}/edit',EditUserAction::class);
         $group->put('/{id}',UpdateUserAction::class);
+        $group->delete('/{id}',DeleteUserAction::class);
 
     });
     $app->group('/api/containers', function (Group $group) use ($container) {

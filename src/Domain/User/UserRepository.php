@@ -33,4 +33,6 @@ interface UserRepository
     public function getUserParams():array;
 
     public function updateUser(string $id,array $params):bool;
+
+    public function deleteUser($id_user):bool;
 }
