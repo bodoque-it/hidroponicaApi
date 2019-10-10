@@ -1,6 +1,7 @@
 <?php
 declare(strict_types=1);
 
+use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\User\CreateUserAction;
 use App\Application\Actions\User\DeleteUserAction;
 use App\Application\Actions\User\EditUserAction;
@@ -36,5 +37,9 @@ return function (App $app) {
     });
     $app->group('/api/containers', function (Group $group) use ($container) {
         $group->get('', ListContainersAction::class);
+    });
+
+    $app->group('/api/rails',function (Group $group) use($container){
+       $group->get('',ListRailAction::class);
     });
 };
