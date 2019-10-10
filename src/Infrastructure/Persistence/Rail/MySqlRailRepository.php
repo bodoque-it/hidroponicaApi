@@ -17,16 +17,35 @@ class MySqlRailRepository implements RailRepository
 
     public function getAllContainer($id): array
     {
-
+        $sql = "SELECT * from containers WHERE fk_rail=:id";
+        $dht = $this->db->prepare($sql);
+        $dht->bindParam(':id',$id);
+        $dht->execute();
+        $res = $dht->fetchAll();
+        return $res;
     }
     public function getAllRails($id): array{
         $sql = "select * FROM rails WHERE fk_user=:id";
         $dhp = $this->db->prepare($sql);
         $dhp->bindParam(':id',$id);
         $dhp->execute();
-        $res = $dhp->fetchAll();
+        $out = $dhp->fetchAll();
+        $res = array();
+        foreach ($out as $rail){
+            array_push($res,$rail["id_rail"]);
+        }
+        return $res;
 
-        return $res["id_rail"];
+    }
 
+    public function getColumns(): array
+    {
+        $sql = "SHOW columns FROM rails";
+        $res = array();
+        foreach ($this->db->query($sql) as $row) {
+            array_push($res, $row["Field"]);
+        }
+        unset($res[0]);
+        return $res;
     }
 }

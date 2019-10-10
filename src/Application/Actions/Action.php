@@ -10,6 +10,7 @@ use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Log\LoggerInterface;
 use Slim\Exception\HttpBadRequestException;
 use Slim\Exception\HttpNotFoundException;
+use Slim\Routing\RouteContext;
 
 abstract class Action
 {
@@ -61,7 +62,11 @@ abstract class Action
             throw new HttpNotFoundException($this->request, $e->getMessage());
         }
     }
-
+    public function getUrlParam(string $param){
+        $routeContext = RouteContext::fromRequest($this->request);
+        $route = $routeContext->getRoute();
+        return $route->getArgument($param);
+    }
     /**
      * @return Response
      * @throws DomainRecordNotFoundException
