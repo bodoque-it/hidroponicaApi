@@ -7,6 +7,18 @@ use JsonSerializable;
 class Rail implements JsonSerializable
 {
     private $id;
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     */
     private $fk_user;
     private $name;
     private $location;

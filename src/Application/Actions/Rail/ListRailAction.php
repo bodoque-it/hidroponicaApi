@@ -25,7 +25,7 @@ class ListRailAction extends RailAction
         }
         $res = array();
         foreach ($allIdRail as $rail){
-            $containers = $this->railRepository->getAllContainer($rail);
+            $containers = $this->railRepository->getAllContainer($rail->getId());
             array_push($res,$containers);
         }
         return $this->respondWithData($res);
