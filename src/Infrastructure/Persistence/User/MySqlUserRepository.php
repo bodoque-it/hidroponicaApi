@@ -57,7 +57,7 @@ class MySqlUserRepository implements UserRepository
         $sth->bindParam(1,$id);
         $sth->execute();
         $row = $sth->fetch();
-        return $row["Contraseña"];
+        return $row["pass_word"];
     }
     public function createUser(string $username, string $first_name, string $last_name, string $password, string $email): int
     {

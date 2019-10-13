@@ -20,12 +20,12 @@ class LoginUserAction extends UserAction
     protected function action(): Response
     {
         $contents = $this->getFormData();
-        $id_user = $contents["id_user"];
-        $user = $this->userRepository->findUserOfId($id_user);
-        if(isset($user) && $this->password_verify($contents["password"],$contents["id_user"])){
+        $username = $contents["username"];
+        $id_user = $this->userRepository->findUserOfUsername($username);
+        if(isset($id_user) && $this->password_verify($contents["password"],$id_user)){
             $issuedat_claim = time(); // issued at
             $notbefore_claim = $issuedat_claim + 10; //not before in seconds
-            $expire_claim = $issuedat_claim + (60*2); // expire time in seconds
+            $expire_claim = $issuedat_claim + (60*15); // expire time in seconds
             $token = array(
                 "iss" => "THE_ISSUER",
                 "aud" => "THE_AUDIENCE",
