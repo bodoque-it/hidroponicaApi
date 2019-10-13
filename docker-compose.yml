@@ -1,22 +1,22 @@
 version: '3'
 
 services:
-    hidroponica:
+    db:
+        image: mysql:8.0
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: "${MYSQL_PASSWORD}"
+        volumes:
+            - ./init_db/:/docker-entrypoint-initdb.d/
+    app:
         build: .
-        container_name: hidroponica
         environment:
             docker: "true"
         ports:
             - 8080:80
         depends_on:
-        - mysql
-    mysql:
-        image: mariadb:10.4
-        container_name: mysql
-        ports:
-            - 3301:3306
-        environment:
-            MYSQL_DATABASE: hidroponica
-            MYSQL_ROOT_PASSWORD: DaVS7a18*
-        
+        - db
+volumes:
+    init_db:
            
