@@ -34,7 +34,6 @@ return function (App $app) {
         $group->get('/{id}/edit',EditUserAction::class);
         $group->put('/{id}',UpdateUserAction::class);
         $group->delete('/{id}',DeleteUserAction::class);
-
     });
     $app->group('/api/containers', function (Group $group) use ($container) {
         $group->get('', ListContainersAction::class);

@@ -5,7 +5,7 @@ namespace App\Infrastructure\Persistence\Rail;
 use App\Domain\Container\ContainerRepository;
 use \App\Domain\Rail\RailRepository;
 use Psr\Container\ContainerInterface;
-
+use \App\Domain\Rail\Rail;
 class MySqlRailRepository implements RailRepository
 {
 
@@ -32,7 +32,8 @@ class MySqlRailRepository implements RailRepository
         $out = $dhp->fetchAll();
         $res = array();
         foreach ($out as $rail){
-            array_push($res,$rail["id_rail"]);
+            $r = new Rail($rail["id_rail"],$id,$rail["name"],$rail["location"]);
+            array_push($res,$r);
         }
         return $res;
 

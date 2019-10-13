@@ -1,18 +1,22 @@
-version: '3.7'
-
-volumes:
-    logs:
-        driver: local
+version: '3'
 
 services:
-    slim:
-        image: php:7-alpine
-        working_dir: /var/www
-        command: php -S 0.0.0.0:8080 -t public
+    db:
+        image: mysql:8.0
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: "${MYSQL_PASSWORD}"
+        volumes:
+            - ./init_db/:/docker-entrypoint-initdb.d/
+    app:
+        build: .
         environment:
             docker: "true"
         ports:
-            - 8080:8080
-        volumes:
-            - .:/var/www
-            - logs:/var/www/logs
+            - 8080:80
+        depends_on:
+        - db
+volumes:
+    init_db:
+           
