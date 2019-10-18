@@ -49,4 +49,14 @@ class MySqlRailRepository implements RailRepository
         unset($res[0]);
         return $res;
     }
+
+    public function createRail(?string $id, array $params)
+    {
+        $sql = "INSERT INTO rails VALUES(0,:fk_user,:name,:location)";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(':fk_user',$id);
+        $stm->bindParam(':name',$params["name"]);
+        $stm->bindParam(':location',$params["location"]);
+        $stm->execute();
+    }
 }
