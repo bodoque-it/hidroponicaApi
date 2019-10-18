@@ -17,4 +17,6 @@ interface RailRepository
 
     public function getRailById(?string $id_user, ?string $id_rail):Rail;
 
+    public function updateRail(?string $id_user, ?string $id_rail, array $params);
+
 }

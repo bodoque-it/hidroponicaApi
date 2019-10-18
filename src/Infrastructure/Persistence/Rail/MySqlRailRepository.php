@@ -70,4 +70,11 @@ class MySqlRailRepository implements RailRepository
         $rail = $stm->fetch();
         return new Rail($rail["id_rail"],$rail["fk_user"],$rail["name"],$rail["location"]);
     }
+
+    public function updateRail(?string $id_user, ?string $id_rail, array $params)
+    {
+        $sql = "UPDATE rails SET name=?,location=? WHERE fk_user=? and  id_rail=?";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$params["name"],$params["location"],$id_user,$id_rail]);
+    }
 }
