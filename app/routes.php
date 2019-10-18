@@ -16,6 +16,7 @@ use App\Application\Actions\User\LoginUserAction;
 use App\Application\Actions\User\LogoutUserAction;
 use App\Application\Actions\User\UpdateUserAction;
 use App\Application\Actions\User\ViewUserAction;
+use App\Application\Actions\Container\CreateContainerAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
@@ -41,7 +42,8 @@ return function (App $app) {
         $group->delete('/{id}',DeleteUserAction::class);
     });
     $app->group('/api/containers', function (Group $group) use ($container) {
-        $group->get('', ListContainersAction::class);
+        $group->get('/{id}', ListContainersAction::class);
+        $group->post('/{id}',CreateContainerAction::class);
     });
 
     $app->group('/api/rails',function (Group $group) use($container){

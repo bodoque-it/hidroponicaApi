@@ -18,6 +18,7 @@ class ListContainersAction extends ContainerAction
      */
     protected function action(): Response
     {
+        $id = $this->getUrlParam("id");
 /*
         $jwt = $this->auth();
 
@@ -28,7 +29,7 @@ class ListContainersAction extends ContainerAction
                 "container"=>$result
             );
             return $this->respondWithData($res);*/
-        $result = $this->containerRepository->findAll(1);
+        $result = $this->containerRepository->findAll($id);
         return $this->respondWithData($result);
         /*}else{
             return $this->respondWithError(401,"Access Denied");

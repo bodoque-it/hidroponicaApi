@@ -20,8 +20,9 @@ class MySqlContainerRepository implements ContainerRepository
     public function findAll(int $user_id): array
     {
         try{
-            $sql = "SELECT * FROM containers";
-            $stmt = $this->db->query($sql);
+            $sql = "SELECT * FROM containers WHERE fk_user=?";
+            $stmt = $this->db->prepare($sql);
+            $stmt->execute([$user_id]);
             return $stmt->fetchAll();
         }catch (\PDOException $e){
             return array();
@@ -33,9 +34,13 @@ class MySqlContainerRepository implements ContainerRepository
         // TODO: Implement findById() method.
     }
 
-    public function createContainer(float $volumen, bool $isActive, string $name): Container
+    public function createContainer(int $id,array $params)
     {
-        // TODO: Implement createContainer() method.
+        $sql = "INSERT INTO containers VALUES(0,?,?,?,?,?)";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$id,$params["id_rail"],$params["volume"],$params["active"],$params["name"]]);
+        //$stm->rowCount();
+
     }
 
     public function deleteContainer(int $id): bool
