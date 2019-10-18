@@ -49,4 +49,53 @@ class MySqlRailRepository implements RailRepository
         unset($res[0]);
         return $res;
     }
+
+    public function createRail(?string $id, array $params)
+    {
+        $sql = "INSERT INTO rails VALUES(0,:fk_user,:name,:location)";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(':fk_user',$id);
+        $stm->bindParam(':name',$params["name"]);
+        $stm->bindParam(':location',$params["location"]);
+        $stm->execute();
+    }
+
+    public function getRailById(?string $id_user, ?string $id_rail): Rail
+    {
+        $sql = "SELECT * FROM rails WHERE fk_user=:id_user AND id_rail=:id_rail";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(':id_user',$id_user);
+        $stm->bindParam('id_rail',$id_rail);
+        $stm->execute();
+        $rail = $stm->fetch();
+        return new Rail($rail["id_rail"],$rail["fk_user"],$rail["name"],$rail["location"]);
+    }
+
+    public function updateRail(?string $id_user, ?string $id_rail, array $params)
+    {
+        $sql = "UPDATE rails SET name=?,location=? WHERE fk_user=? and  id_rail=?";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$params["name"],$params["location"],$id_user,$id_rail]);
+    }
+
+    public function deleteRail(?string $id_user, ?string $id_rail)
+    {
+        $sql = "DELETE FROM rails WHERE fk_user=? AND id_rail=?";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$id_user,$id_rail]);
+        return $stm->rowCount();
+    }
+
+    public function getRailParams()
+    {
+        $sql = "SHOW columns FROM rails";
+        $res = array();
+        foreach ($this->db->query($sql) as $row) {
+            array_push($res, $row["Field"]);
+        }
+        unset($res[0]);
+        unset($res[1]);
+        error_log(print_r($res, true));
+        return $res;
+    }
 }

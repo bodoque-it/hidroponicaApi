@@ -25,7 +25,7 @@ class CreateUserAction extends  UserAction
             $this->logger->info("User Created with id_user : ".$id_user);
             return $this->respondWithData($id_user);
         }else{
-            return $this->respondWithError(403,"El usuario no ha podido ser creado");
+            return $this->respondWithError(400,"El usuario no ha podido ser creado");
         }
     }
 }

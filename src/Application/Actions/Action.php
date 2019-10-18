@@ -123,7 +123,7 @@ abstract class Action
         $this->response->getBody()->write($json);
         return $this->response->withHeader('Content-Type', 'application/json');
     }
-    protected function respondWithError($status,$data):Response
+    protected function respondWithError(int $status,string $data):Response
     {
         $payload = new ActionPayload($status, $data);
         return $this->respond($payload);

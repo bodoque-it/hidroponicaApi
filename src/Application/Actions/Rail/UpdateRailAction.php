@@ -8,18 +8,20 @@ use App\Domain\DomainException\DomainRecordNotFoundException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Exception\HttpBadRequestException;
 
-class CreateRailAction extends RailAction
+class UpdateRailAction extends RailAction
 {
 
+    /**
+     * @return Response
+     * @throws DomainRecordNotFoundException
+     * @throws HttpBadRequestException
+     */
     protected function action(): Response
     {
-        $id = $this->getUrlParam('id');
+        $id_user = $this->getUrlParam("id");
+        $id_rail = $this->getUrlParam("id_rail");
         $params = $this->getFormData();
-        try {
-            $this->railRepository->createRail($id, $params);
-        }catch (\PDOException $e){
-            return $this->respondWithError(401,"Error at insert rails");
-        }
+        $this->railRepository->updateRail($id_user,$id_rail,$params);
         return $this->respondWithData();
     }
 }
