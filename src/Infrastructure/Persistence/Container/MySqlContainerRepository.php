@@ -29,9 +29,13 @@ class MySqlContainerRepository implements ContainerRepository
         }
     }
 
-    public function findById(int $id): Container
+    public function findById(int $id_user,int $id)
     {
-        // TODO: Implement findById() method.
+        $sql = "SELECT * FROM containers WHERE fk_user=? AND id_container=?";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$id_user,$id]);
+        $cont = $stm->fetch();
+        return $cont;
     }
 
     public function createContainer(int $id,array $params)

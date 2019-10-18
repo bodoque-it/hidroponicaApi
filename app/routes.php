@@ -19,6 +19,7 @@ use App\Application\Actions\User\ViewUserAction;
 use App\Application\Actions\Container\ListContainersAction;
 use App\Application\Actions\Container\CreateContainerAction;
 use App\Application\Actions\Container\MakeContainerAction;
+use App\Application\Actions\Container\ViewContainerAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
@@ -47,6 +48,7 @@ return function (App $app) {
         $group->get('/new',MakeContainerAction::class);
         $group->get('/{id}', ListContainersAction::class);
         $group->post('/{id}',CreateContainerAction::class);
+        $group->get('/{id}/{id_cont}',ViewContainerAction::class);
     });
 
     $app->group('/api/rails',function (Group $group) use($container){
