@@ -47,9 +47,12 @@ class MySqlContainerRepository implements ContainerRepository
 
     }
 
-    public function deleteContainer(int $id): bool
+    public function deleteContainer(int $id)
     {
-        // TODO: Implement deleteContainer() method.
+        $sql = "DELETE FROM containers WHERE id_container=?";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$id]);
+        //return $stm->rowCount();
     }
 
     public function updateContainer(int $id, array $params)
