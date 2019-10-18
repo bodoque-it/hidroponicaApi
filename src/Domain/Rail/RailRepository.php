@@ -15,4 +15,6 @@ interface RailRepository
 
     public function createRail(?string $id, array $params);
 
+    public function getRailById(?string $id_user, ?string $id_rail):Rail;
+
 }

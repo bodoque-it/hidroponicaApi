@@ -59,4 +59,15 @@ class MySqlRailRepository implements RailRepository
         $stm->bindParam(':location',$params["location"]);
         $stm->execute();
     }
+
+    public function getRailById(?string $id_user, ?string $id_rail): Rail
+    {
+        $sql = "SELECT * FROM rails WHERE fk_user=:id_user AND id_rail=:id_rail";
+        $stm = $this->db->prepare($sql);
+        $stm->bindParam(':id_user',$id_user);
+        $stm->bindParam('id_rail',$id_rail);
+        $stm->execute();
+        $rail = $stm->fetch();
+        return new Rail($rail["id_rail"],$rail["fk_user"],$rail["name"],$rail["location"]);
+    }
 }
