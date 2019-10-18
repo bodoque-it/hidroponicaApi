@@ -77,4 +77,12 @@ class MySqlRailRepository implements RailRepository
         $stm = $this->db->prepare($sql);
         $stm->execute([$params["name"],$params["location"],$id_user,$id_rail]);
     }
+
+    public function deleteRail(?string $id_user, ?string $id_rail)
+    {
+        $sql = "DELETE FROM rails WHERE fk_user=? AND id_rail=?";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$id_user,$id_rail]);
+        return $stm->rowCount();
+    }
 }

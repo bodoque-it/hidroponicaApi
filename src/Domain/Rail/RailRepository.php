@@ -19,4 +19,6 @@ interface RailRepository
 
     public function updateRail(?string $id_user, ?string $id_rail, array $params);
 
+    public function deleteRail(?string $id_user, ?string $id_rail);
+
 }

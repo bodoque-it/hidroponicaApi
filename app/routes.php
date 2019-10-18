@@ -4,6 +4,7 @@ declare(strict_types=1);
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
 use App\Application\Actions\Rail\ViewRailAction;
+use App\Application\Actions\Rail\DeleteRailAction;
 use App\Application\Actions\Rail\UpdateRailAction;
 use App\Application\Actions\Rail\CreateRailAction;
 use App\Application\Actions\User\CreateUserAction;
@@ -48,5 +49,6 @@ return function (App $app) {
         $group->post('/{id}',CreateRailAction::class);
         $group->get('/{id}/{id_rail}',ViewRailAction::class);
         $group->put('/{id}/{id_rail}',UpdateRailAction::class);
+        $group->delete('/{id}/{id_rail}',DeleteRailAction::class);
     });
 };
