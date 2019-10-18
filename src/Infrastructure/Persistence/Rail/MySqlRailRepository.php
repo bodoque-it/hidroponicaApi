@@ -85,4 +85,17 @@ class MySqlRailRepository implements RailRepository
         $stm->execute([$id_user,$id_rail]);
         return $stm->rowCount();
     }
+
+    public function getRailParams()
+    {
+        $sql = "SHOW columns FROM rails";
+        $res = array();
+        foreach ($this->db->query($sql) as $row) {
+            array_push($res, $row["Field"]);
+        }
+        unset($res[0]);
+        unset($res[1]);
+        error_log(print_r($res, true));
+        return $res;
+    }
 }

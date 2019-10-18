@@ -21,4 +21,6 @@ interface RailRepository
 
     public function deleteRail(?string $id_user, ?string $id_rail);
 
+    public function getRailParams();
+
 }

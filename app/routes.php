@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
+use App\Application\Actions\Rail\EditRailAction;
 use App\Application\Actions\Rail\ViewRailAction;
 use App\Application\Actions\Rail\DeleteRailAction;
 use App\Application\Actions\Rail\UpdateRailAction;
@@ -44,6 +45,7 @@ return function (App $app) {
     });
 
     $app->group('/api/rails',function (Group $group) use($container){
+        $group->get('/edit',EditRailAction::class);
         $group->get('/new',MakeRailAction::class);
         $group->get('/{id}',ListRailAction::class);
         $group->post('/{id}',CreateRailAction::class);
