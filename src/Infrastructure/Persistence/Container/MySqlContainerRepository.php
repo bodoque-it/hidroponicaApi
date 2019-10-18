@@ -52,9 +52,12 @@ class MySqlContainerRepository implements ContainerRepository
         // TODO: Implement deleteContainer() method.
     }
 
-    public function updateContainer(int $id, array $params): Container
+    public function updateContainer(int $id, array $params)
     {
-        // TODO: Implement updateContainer() method.
+        $sql = "UPDATE containers SET volume=? ,active=?,name=? WHERE id_container=?";
+        $stm = $this->db->prepare($sql);
+        $stm->execute([$params["volume"],$params["active"],$params["name"],$id]);
+        //return $stm->rowCount();
     }
 
     public function getParams()
