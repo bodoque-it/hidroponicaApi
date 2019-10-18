@@ -13,4 +13,6 @@ interface ContainerRepository{
     public function createContainer(int $id,array $params);
     public function deleteContainer(int $id);
     public function updateContainer(int $id,array $params);
+    public function getParams();
+    public function getUpdateParams();
 }

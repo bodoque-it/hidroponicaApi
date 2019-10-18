@@ -16,12 +16,14 @@ use App\Application\Actions\User\LoginUserAction;
 use App\Application\Actions\User\LogoutUserAction;
 use App\Application\Actions\User\UpdateUserAction;
 use App\Application\Actions\User\ViewUserAction;
+use App\Application\Actions\Container\ListContainersAction;
 use App\Application\Actions\Container\CreateContainerAction;
+use App\Application\Actions\Container\MakeContainerAction;
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\App;
 use Slim\Interfaces\RouteCollectorProxyInterface as Group;
-use App\Application\Actions\Container\ListContainersAction;
+
 
 return function (App $app) {
     $container = $app->getContainer();
@@ -42,6 +44,7 @@ return function (App $app) {
         $group->delete('/{id}',DeleteUserAction::class);
     });
     $app->group('/api/containers', function (Group $group) use ($container) {
+        $group->get('/new',MakeContainerAction::class);
         $group->get('/{id}', ListContainersAction::class);
         $group->post('/{id}',CreateContainerAction::class);
     });

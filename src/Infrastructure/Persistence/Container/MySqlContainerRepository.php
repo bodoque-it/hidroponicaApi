@@ -52,4 +52,20 @@ class MySqlContainerRepository implements ContainerRepository
     {
         // TODO: Implement updateContainer() method.
     }
+
+    public function getParams()
+    {
+        $sql = "SHOW columns FROM containers";
+        $res = array();
+        foreach ($this->db->query($sql) as $row) {
+            array_push($res, $row["Field"]);
+        }
+        unset($res[0]);
+        return $res;
+    }
+
+    public function getUpdateParams()
+    {
+        // TODO: Implement getUpdateParams() method.
+    }
 }
