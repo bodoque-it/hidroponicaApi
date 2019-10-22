@@ -22,6 +22,7 @@ class Rail implements JsonSerializable
     private $fk_user;
     private $name;
     private $location;
+    private $containers;
 
     public function __construct(int $id,int $fk_user,string $name,string $location)
     {
@@ -37,7 +38,11 @@ class Rail implements JsonSerializable
             "id"=>$this->id,
             "fk_user" =>$this->fk_user,
             "location" =>$this->location,
-            "name" => $this->name
+            "name" => $this->name,
+            "containers" => $this->containers,
         ];
+    }
+    public function setContainers(array $containers){
+        $this->containers = $containers;
     }
 }
