@@ -4,6 +4,7 @@
   RewriteCond %{REQUEST_FILENAME} !-d
   RewriteRule ^(.*)/$ /$1 [L,R=301]
   # Authorization Headers
+  Header add Access-Control-Allow-Origin "*"
   RewriteCond %{HTTP:Authorization} .
   RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
   # Handle Front Controller...

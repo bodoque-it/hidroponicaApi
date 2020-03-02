@@ -29,7 +29,6 @@ use Slim\Interfaces\RouteCollectorProxyInterface as Group;
 
 
 return function (App $app) {
-    $container = $app->getContainer();
 
     $app->get('/', function (Request $request, Response $response) {
         $response->getBody()->write('Hello world!');
