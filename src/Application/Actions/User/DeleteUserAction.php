@@ -18,12 +18,8 @@ class DeleteUserAction extends UserAction
      */
     protected function action(): Response
     {
-        $params = $this->getFormData();
-        $res= array();
-        if(isset($params["id_user"])){
-            $res["status"] = $this->userRepository->deleteUser($params["id_user"]);
-
-        }
-        return $this->respondWithData($res);
+        $id_user = $this->getUrlParam("id");
+        $this->userRepository->deleteUser($id_user);
+        return $this->respondWithData(true);
     }
 }

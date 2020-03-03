@@ -17,6 +17,8 @@
 
         <field name="username" type="string"/>
 
+        <field name="hashPassword" type="string"/>
+
         <one-to-many target-entity="App\Domain\Container\Container" field="containers" mapped-by="owner" >
             <cascade>
                 <cascade-remove/>

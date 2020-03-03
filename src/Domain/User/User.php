@@ -43,6 +43,24 @@ class User implements JsonSerializable
 
     private $rails;
 
+    private $hashPassword;
+
+    /**
+     * @return mixed
+     */
+    public function getHashPassword()
+    {
+        return $this->hashPassword;
+    }
+
+    /**
+     * @param mixed $hashPassword
+     */
+    public function setHashPassword($hashPassword): void
+    {
+        $this->hashPassword = $hashPassword;
+    }
+
     public function getEmail(): string
     {
         return $this->email;
@@ -109,6 +127,13 @@ class User implements JsonSerializable
         return strtolower($this->username);
     }
 
+    public function setUsername($username){
+        $this->username = $username;
+    }
+
+    public function setFirstName($fistname){
+        $this->firstName = $fistname;
+    }
     /**
      * @return string
      */
@@ -125,6 +150,9 @@ class User implements JsonSerializable
         return ucfirst($this->lastName);
     }
 
+    public function setLastName($lastname){
+        $this->lastName = $lastname;
+    }
     /**
      * @return array
      */

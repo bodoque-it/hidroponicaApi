@@ -12,8 +12,8 @@ class ViewUserAction extends UserAction
      */
     protected function action(): Response
     {
-        $userId = (int) $this->resolveArg('id');
-        $user = $this->userRepository->findUserOfId($userId);
+        $userId = $this->getUrlParam('id');
+        $user = $this->userRepository->findUserOfId((int)$userId);
 
         $this->logger->info("User of id `${userId}` was viewed.");
 

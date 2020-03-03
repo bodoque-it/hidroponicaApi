@@ -19,20 +19,8 @@ class UpdateUserAction extends UserAction
     protected function action(): Response
     {
         $contents = $this->getFormData();
-        $passwordIsChange=false;
-        if(isset($contents["pass_word"])){
-            $passwordIsChange = true;
-            $password = hash('sha256',$contents["pass_word"]);
-            $contents["pass_word"] = $password;
-        }
-        $isSuccessfully = $this->userRepository->updateUser($contents["id_user"],$contents);
-        $res = array();
-        if($isSuccessfully && $passwordIsChange){
-            $res["password"] = true;
-        }else if($isSuccessfully){
-            $res["status"] = true;
-        }
-
-        return $this->respondWithData($res);
+        $id_user = $this->getUrlParam("id");
+        $newUser = $this->userRepository->updateUser($id_user,$contents);
+        return $this->respondWithData($newUser);
     }
 }
