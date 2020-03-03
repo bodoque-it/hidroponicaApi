@@ -1,32 +1,24 @@
-<!-- config/xml/User.dcm.xml -->
 <doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
                           https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
 
-    <entity name="App\Domain\User\User" table="users">
+    <entity name="App\Domain\Rail\Rail" table="rails">
         <id name="id" type="integer">
             <generator strategy="AUTO" />
         </id>
 
-        <field name="email" type="string"/>
+        <field name="name" type="string"/>
 
-        <field name="firstName" type="string"/>
+        <field name="location" type="string"/>
 
-        <field name="lastName" type="string"/>
+        <many-to-one target-entity="App\Domain\User\User" field="owner" inversed-by="rails" />
 
-        <field name="username" type="string"/>
-
-        <one-to-many target-entity="App\Domain\Container\Container" field="containers" mapped-by="owner" >
+        <one-to-many target-entity="App\Domain\Container\Container" field="containers" mapped-by="rail" >
             <cascade>
+                <cascade-persist/>
                 <cascade-remove/>
             </cascade>
         </one-to-many>
-        <one-to-many target-entity="App\Domain\Rail\Rail" field="rails" mapped-by="owner" >
-            <cascade>
-                <cascade-remove/>
-            </cascade>
-        </one-to-many>
-
     </entity>
 </doctrine-mapping>

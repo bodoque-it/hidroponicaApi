@@ -3,7 +3,10 @@ declare(strict_types=1);
 
 namespace App\Domain\User;
 
+use App\Domain\Container\Container;
+use App\Domain\Rail\Rail;
 use JsonSerializable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class User implements JsonSerializable
 {
@@ -35,6 +38,11 @@ class User implements JsonSerializable
     /**
      * @return string
      */
+
+    private $containers;
+
+    private $rails;
+
     public function getEmail(): string
     {
         return $this->email;
@@ -61,8 +69,30 @@ class User implements JsonSerializable
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
+        $this->containers = new ArrayCollection();
+        $this->rails = new ArrayCollection();
     }
 
+    public function getContainers()
+    {
+        return $this->containers;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getRails()
+    {
+        return $this->rails;
+    }
+
+    public function addContainer(Container $container){
+        $this->containers[] = $container;
+    }
+
+    public function addRail(Rail $rail){
+        $this->rails[] = $rail;
+    }
     /**
      * @return int|null
      */
