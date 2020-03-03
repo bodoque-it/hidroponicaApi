@@ -13,14 +13,14 @@ interface RailRepository
 
     public function getColumns():array ;
 
-    public function createRail(?string $id, array $params);
+    public function createRail(?string $id, array $params):Rail;
 
     public function getRailById(?string $id_user, ?string $id_rail):Rail;
 
-    public function updateRail(?string $id_user, ?string $id_rail, array $params);
+    public function updateRail(?string $id_user, ?string $id_rail, array $params):Rail;
 
-    public function deleteRail(?string $id_user, ?string $id_rail);
+    public function deleteRail(?string $id_user, ?string $id_rail):bool;
 
-    public function getRailParams();
+    public function getRailParams():array ;
 
 }
