@@ -5,8 +5,7 @@ use App\Domain\Container\ContainerRepository;
 use App\Domain\Rail\RailRepository;
 use App\Domain\User\UserRepository;
 use App\Infrastructure\Persistence\Container\MySqlContainerRepository;
-use App\Infrastructure\Persistence\User\MySqlUserRepository;
-use App\Infrastructure\Persistence\Rail\MySqlRailRepository;
+use App\Infrastructure\Persistence\Rail\DoctrineRailRepository;
 use DI\ContainerBuilder;
 use App\Infrastructure\Persistence\User\UserDoctrineRepository;
 return function (ContainerBuilder $containerBuilder) {
@@ -14,6 +13,6 @@ return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
         UserRepository::class => \DI\autowire(UserDoctrineRepository::class),
         ContainerRepository::class =>\DI\autowire(MySqlContainerRepository::class),
-        RailRepository::class =>\DI\autowire(MySqlRailRepository::class)
+        RailRepository::class =>\DI\autowire(DoctrineRailRepository::class)
     ]);
 };

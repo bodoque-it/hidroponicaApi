@@ -11,16 +11,14 @@ use App\Domain\User\User;
 class Rail implements JsonSerializable
 {
     private $id;
-    private $fk_user;
     private $name;
     private $location;
     private $containers;
     private $owner;
 
-    public function __construct(int $id,int $fk_user,string $name,string $location)
+    public function __construct(?int $id,string $name,string $location)
     {
         $this->id = $id;
-        $this->fk_user = $fk_user;
         $this->name = $name;
         $this->location = $location;
         $this->containers = new ArrayCollection();
@@ -87,7 +85,6 @@ class Rail implements JsonSerializable
     {
         return [
             "id"=>$this->id,
-            "fk_user" =>$this->fk_user,
             "location" =>$this->location,
             "name" => $this->name,
             "containers" => $this->containers,
