@@ -14,7 +14,7 @@ class Container implements \JsonSerializable
     private $owner;
     private $rail;
 
-    public function __construct(int $id,float $volume,string $name, bool $active=false)
+    public function __construct(?int $id,float $volume,string $name, bool $active=false)
     {
         $this->id = $id;
         $this->volume = $volume;
@@ -102,9 +102,9 @@ class Container implements \JsonSerializable
     {
         return [
             'id' => $this->id,
-            'username' => $this->name,
-            'firstName' => $this->active,
-            'lastName' => $this->volume
+            'name' => $this->name,
+            'active' => $this->active,
+            'volume' => $this->volume
         ];
     }
 }
