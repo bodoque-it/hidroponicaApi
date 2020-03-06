@@ -164,6 +164,7 @@ class User implements JsonSerializable
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
             'email' => $this->email,
+            'rails' => $this->getRails()->getValues()
         ];
     }
 }

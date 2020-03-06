@@ -53,10 +53,10 @@ return function (ContainerBuilder $containerBuilder) {
             );
             $config = Setup::createXMLMetadataConfiguration($path, $isDevMode);
             $conn = array(
-                'dbname' => 'doctrine_h',
-                'user' => 'antilef',
-                'password' => 'DaVS7a18*',
-                'host' => 'localhost',
+                'dbname' => getenv("MYSQL_DATABASE"),
+                'user' =>  getenv("MYSQL_USER"),
+                'password' => getenv("MYSQL_PASSWORD"),
+                'host' => getenv("MYSQL_HOST"),
                 'driver' => 'pdo_mysql',
             );
 

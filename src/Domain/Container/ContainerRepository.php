@@ -15,4 +15,5 @@ interface ContainerRepository{
     public function updateContainer(int $id,array $params):Container;
     public function getParams():array ;
     public function getUpdateParams():array ;
+    public function createContainerInRail(int $id_user,int $id_rail,array $params):Container;
 }

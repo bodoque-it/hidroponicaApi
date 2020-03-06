@@ -87,7 +87,7 @@ class Rail implements JsonSerializable
             "id"=>$this->id,
             "location" =>$this->location,
             "name" => $this->name,
-            "containers" => $this->containers,
+            "containers" => $this->getContainers()->getValues(),
         ];
     }
 

@@ -7,6 +7,8 @@ COPY --from=composer /usr/bin/composer /usr/bin/composer
 COPY public/ /var/www/html/public/
 COPY src/ /var/www/html/src/
 COPY app/ /var/www/html/app/
+COPY config /var/www/html/config
+COPY cli-config.php /var/www/html
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 # Including apache expires module
 RUN ln -s /etc/apache2/mods-available/expires.load /etc/apache2/mods-enabled/
@@ -30,4 +32,5 @@ RUN composer install
 # Enabling module rewrite
 RUN a2enmod rewrite
 RUN service apache2 restart
+RUN vendor/bin/doctrine orm:schema-tool:create
 EXPOSE 80

@@ -85,4 +85,16 @@ class DoctrineContainerRepository implements ContainerRepository
             "active"
         ];
     }
+
+    public function createContainerInRail(int $id_user, int $id_rail, array $params):Container
+    {
+        $user = $this->entityManager->find("App\Domain\User\User",$id_user);
+        $rail = $this->entityManager->find("App\Domain\Rail\Rail",$id_rail);
+        $container = new Container(null,$params["volume"],$params["name"]);
+        $container->setOwner($user);
+        $container->setRail($rail);
+        $this->entityManager->persist($container);
+        $this->entityManager->flush();
+        return $container;
+    }
 }
