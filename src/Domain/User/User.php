@@ -45,6 +45,7 @@ class User implements JsonSerializable
 
     private $hashPassword;
 
+    private $cycles;
     /**
      * @return mixed
      */
@@ -89,6 +90,7 @@ class User implements JsonSerializable
         $this->email = $email;
         $this->containers = new ArrayCollection();
         $this->rails = new ArrayCollection();
+        $this->cycles = new ArrayCollection();
     }
 
     public function getContainers()
@@ -110,6 +112,14 @@ class User implements JsonSerializable
 
     public function addRail(Rail $rail){
         $this->rails[] = $rail;
+    }
+
+    public function addCycle(Cycle $cycle){
+        $this->cycles[] = $cycle;
+    }
+
+    public function getCycles(){
+        return $this->cycles;
     }
     /**
      * @return int|null

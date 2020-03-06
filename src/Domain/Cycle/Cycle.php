@@ -4,7 +4,7 @@ class Cycle implements JsonSerializable {
     private $startDate;
     private $estimatedDate;
     private $finishDate;
-    private $user;
+    private $owner;
     private $container;
     private $microclimate;
     /**
@@ -74,17 +74,18 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getUser()
+    public function getOwner()
     {
-        return $this->user;
+        return $this->owner;
     }
 
     /**
-     * @param mixed $user
+     * @param mixed $owner
      */
-    public function setUser($user): void
+    public function setOwner(User $owner): void
     {
-        $this->user = $user;
+        $owner->addCycle($this);
+        $this->owner = $owner;
     }
 
     /**

@@ -30,5 +30,7 @@
             </cascade>
         </one-to-many>
 
+        <one-to-many target-entity="App\Domain\Cycle\Cycle" field="cycles" mapped-by="owner" />
+
     </entity>
 </doctrine-mapping>
