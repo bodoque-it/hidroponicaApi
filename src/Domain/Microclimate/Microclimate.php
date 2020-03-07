@@ -2,7 +2,9 @@
 
 namespace App\Domain\Microclimate;
 
+use App\Domain\Cycle\Cycle;
 use App\Domain\User\User;
+use Doctrine\Common\Collections\ArrayCollection;
 use JsonSerializable;
 use DateTime;
 
@@ -16,6 +18,7 @@ class Microclimate implements JsonSerializable{
     private $waterPH;
     private $dailyHours;
     private $lightStartTime;
+    private $cycles;
 
     /**
      * Microclimate constructor.
@@ -37,6 +40,7 @@ class Microclimate implements JsonSerializable{
         $this->waterPH = $waterPH;
         $this->dailyHours = $dailyHours;
         $this->lightStartTime = $lightStartTime;
+        $this->cycles = new ArrayCollection();
     }
 
 
@@ -169,6 +173,23 @@ class Microclimate implements JsonSerializable{
     {
         $this->lightStartTime = $lightStartTime;
     }
+
+    /**
+     * @return array
+     */
+    public function getCycles(): array
+    {
+        return $this->cycles;
+    }
+
+    /**
+     * @param Cycle $cycle
+     */
+    public function addCycles(Cycle $cycle): void
+    {
+        $this->cycles[] = $cycle;
+    }
+
 
 
     /**

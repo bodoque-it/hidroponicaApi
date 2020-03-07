@@ -20,5 +20,6 @@
         </many-to-one>
         <one-to-many field="measurements" target-entity="App\Domain\Measurement\Measurement" mapped-by="cycle"/>
         <many-to-one target-entity="App\Domain\Container\Container" field="container" inversed-by="cycles" />
+        <many-to-one field="microclimate" target-entity="App\Domain\Microclimate\Microclimate" inversed-by="cycles"/>
     </entity>
 </doctrine-mapping>

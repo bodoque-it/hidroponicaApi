@@ -149,6 +149,7 @@ class Cycle implements JsonSerializable {
      */
     public function setMicroclimate(Microclimate $microclimate): void
     {
+        $microclimate->addCycles($this);
         $this->microclimate = $microclimate;
     }
 

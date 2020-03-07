@@ -20,6 +20,6 @@
         <field name="lightStartTime" type="datetime" />
 
         <many-to-one field="owner" target-entity="App\Domain\User\User" inversed-by="microclimates"/>
-
+        <one-to-many field="cycles" target-entity="App\Domain\Cycle\Cycle" mapped-by="microclimate"/>
     </entity>
 </doctrine-mapping>
