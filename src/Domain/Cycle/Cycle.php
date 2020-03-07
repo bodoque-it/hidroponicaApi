@@ -5,6 +5,7 @@ namespace App\Domain\Cycle;
 use App\Domain\Container\Container;
 use App\Domain\Measurement\Measurement;
 use App\Domain\Microclimate\Microclimate;
+use App\Domain\User\User;
 use JsonSerializable;
 use DateTime;
 

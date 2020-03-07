@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Domain\User;
 
 use App\Domain\Container\Container;
+use App\Domain\Cycle\Cycle;
 use App\Domain\Rail\Rail;
 use JsonSerializable;
 use Doctrine\Common\Collections\ArrayCollection;
