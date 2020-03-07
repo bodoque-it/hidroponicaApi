@@ -18,5 +18,6 @@
                 <cascade-remove/>
             </cascade>
         </many-to-one>
+        <one-to-many field="measurements" target-entity="App\Domain\Measurement\Measurement" mapped-by="cycle"/>
     </entity>
 </doctrine-mapping>

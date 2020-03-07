@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Domain\Measurement;
+
+use App\Domain\Cycle\Cycle;
+use JsonSerializable;
+use DateTime;
+
 class Measurement implements JsonSerializable{
 
     private $id;
@@ -16,7 +22,7 @@ class Measurement implements JsonSerializable{
      * @param $humidity
      * @param $date
      */
-    public function __construct($id, $temperature, $humidity, $date)
+    public function __construct(?int $id,float $temperature,float $humidity,DateTime $date)
     {
         $this->id = $id;
         $this->temperature = $temperature;
@@ -44,7 +50,7 @@ class Measurement implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getCycle()
+    public function getCycle(): Cycle
     {
         return $this->cycle;
     }
@@ -52,15 +58,16 @@ class Measurement implements JsonSerializable{
     /**
      * @param mixed $cycle
      */
-    public function setCycle($cycle): void
+    public function setCycle(Cycle $cycle): void
     {
+        $cycle->addMeasurement($this);
         $this->cycle = $cycle;
     }
 
     /**
      * @return mixed
      */
-    public function getTemperature()
+    public function getTemperature():float
     {
         return $this->temperature;
     }
@@ -68,7 +75,7 @@ class Measurement implements JsonSerializable{
     /**
      * @param mixed $temperature
      */
-    public function setTemperature($temperature): void
+    public function setTemperature(float $temperature): void
     {
         $this->temperature = $temperature;
     }
@@ -76,7 +83,7 @@ class Measurement implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getHumidity()
+    public function getHumidity():float
     {
         return $this->humidity;
     }
@@ -84,7 +91,7 @@ class Measurement implements JsonSerializable{
     /**
      * @param mixed $humidity
      */
-    public function setHumidity($humidity): void
+    public function setHumidity(float $humidity): void
     {
         $this->humidity = $humidity;
     }
@@ -92,7 +99,7 @@ class Measurement implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getDate()
+    public function getDate():DateTime
     {
         return $this->date;
     }
@@ -100,7 +107,7 @@ class Measurement implements JsonSerializable{
     /**
      * @param mixed $date
      */
-    public function setDate($date): void
+    public function setDate(DateTime $date): void
     {
         $this->date = $date;
     }

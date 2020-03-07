@@ -1,32 +1,60 @@
 <?php
 
+namespace App\Domain\Cycle;
+
+use App\Domain\Container\Container;
+use App\Domain\Measurement\Measurement;
+use App\Domain\Microclimate\Microclimate;
+use JsonSerializable;
+use DateTime;
+
 class Cycle implements JsonSerializable {
+
+    private $id;
     private $startDate;
     private $estimatedDate;
     private $finishDate;
     private $owner;
     private $container;
     private $microclimate;
+    private $measurements;
+
     /**
      * Cycle constructor.
+     * @param int|null $id
      * @param $start_date
      * @param $estimated_date
      * @param $finish_date
-     * @param $user
-     * @param $container
-     * @param $microclimate
      */
-    public function __construct($start_date, $estimated_date, $finish_date)
+    public function __construct(?int $id,DateTime $start_date,DateTime $estimated_date,DateTime $finish_date)
     {
+        $this->id = $id;
         $this->startDate = $start_date;
         $this->estimatedDate = $estimated_date;
         $this->finishDate = $finish_date;
     }
 
     /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+
+    /**
      * @return mixed
      */
-    public function getStartDate()
+    public function getStartDate():DateTime
     {
         return $this->startDate;
     }
@@ -34,7 +62,7 @@ class Cycle implements JsonSerializable {
     /**
      * @param mixed $startDate
      */
-    public function setStartDate($startDate): void
+    public function setStartDate(DateTime $startDate): void
     {
         $this->startDate = $startDate;
     }
@@ -42,7 +70,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getEstimatedDate()
+    public function getEstimatedDate():DateTime
     {
         return $this->estimatedDate;
     }
@@ -50,7 +78,7 @@ class Cycle implements JsonSerializable {
     /**
      * @param mixed $estimatedDate
      */
-    public function setEstimatedDate($estimatedDate): void
+    public function setEstimatedDate(DateTime $estimatedDate): void
     {
         $this->estimatedDate = $estimatedDate;
     }
@@ -58,7 +86,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getFinishDate()
+    public function getFinishDate():DateTime
     {
         return $this->finishDate;
     }
@@ -66,7 +94,7 @@ class Cycle implements JsonSerializable {
     /**
      * @param mixed $finishDate
      */
-    public function setFinishDate($finishDate): void
+    public function setFinishDate(DateTime $finishDate): void
     {
         $this->finishDate = $finishDate;
     }
@@ -74,7 +102,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getOwner()
+    public function getOwner():User
     {
         return $this->owner;
     }
@@ -91,7 +119,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getContainer()
+    public function getContainer():Container
     {
         return $this->container;
     }
@@ -99,7 +127,7 @@ class Cycle implements JsonSerializable {
     /**
      * @param mixed $container
      */
-    public function setContainer($container): void
+    public function setContainer(Container $container): void
     {
         $this->container = $container;
     }
@@ -107,7 +135,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getMicroclimate()
+    public function getMicroclimate():Microclimate
     {
         return $this->microclimate;
     }
@@ -115,9 +143,25 @@ class Cycle implements JsonSerializable {
     /**
      * @param mixed $microclimate
      */
-    public function setMicroclimate($microclimate): void
+    public function setMicroclimate(Microclimate $microclimate): void
     {
         $this->microclimate = $microclimate;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMeasurements():array
+    {
+        return $this->measurements;
+    }
+
+    /**
+     * @param Measurement $measurement
+     */
+    public function addMeasurement(Measurement $measurement): void
+    {
+        $this->measurements[] = $measurement;
     }
 
 

@@ -1,5 +1,11 @@
 <?php
 
+namespace App\Domain\Microclimate;
+
+use App\Domain\User\User;
+use JsonSerializable;
+use DateTime;
+
 class Microclimate implements JsonSerializable{
 
     private $id;
@@ -22,7 +28,7 @@ class Microclimate implements JsonSerializable{
      * @param $dailyHours
      * @param $lightStartTime
      */
-    public function __construct($id, $name, $intensity, $lightType, $waterPH, $dailyHours, $lightStartTime)
+    public function __construct(?int $id,string $name,float $intensity,string $lightType,float $waterPH,int $dailyHours,DateTime $lightStartTime)
     {
         $this->id = $id;
         $this->name = $name;
@@ -54,7 +60,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getOwner()
+    public function getOwner():User
     {
         return $this->owner;
     }
@@ -62,7 +68,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @param mixed $owner
      */
-    public function setOwner($owner): void
+    public function setOwner(User $owner): void
     {
         $this->owner = $owner;
     }
@@ -70,7 +76,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getName()
+    public function getName():string
     {
         return $this->name;
     }
@@ -78,7 +84,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @param mixed $name
      */
-    public function setName($name): void
+    public function setName(string $name): void
     {
         $this->name = $name;
     }
@@ -86,7 +92,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getIntensity()
+    public function getIntensity():float
     {
         return $this->intensity;
     }
@@ -94,7 +100,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @param mixed $intensity
      */
-    public function setIntensity($intensity): void
+    public function setIntensity(float $intensity): void
     {
         $this->intensity = $intensity;
     }
@@ -102,7 +108,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getLightType()
+    public function getLightType():string
     {
         return $this->lightType;
     }
@@ -110,7 +116,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @param mixed $lightType
      */
-    public function setLightType($lightType): void
+    public function setLightType(string $lightType): void
     {
         $this->lightType = $lightType;
     }
@@ -118,7 +124,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getWaterPH()
+    public function getWaterPH():float
     {
         return $this->waterPH;
     }
@@ -126,7 +132,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @param mixed $waterPH
      */
-    public function setWaterPH($waterPH): void
+    public function setWaterPH(float $waterPH): void
     {
         $this->waterPH = $waterPH;
     }
@@ -134,7 +140,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getDailyHours()
+    public function getDailyHours():int
     {
         return $this->dailyHours;
     }
@@ -142,7 +148,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @param mixed $dailyHours
      */
-    public function setDailyHours($dailyHours): void
+    public function setDailyHours(int $dailyHours): void
     {
         $this->dailyHours = $dailyHours;
     }
@@ -150,7 +156,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @return mixed
      */
-    public function getLightStartTime()
+    public function getLightStartTime(): DateTime
     {
         return $this->lightStartTime;
     }
@@ -158,7 +164,7 @@ class Microclimate implements JsonSerializable{
     /**
      * @param mixed $lightStartTime
      */
-    public function setLightStartTime($lightStartTime): void
+    public function setLightStartTime(DateTime $lightStartTime): void
     {
         $this->lightStartTime = $lightStartTime;
     }
