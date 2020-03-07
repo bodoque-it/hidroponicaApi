@@ -6,6 +6,7 @@ use App\Domain\Container\Container;
 use App\Domain\Measurement\Measurement;
 use App\Domain\Microclimate\Microclimate;
 use App\Domain\User\User;
+use Doctrine\Common\Collections\ArrayCollection;
 use JsonSerializable;
 use DateTime;
 
@@ -33,6 +34,7 @@ class Cycle implements JsonSerializable {
         $this->startDate = $start_date;
         $this->estimatedDate = $estimated_date;
         $this->finishDate = $finish_date;
+        $this->measurements = new ArrayCollection();
     }
 
     /**
@@ -130,6 +132,7 @@ class Cycle implements JsonSerializable {
      */
     public function setContainer(Container $container): void
     {
+        $container->addCycles($this);
         $this->container = $container;
     }
 

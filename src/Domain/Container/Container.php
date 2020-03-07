@@ -1,7 +1,9 @@
 <?php
 
 namespace App\Domain\Container;
+use App\Domain\Cycle\Cycle;
 use App\Domain\Rail\Rail;
+use Doctrine\Common\Collections\ArrayCollection;
 use JsonSerializable;
 use App\Domain\User\User;
 
@@ -13,6 +15,7 @@ class Container implements \JsonSerializable
     private $name;
     private $owner;
     private $rail;
+    private $cycles;
 
     public function __construct(?int $id,float $volume,string $name, bool $active=false)
     {
@@ -20,7 +23,41 @@ class Container implements \JsonSerializable
         $this->volume = $volume;
         $this->active = $active;
         $this->name = $name;
+        $this->cycles = new ArrayCollection();
     }
+
+    /**
+     * @return int|null
+     */
+    public function getId(): ?int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int|null $id
+     */
+    public function setId(?int $id): void
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCycles(): array
+    {
+        return $this->cycles;
+    }
+
+    /**
+     * @param Cycle $cycle
+     */
+    public function addCycles(Cycle $cycle): void
+    {
+        $this->cycles[] = $cycle;
+    }
+
 
     /**
      * @return mixed
