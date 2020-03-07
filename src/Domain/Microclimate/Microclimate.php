@@ -70,6 +70,7 @@ class Microclimate implements JsonSerializable{
      */
     public function setOwner(User $owner): void
     {
+        $owner->addMicroclimates($this);
         $this->owner = $owner;
     }
 

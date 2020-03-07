@@ -5,6 +5,7 @@ namespace App\Domain\User;
 
 use App\Domain\Container\Container;
 use App\Domain\Cycle\Cycle;
+use App\Domain\Microclimate\Microclimate;
 use App\Domain\Rail\Rail;
 use JsonSerializable;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -47,6 +48,8 @@ class User implements JsonSerializable
     private $hashPassword;
 
     private $cycles;
+
+    private $microclimates;
     /**
      * @return mixed
      */
@@ -92,6 +95,7 @@ class User implements JsonSerializable
         $this->containers = new ArrayCollection();
         $this->rails = new ArrayCollection();
         $this->cycles = new ArrayCollection();
+        $this->microclimates = new ArrayCollection();
     }
 
     public function getContainers()
@@ -164,6 +168,24 @@ class User implements JsonSerializable
     public function setLastName($lastname){
         $this->lastName = $lastname;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getMicroclimates():array
+    {
+        return $this->microclimates;
+    }
+
+    /**
+     * @param Microclimate $microclimate
+     */
+    public function addMicroclimates(Microclimate $microclimate): void
+    {
+        $this->microclimates[]= $microclimate;
+    }
+
+
     /**
      * @return array
      */
