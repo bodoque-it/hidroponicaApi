@@ -172,7 +172,7 @@ class User implements JsonSerializable
     /**
      * @return mixed
      */
-    public function getMicroclimates():array
+    public function getMicroclimates()
     {
         return $this->microclimates;
     }

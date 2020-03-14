@@ -8,12 +8,12 @@ use App\Domain\Microclimate\Microclimate;
 use App\Domain\Microclimate\MicroclimateRepository;
 use Psr\Container\ContainerInterface;
 
-class MicroclimateDoctrineRepository implements MicroclimateRepository
+class DoctrineMicroclimateRepository implements MicroclimateRepository
 {
 
 
     /**
-     * MicroclimateDoctrineRepository constructor.
+     * DoctrineMicroclimateRepository constructor.
      */
     private $entityManager;
     public function __construct(ContainerInterface $container)
