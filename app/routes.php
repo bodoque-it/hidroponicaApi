@@ -5,6 +5,7 @@ use App\Application\Actions\Container\CreateContainerRailAction;
 use App\Application\Actions\Cycle\CreateCycleAction;
 use App\Application\Actions\Cycle\DeleteCycleAction;
 use App\Application\Actions\Cycle\ListCycleAction;
+use App\Application\Actions\Cycle\UpdateCycleAction;
 use App\Application\Actions\Cycle\ViewCycleAction;
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
@@ -65,6 +66,7 @@ return function (App $app) {
         $group->get('/{id_user}',ListCycleAction::class);
         $group->get('/{id_user}/{id_cycle}',ViewCycleAction::class);
         $group->post('/{id_user}',CreateCycleAction::class);
+        $group->put('/{id_cycle}',UpdateCycleAction::class);
         $group->delete('/{id_cycle}',DeleteCycleAction::class);
     });
 
