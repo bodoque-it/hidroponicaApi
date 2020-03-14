@@ -35,12 +35,14 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
     public function createMicroclimate(int $id_user, array $params): Microclimate
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
+        $lightStartTime = new \DateTime($params["lightStartTime"]);
         $microclimate = new Microclimate(null,
             $params["name"],
             $params["intensity"],
+            $params["lightType"],
             $params["waterPH"],
             $params["dailyHours"],
-            $params["lightStartTime"]
+            $lightStartTime
         );
         $microclimate->setOwner($user);
         $this->entityManager->persist($microclimate);
@@ -51,7 +53,7 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
     public function deleteMicroclimate(int $id_microclimate): bool
     {
         $microclimate = $this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
-        $this->entityManager->delete($microclimate);
+        $this->entityManager->remove($microclimate);
         $this->entityManager->flush();
         return true;
     }

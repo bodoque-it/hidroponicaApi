@@ -11,6 +11,8 @@ use App\Application\Actions\Cycle\ViewCycleAction;
 use App\Application\Actions\Measurement\CreateMeasurementAction;
 use App\Application\Actions\Measurement\ListMeasurementAction;
 use App\Application\Actions\Measurement\ViewMeasurementAction;
+use App\Application\Actions\Microclimate\CreateMicroclimateAction;
+use App\Application\Actions\Microclimate\DeleteMicroclimateAction;
 use App\Application\Actions\Microclimate\ListMicroclimateAction;
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
@@ -94,5 +96,7 @@ return function (App $app) {
 
     $app->group('/api/microclimates',function(Group $group) use ($container){
        $group->get('/{id_user}',ListMicroclimateAction::class);
+       $group->post('/{id_user}',CreateMicroclimateAction::class);
+       $group->delete('/{id_user}/{id_microclimate}',DeleteMicroclimateAction::class);
     });
 };
