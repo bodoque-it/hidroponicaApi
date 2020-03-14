@@ -8,6 +8,9 @@ use Monolog\Processor\UidProcessor;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 use function DI\get;
+use Doctrine\ORM\Tools\Setup;
+use Doctrine\ORM\EntityManager;
+
 
 return function (ContainerBuilder $containerBuilder) {
     $containerBuilder->addDefinitions([
@@ -42,6 +45,23 @@ return function (ContainerBuilder $containerBuilder) {
             ];
 
             return new PDO($dsn, $username, $password, $options);
+        }),
+        "doctrine" => DI\factory(function (ContainerInterface $c){
+            $isDevMode = true;
+            $path = array(
+                 __DIR__ .'/../config/xml' 
+            );
+            $config = Setup::createXMLMetadataConfiguration($path, $isDevMode);
+            $conn = array(
+                'dbname' => getenv("MYSQL_DATABASE"),
+                'user' =>  getenv("MYSQL_USER"),
+                'password' => getenv("MYSQL_PASSWORD"),
+                'host' => getenv("MYSQL_HOST"),
+                'driver' => 'pdo_mysql',
+            );
+
+
+            return \Doctrine\ORM\EntityManager::create($conn, $config);
         })
     ]);
 };

@@ -21,8 +21,9 @@ class LoginUserAction extends UserAction
     {
         $contents = $this->getFormData();
         $username = $contents["username"];
-        $id_user = $this->userRepository->findUserOfUsername($username);
-        if(isset($id_user) && $this->password_verify($contents["password"],$id_user)){
+        $this->logger->info("se buscara el usuario con username ". $username);
+        $user = $this->userRepository->findUserOfUsername($username);
+        if($this->password_verify($contents["password"],$user->getHashPassword())){
             $issuedat_claim = time(); // issued at
             $notbefore_claim = $issuedat_claim + 10; //not before in seconds
             $expire_claim = $issuedat_claim + (60*15); // expire time in seconds
@@ -33,7 +34,7 @@ class LoginUserAction extends UserAction
                 "nbf" => $notbefore_claim,
                 "exp" => $expire_claim,
                 "data" => array(
-                    "id" => $id_user,
+                    "id" => $user->getHashPassword(),
                 ));
 
 
@@ -48,8 +49,7 @@ class LoginUserAction extends UserAction
             return $this->respondWithError(404,"sale mono sapo");
         }
     }
-    private  function password_verify($password,$id){
-        $real = $this->userRepository->getPassword($id);
-        return $real==hash("sha256",$password);
+    private  function password_verify($password,$hash_password){
+        return $hash_password==hash("sha256",$password);
     }
 }

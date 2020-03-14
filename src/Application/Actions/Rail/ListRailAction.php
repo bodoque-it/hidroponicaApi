@@ -19,15 +19,17 @@ class ListRailAction extends RailAction
 
         }*/
         $id = $this->getUrlParam('id');
-        $allRails = $this->railRepository->getAllRails($id);
-        if(count($allRails,COUNT_NORMAL)<1){
-            throw new HttpNotFoundException($this->request);
-        }
-        $res = array();
-        foreach ($allRails as $rail){
-            $containers = $this->railRepository->getAllContainer($rail->getId());
-            $rail->setContainers($containers);
-        }
+        $allRails = $this->railRepository->getAllRails((int) $id);
+//        foreach ($allRails as $rail) {
+//            $containers = $rail->getContainers()->getValues();
+//            foreach ($containers as $container){
+//                $this->logger->info("container ". $container->getName());
+//            }
+//        }
+//        $res = array(
+//            $allRails,
+//            $containers = $rail->getContainers()->getValues()
+//        );
         return $this->respondWithData($allRails);
     }
 }

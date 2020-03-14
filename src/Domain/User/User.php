@@ -3,7 +3,12 @@ declare(strict_types=1);
 
 namespace App\Domain\User;
 
+use App\Domain\Container\Container;
+use App\Domain\Cycle\Cycle;
+use App\Domain\Microclimate\Microclimate;
+use App\Domain\Rail\Rail;
 use JsonSerializable;
+use Doctrine\Common\Collections\ArrayCollection;
 
 class User implements JsonSerializable
 {
@@ -35,6 +40,32 @@ class User implements JsonSerializable
     /**
      * @return string
      */
+
+    private $containers;
+
+    private $rails;
+
+    private $hashPassword;
+
+    private $cycles;
+
+    private $microclimates;
+    /**
+     * @return mixed
+     */
+    public function getHashPassword()
+    {
+        return $this->hashPassword;
+    }
+
+    /**
+     * @param mixed $hashPassword
+     */
+    public function setHashPassword($hashPassword): void
+    {
+        $this->hashPassword = $hashPassword;
+    }
+
     public function getEmail(): string
     {
         return $this->email;
@@ -61,8 +92,40 @@ class User implements JsonSerializable
         $this->firstName = $firstName;
         $this->lastName = $lastName;
         $this->email = $email;
+        $this->containers = new ArrayCollection();
+        $this->rails = new ArrayCollection();
+        $this->cycles = new ArrayCollection();
+        $this->microclimates = new ArrayCollection();
     }
 
+    public function getContainers()
+    {
+        return $this->containers;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getRails()
+    {
+        return $this->rails;
+    }
+
+    public function addContainer(Container $container){
+        $this->containers[] = $container;
+    }
+
+    public function addRail(Rail $rail){
+        $this->rails[] = $rail;
+    }
+
+    public function addCycle(Cycle $cycle){
+        $this->cycles[] = $cycle;
+    }
+
+    public function getCycles(){
+        return $this->cycles;
+    }
     /**
      * @return int|null
      */
@@ -79,6 +142,13 @@ class User implements JsonSerializable
         return strtolower($this->username);
     }
 
+    public function setUsername($username){
+        $this->username = $username;
+    }
+
+    public function setFirstName($fistname){
+        $this->firstName = $fistname;
+    }
     /**
      * @return string
      */
@@ -95,6 +165,27 @@ class User implements JsonSerializable
         return ucfirst($this->lastName);
     }
 
+    public function setLastName($lastname){
+        $this->lastName = $lastname;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getMicroclimates():array
+    {
+        return $this->microclimates;
+    }
+
+    /**
+     * @param Microclimate $microclimate
+     */
+    public function addMicroclimates(Microclimate $microclimate): void
+    {
+        $this->microclimates[]= $microclimate;
+    }
+
+
     /**
      * @return array
      */
@@ -106,6 +197,7 @@ class User implements JsonSerializable
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
             'email' => $this->email,
+            'rails' => $this->getRails()->getValues()
         ];
     }
 }

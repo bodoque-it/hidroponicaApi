@@ -1,0 +1,22 @@
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping
+                          https://www.doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity name="App\Domain\Container\Container" table="containers">
+        <id name="id" type="integer">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="name" type="string" />
+
+        <field name="volume" type="float"/>
+
+        <field name="active" type="boolean" />
+
+        <many-to-one target-entity="App\Domain\User\User" field="owner" inversed-by="containers" />
+        <many-to-one target-entity="App\Domain\Rail\Rail" field="rail" inversed-by="containers" />
+
+        <one-to-many field="cycles" target-entity="App\Domain\Cycle\Cycle" mapped-by="container"/>
+    </entity>
+</doctrine-mapping>

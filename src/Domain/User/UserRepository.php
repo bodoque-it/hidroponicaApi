@@ -28,11 +28,11 @@ interface UserRepository
                                string $email):int;
     public function existUserByUsername(string $username):bool;
 
-    public function findUserOfUsername(string $username):int;
+    public function findUserOfUsername(string $username):User;
 
     public function getUserParams():array;
 
-    public function updateUser(string $id,array $params):bool;
+    public function updateUser(string $id,array $params):User;
 
     public function deleteUser($id_user):bool;
 }

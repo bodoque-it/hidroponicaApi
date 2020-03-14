@@ -15,10 +15,11 @@ class MySqlUserRepository implements UserRepository
 {
 
     private $db;
+    private $entityManager;
     public function __construct(ContainerInterface $container)
     {
         $this->db = $container->get("db");
-
+        $this->entityManager = $container->get("doctrine");
     }
 
     /**
