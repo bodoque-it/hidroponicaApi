@@ -1,4 +1,4 @@
-version: '3'
+version: '3.2'
 
 services:
     db:
@@ -10,11 +10,21 @@ services:
             - ./init_db/:/docker-entrypoint-initdb.d/
 
     app:
-        build: .
+        build: 
+            context: .
+            dockerfile: Dockerfile
         environment:
             docker: "true"
         ports:
+<<<<<<< HEAD
             - 8000:80
+=======
+            - "8080:80"
+        volumes: 
+            - type: bind
+              source: .
+              target: /var/www/html
+>>>>>>> 2240f9bb5a37fdf5ee4c14aea97dd6811863f0c7
         depends_on:
         - db
         env_file:
