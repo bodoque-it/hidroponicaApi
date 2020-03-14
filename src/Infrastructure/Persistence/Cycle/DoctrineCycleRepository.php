@@ -7,6 +7,7 @@ namespace App\Infrastructure\Persistence\Cycle;
 use App\Domain\Cycle\Cycle;
 use App\Domain\Cycle\CycleRepository;
 use App\Domain\User\UserNotFoundException;
+use Cassandra\Date;
 use Psr\Container\ContainerInterface;
 
 class DoctrineCycleRepository implements CycleRepository
@@ -38,10 +39,13 @@ class DoctrineCycleRepository implements CycleRepository
     public function createCycle(int $id_user, array $params): Cycle
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
-        $cycle = new Cycle(null,params["start_date"],$params["estimated_date"],$params["finish_date"]);
+        $start_date = new \DateTime($params["start_date"]);
+        $estimated_date = new \DateTime($params["estimated_date"]);
+        $finish_date = new \DateTime($params["finish_date"]);
+        $cycle = new Cycle(null,$start_date,$estimated_date,$finish_date);
         $cycle->setOwner($user);
         $this->entityManager->persist($cycle);
-        $this->flush();
+        $this->entityManager->flush();
         return $cycle;
     }
 

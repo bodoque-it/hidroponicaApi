@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use App\Application\Actions\Container\CreateContainerRailAction;
+use App\Application\Actions\Cycle\CreateCycleAction;
 use App\Application\Actions\Cycle\ListCycleAction;
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
@@ -60,6 +61,7 @@ return function (App $app) {
 
     $app->group('/api/cycles',function(Group $group) use ($container){
         $group->get('/{id_user}',ListCycleAction::class);
+        $group->post('/{id_user}',CreateCycleAction::class);
     });
 
     $app->group('/api/rails',function (Group $group) use($container){
