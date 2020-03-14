@@ -54,6 +54,7 @@ class DoctrineCycleRepository implements CycleRepository
         $cycle = $this->entityManager->find("App\Domain\Cycle\Cycle",$id);
         $this->entityManager->remove($cycle);
         $this->entityManager->flush();
+        return true;
     }
 
     public function updateCycle(int $id, array $params): Cycle

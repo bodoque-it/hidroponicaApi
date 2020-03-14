@@ -3,7 +3,9 @@ declare(strict_types=1);
 
 use App\Application\Actions\Container\CreateContainerRailAction;
 use App\Application\Actions\Cycle\CreateCycleAction;
+use App\Application\Actions\Cycle\DeleteCycleAction;
 use App\Application\Actions\Cycle\ListCycleAction;
+use App\Application\Actions\Cycle\ViewCycleAction;
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
 use App\Application\Actions\Rail\EditRailAction;
@@ -61,7 +63,9 @@ return function (App $app) {
 
     $app->group('/api/cycles',function(Group $group) use ($container){
         $group->get('/{id_user}',ListCycleAction::class);
+        $group->get('/{id_user}/{id_cycle}',ViewCycleAction::class);
         $group->post('/{id_user}',CreateCycleAction::class);
+        $group->delete('/{id_cycle}',DeleteCycleAction::class);
     });
 
     $app->group('/api/rails',function (Group $group) use($container){
