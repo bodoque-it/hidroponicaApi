@@ -8,7 +8,9 @@ use App\Application\Actions\Cycle\DeleteCycleAction;
 use App\Application\Actions\Cycle\ListCycleAction;
 use App\Application\Actions\Cycle\UpdateCycleAction;
 use App\Application\Actions\Cycle\ViewCycleAction;
+use App\Application\Actions\Measurement\CreateMeasurementAction;
 use App\Application\Actions\Measurement\ListMeasurementAction;
+use App\Application\Actions\Measurement\ViewMeasurementAction;
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
 use App\Application\Actions\Rail\EditRailAction;
@@ -85,5 +87,7 @@ return function (App $app) {
 
     $app->group('/api/measurements',function(Group $group) use ($container){
         $group->get('/{id_cycle}',ListMeasurementAction::class);
+        $group->post('/{id_cycle}',CreateMeasurementAction::class);
+        $group->get('/{id_user}/{id_cycle}',ViewMeasurementAction::class);
     });
 };

@@ -34,7 +34,8 @@ class DoctrineMeasurementRepository implements MeasurementRepository
 
     public function createMeasurement(int $id_cycle, array $params): Measurement
     {
-        $measurement = new Measurement(null,$params["temperature"],$params["humidity"],$params["date"]);
+        $date = new \DateTime($params["date"]);
+        $measurement = new Measurement(null,$params["temperature"],$params["humidity"],$date);
         $cycle = $this->entityManager->find("App\Domain\Cycle\Cycle",$id_cycle);
         $measurement->setCycle($cycle);
         $this->entityManager->persist($measurement);
