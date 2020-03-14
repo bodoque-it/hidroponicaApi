@@ -24,7 +24,7 @@ class MeasurementDoctrineRepository implements MeasurementRepository
     public function findAll(int $id_cycle): array
     {
         $cycle = $this->entityManager->find("App\Domain\Cycle\Cycle",$id_cycle);
-        return $cycle->getMeasurements();
+        return $cycle->getMeasurements()->getValues();
     }
 
     public function findById(int $id_measurement): Measurement

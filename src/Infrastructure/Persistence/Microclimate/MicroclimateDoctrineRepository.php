@@ -24,7 +24,7 @@ class MicroclimateDoctrineRepository implements MicroclimateRepository
     public function findAll(int $id_user): array
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
-        return $user->getMicroclimates();
+        return $user->getMicroclimates()->getValues();
     }
 
     public function findById(int $id_microclimate): Microclimate

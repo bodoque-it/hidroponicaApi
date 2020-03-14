@@ -6,6 +6,7 @@ namespace App\Infrastructure\Persistence\Cycle;
 
 use App\Domain\Cycle\Cycle;
 use App\Domain\Cycle\CycleRepository;
+use App\Domain\User\UserNotFoundException;
 use Psr\Container\ContainerInterface;
 
 class DoctrineCycleRepository implements CycleRepository
@@ -23,7 +24,10 @@ class DoctrineCycleRepository implements CycleRepository
     public function findAll(int $id_user): array
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
-        return $user->getCycles();
+        if($user=== null){
+            throw  new UserNotFoundException();
+        }
+        return $user->getCycles()->getValues();
     }
 
     public function findById(int $id_cycle): Cycle
