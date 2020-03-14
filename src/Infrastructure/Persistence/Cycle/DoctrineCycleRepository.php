@@ -90,7 +90,10 @@ class DoctrineCycleRepository implements CycleRepository
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
         $container = $this->entityManager->find("App\Domain\Container\Container",$id_container);
         $microclimate = $this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
-        $cycle = new Cycle(null,params["start_date"],$params["estimated_date"],$params["finish_date"]);
+        $start_date = new \DateTime($params["start_date"]);
+        $estimated_date = new \DateTime($params["estimated_date"]);
+        $finish_date = new \DateTime($params["finish_date"]);
+        $cycle = new Cycle(null,$start_date,$estimated_date,$finish_date);
         $cycle->setOwner($user);
         $cycle->setContainer($container);
         $cycle->setMicroclimate($microclimate);
