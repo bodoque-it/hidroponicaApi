@@ -8,12 +8,12 @@ use App\Domain\Measurement\Measurement;
 use App\Domain\Measurement\MeasurementRepository;
 use Psr\Container\ContainerInterface;
 
-class MeasurementDoctrineRepository implements MeasurementRepository
+class DoctrineMeasurementRepository implements MeasurementRepository
 {
 
 
     /**
-     * MeasurementDoctrineRepository constructor.
+     * DoctrineMeasurementRepository constructor.
      */
     private $entityManager;
     public function __construct(ContainerInterface $container)

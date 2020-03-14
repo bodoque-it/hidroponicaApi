@@ -8,6 +8,7 @@ use App\Application\Actions\Cycle\DeleteCycleAction;
 use App\Application\Actions\Cycle\ListCycleAction;
 use App\Application\Actions\Cycle\UpdateCycleAction;
 use App\Application\Actions\Cycle\ViewCycleAction;
+use App\Application\Actions\Measurement\ListMeasurementAction;
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
 use App\Application\Actions\Rail\EditRailAction;
@@ -80,5 +81,9 @@ return function (App $app) {
         $group->get('/{id}/{id_rail}',ViewRailAction::class);
         $group->put('/{id}/{id_rail}',UpdateRailAction::class);
         $group->delete('/{id}/{id_rail}',DeleteRailAction::class);
+    });
+
+    $app->group('/api/measurements',function(Group $group) use ($container){
+        $group->get('/{id_cycle}',ListMeasurementAction::class);
     });
 };

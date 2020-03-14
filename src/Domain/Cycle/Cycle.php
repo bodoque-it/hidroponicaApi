@@ -156,7 +156,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getMeasurements():array
+    public function getMeasurements()
     {
         return $this->measurements;
     }
