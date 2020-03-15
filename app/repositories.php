@@ -13,11 +13,11 @@ use App\Infrastructure\Persistence\Measurement\DoctrineMeasurementRepository;
 use App\Infrastructure\Persistence\Rail\DoctrineRailRepository;
 use App\Infrastructure\Persistence\Microclimate\DoctrineMicroclimateRepository;
 use DI\ContainerBuilder;
-use App\Infrastructure\Persistence\User\UserDoctrineRepository;
+use App\Infrastructure\Persistence\User\DoctrineUserRepository;
 return function (ContainerBuilder $containerBuilder) {
     // Here we map our UserRepository interface to its in memory implementation
     $containerBuilder->addDefinitions([
-        UserRepository::class => \DI\autowire(UserDoctrineRepository::class),
+        UserRepository::class => \DI\autowire(DoctrineUserRepository::class),
         ContainerRepository::class =>\DI\autowire(DoctrineContainerRepository::class),
         RailRepository::class =>\DI\autowire(DoctrineRailRepository::class),
         CycleRepository::class =>\DI\autowire(DoctrineCycleRepository::class),
