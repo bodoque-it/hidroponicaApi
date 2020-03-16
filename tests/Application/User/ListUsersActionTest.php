@@ -14,7 +14,7 @@ class ListUsersActionTest extends TestCase
         $app = $this->getAppInstance();
         $request = $this->createRequest('GET', '/api/users');
         $response = $app->handle($request);
-        fwrite(STDERR, print_r((string)$response->getBody(), TRUE));
+        //fwrite(STDERR, print_r((string)$response->getBody(), TRUE));
         $this->assertEquals($response->getStatusCode(), 200);
     }
 }
