@@ -111,7 +111,7 @@ class User implements JsonSerializable
     }
 
     /**
-     * @param Infrastructure $infrastructures
+     * @param Infrastructure $infrastructure
      */
     public function addInfrastructures(Infrastructure $infrastructure): void
     {
@@ -217,7 +217,8 @@ class User implements JsonSerializable
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
             'email' => $this->email,
-            'rails' => $this->getRails()->getValues()
+            'rails' => $this->getRails()->getValues(),
+            'infrastructures'=>$this->getInfrastructures()->getValues()
         ];
     }
 }

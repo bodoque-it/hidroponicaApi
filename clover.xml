@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584242578">
-  <project timestamp="1584242578">
+<coverage generated="1584323308">
+  <project timestamp="1584323308">
     <package name="App\Application\Actions">
       <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Action.php">
         <class name="App\Application\Actions\Action" namespace="App\Application\Actions">
@@ -269,6 +269,40 @@
         <metrics loc="25" ncloc="22" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="7" coveredelements="0"/>
       </file>
     </package>
+    <package name="App\Application\Actions\Infrastructure">
+      <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Infrastructure/CreateInfrastructureAction.php">
+        <class name="App\Application\Actions\Infrastructure\CreateInfrastructureAction" namespace="App\Application\Actions\Infrastructure">
+          <metrics complexity="2" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="7" coveredelements="0"/>
+        </class>
+        <line num="17" type="method" name="action" visibility="protected" complexity="2" crap="6.00" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <metrics loc="26" ncloc="23" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="6" coveredstatements="0" elements="7" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Infrastructure/InfrastructureAction.php">
+        <class name="App\Application\Actions\Infrastructure\InfrastructureAction" namespace="App\Application\Actions\Infrastructure">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+        </class>
+        <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <metrics loc="22" ncloc="18" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="2" coveredstatements="0" elements="3" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Infrastructure/ListInfrastructureAction.php">
+        <class name="App\Application\Actions\Infrastructure\ListInfrastructureAction" namespace="App\Application\Actions\Infrastructure">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="17" type="method" name="action" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <metrics loc="22" ncloc="19" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+    </package>
     <package name="App\Application\Actions\Measurement">
       <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Measurement/CreateMeasurementAction.php">
         <class name="App\Application\Actions\Measurement\CreateMeasurementAction" namespace="App\Application\Actions\Measurement">
@@ -354,6 +388,27 @@
         <line num="24" type="stmt" count="0"/>
         <line num="25" type="stmt" count="0"/>
         <metrics loc="25" ncloc="20" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Microclimate/UpdateMicroclimateAction.php">
+        <class name="App\Application\Actions\Microclimate\UpdateMicroclimateAction" namespace="App\Application\Actions\Microclimate">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+        </class>
+        <line num="17" type="method" name="action" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <metrics loc="23" ncloc="20" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="4" coveredstatements="0" elements="5" coveredelements="0"/>
+      </file>
+      <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Microclimate/ViewMicroclimateAction.php">
+        <class name="App\Application\Actions\Microclimate\ViewMicroclimateAction" namespace="App\Application\Actions\Microclimate">
+          <metrics complexity="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
+        </class>
+        <line num="17" type="method" name="action" visibility="protected" complexity="1" crap="2.00" count="0"/>
+        <line num="19" type="stmt" count="0"/>
+        <line num="20" type="stmt" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <metrics loc="22" ncloc="19" classes="1" methods="1" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="3" coveredstatements="0" elements="4" coveredelements="0"/>
       </file>
     </package>
     <package name="App\Application\Actions\Rail">
@@ -814,6 +869,39 @@
         <metrics loc="9" ncloc="9" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
       </file>
     </package>
+    <package name="App\Domain\Infrastructure">
+      <file name="/home/antilef/uach/hidroponicaApi/src/Domain/Infrastructure/Infrastructure.php">
+        <class name="App\Domain\Infrastructure\Infrastructure" namespace="App\Domain\Infrastructure">
+          <metrics complexity="8" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="22" coveredelements="0"/>
+        </class>
+        <line num="21" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="23" type="stmt" count="0"/>
+        <line num="24" type="stmt" count="0"/>
+        <line num="25" type="stmt" count="0"/>
+        <line num="31" type="method" name="getAddress" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="39" type="method" name="setAddress" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="47" type="method" name="getOwner" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="55" type="method" name="setOwner" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="64" type="method" name="getRails" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="72" type="method" name="addRails" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="80" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <metrics loc="85" ncloc="60" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="14" coveredstatements="0" elements="22" coveredelements="0"/>
+      </file>
+    </package>
+    <file name="/home/antilef/uach/hidroponicaApi/src/Domain/Infrastructure/InfrastructureRepository.php">
+      <metrics loc="14" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+    </file>
     <package name="App\Domain\Measurement">
       <file name="/home/antilef/uach/hidroponicaApi/src/Domain/Measurement/Measurement.php">
         <class name="App\Domain\Measurement\Measurement" namespace="App\Domain\Measurement">
@@ -936,48 +1024,55 @@
       </file>
     </package>
     <file name="/home/antilef/uach/hidroponicaApi/src/Domain/Microclimate/MicroclimateRepository.php">
-      <metrics loc="14" ncloc="14" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
+      <metrics loc="15" ncloc="15" classes="0" methods="0" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="0" coveredstatements="0" elements="0" coveredelements="0"/>
     </file>
     <package name="App\Domain\Rail">
       <file name="/home/antilef/uach/hidroponicaApi/src/Domain/Rail/Rail.php">
         <class name="App\Domain\Rail\Rail" namespace="App\Domain\Rail">
-          <metrics complexity="12" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="0" elements="34" coveredelements="0"/>
+          <metrics complexity="14" methods="13" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="41" coveredelements="0"/>
         </class>
-        <line num="19" type="method" name="__construct" visibility="public" complexity="2" crap="6.00" count="0"/>
-        <line num="21" type="stmt" count="0"/>
-        <line num="22" type="stmt" count="0"/>
+        <line num="21" type="method" name="__construct" visibility="public" complexity="2" crap="6.00" count="0"/>
         <line num="23" type="stmt" count="0"/>
         <line num="24" type="stmt" count="0"/>
         <line num="25" type="stmt" count="0"/>
-        <line num="29" type="method" name="getName" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="31" type="stmt" count="0"/>
-        <line num="37" type="method" name="setName" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="39" type="stmt" count="0"/>
-        <line num="40" type="stmt" count="0"/>
-        <line num="45" type="method" name="getLocation" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="47" type="stmt" count="0"/>
-        <line num="53" type="method" name="setLocation" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="55" type="stmt" count="0"/>
-        <line num="56" type="stmt" count="0"/>
-        <line num="62" type="method" name="getId" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="64" type="stmt" count="0"/>
-        <line num="69" type="method" name="getOwner" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="71" type="stmt" count="0"/>
-        <line num="77" type="method" name="setOwner" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="79" type="stmt" count="0"/>
-        <line num="80" type="stmt" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="31" type="method" name="getName" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="33" type="stmt" count="0"/>
+        <line num="39" type="method" name="setName" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="47" type="method" name="getLocation" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="55" type="method" name="setLocation" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="64" type="method" name="getId" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="66" type="stmt" count="0"/>
+        <line num="71" type="method" name="getOwner" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="73" type="stmt" count="0"/>
+        <line num="79" type="method" name="setOwner" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="81" type="stmt" count="0"/>
-        <line num="84" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="87" type="stmt" count="0"/>
-        <line num="88" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="86" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="89" type="stmt" count="0"/>
         <line num="90" type="stmt" count="0"/>
-        <line num="97" type="method" name="getContainers" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="99" type="stmt" count="0"/>
-        <line num="105" type="method" name="addContainers" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="107" type="stmt" count="0"/>
-        <line num="108" type="stmt" count="0"/>
-        <metrics loc="109" ncloc="82" classes="1" methods="11" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="0" elements="34" coveredelements="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="93" type="stmt" count="0"/>
+        <line num="100" type="method" name="getContainers" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="102" type="stmt" count="0"/>
+        <line num="108" type="method" name="addContainers" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="110" type="stmt" count="0"/>
+        <line num="111" type="stmt" count="0"/>
+        <line num="116" type="method" name="getInfrastructure" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="118" type="stmt" count="0"/>
+        <line num="124" type="method" name="setInfrastructure" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="126" type="stmt" count="0"/>
+        <line num="127" type="stmt" count="0"/>
+        <line num="128" type="stmt" count="0"/>
+        <metrics loc="130" ncloc="97" classes="1" methods="13" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="28" coveredstatements="0" elements="41" coveredelements="0"/>
       </file>
     </package>
     <file name="/home/antilef/uach/hidroponicaApi/src/Domain/Rail/RailRepository.php">
@@ -986,22 +1081,19 @@
     <package name="App\Domain\User">
       <file name="/home/antilef/uach/hidroponicaApi/src/Domain/User/User.php">
         <class name="App\Domain\User\User" namespace="App\Domain\User">
-          <metrics complexity="23" methods="21" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="17" elements="65" coveredelements="20"/>
+          <metrics complexity="25" methods="23" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="49" coveredstatements="20" elements="72" coveredelements="24"/>
         </class>
-        <line num="56" type="method" name="getHashPassword" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="58" type="stmt" count="0"/>
-        <line num="64" type="method" name="setHashPassword" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="66" type="stmt" count="0"/>
-        <line num="67" type="stmt" count="0"/>
-        <line num="69" type="method" name="getEmail" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="71" type="stmt" count="0"/>
-        <line num="77" type="method" name="setEmail" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="79" type="stmt" count="0"/>
-        <line num="80" type="stmt" count="0"/>
-        <line num="88" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="1"/>
-        <line num="90" type="stmt" count="1"/>
-        <line num="91" type="stmt" count="1"/>
-        <line num="92" type="stmt" count="1"/>
+        <line num="59" type="method" name="getHashPassword" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <line num="67" type="method" name="setHashPassword" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="69" type="stmt" count="0"/>
+        <line num="70" type="stmt" count="0"/>
+        <line num="72" type="method" name="getEmail" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="80" type="method" name="setEmail" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="83" type="stmt" count="0"/>
+        <line num="91" type="method" name="__construct" visibility="public" complexity="2" crap="2" count="1"/>
         <line num="93" type="stmt" count="1"/>
         <line num="94" type="stmt" count="1"/>
         <line num="95" type="stmt" count="1"/>
@@ -1009,51 +1101,61 @@
         <line num="97" type="stmt" count="1"/>
         <line num="98" type="stmt" count="1"/>
         <line num="99" type="stmt" count="1"/>
-        <line num="101" type="method" name="getContainers" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="103" type="stmt" count="0"/>
-        <line num="109" type="method" name="getRails" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="111" type="stmt" count="1"/>
-        <line num="114" type="method" name="addContainer" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="115" type="stmt" count="0"/>
-        <line num="116" type="stmt" count="0"/>
-        <line num="118" type="method" name="addRail" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="100" type="stmt" count="1"/>
+        <line num="101" type="stmt" count="1"/>
+        <line num="102" type="stmt" count="1"/>
+        <line num="103" type="stmt" count="1"/>
+        <line num="108" type="method" name="getInfrastructures" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="110" type="stmt" count="1"/>
+        <line num="116" type="method" name="addInfrastructures" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="118" type="stmt" count="0"/>
         <line num="119" type="stmt" count="0"/>
-        <line num="120" type="stmt" count="0"/>
-        <line num="122" type="method" name="addCycle" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="121" type="method" name="getContainers" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="123" type="stmt" count="0"/>
-        <line num="124" type="stmt" count="0"/>
-        <line num="126" type="method" name="getCycles" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="127" type="stmt" count="0"/>
-        <line num="132" type="method" name="getId" visibility="public" complexity="2" crap="6.00" count="0"/>
-        <line num="134" type="stmt" count="0"/>
-        <line num="140" type="method" name="getUsername" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="142" type="stmt" count="0"/>
-        <line num="145" type="method" name="setUsername" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="146" type="stmt" count="0"/>
+        <line num="129" type="method" name="getRails" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="131" type="stmt" count="1"/>
+        <line num="134" type="method" name="addContainer" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="135" type="stmt" count="0"/>
+        <line num="136" type="stmt" count="0"/>
+        <line num="138" type="method" name="addRail" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="139" type="stmt" count="0"/>
+        <line num="140" type="stmt" count="0"/>
+        <line num="142" type="method" name="addCycle" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="143" type="stmt" count="0"/>
+        <line num="144" type="stmt" count="0"/>
+        <line num="146" type="method" name="getCycles" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="147" type="stmt" count="0"/>
-        <line num="149" type="method" name="setFirstName" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="150" type="stmt" count="0"/>
-        <line num="151" type="stmt" count="0"/>
-        <line num="155" type="method" name="getFirstName" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="157" type="stmt" count="0"/>
-        <line num="163" type="method" name="getLastName" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="165" type="stmt" count="0"/>
-        <line num="168" type="method" name="setLastName" visibility="public" complexity="1" crap="2.00" count="0"/>
-        <line num="169" type="stmt" count="0"/>
+        <line num="152" type="method" name="getId" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="154" type="stmt" count="0"/>
+        <line num="160" type="method" name="getUsername" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="162" type="stmt" count="0"/>
+        <line num="165" type="method" name="setUsername" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="166" type="stmt" count="0"/>
+        <line num="167" type="stmt" count="0"/>
+        <line num="169" type="method" name="setFirstName" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="170" type="stmt" count="0"/>
-        <line num="175" type="method" name="getMicroclimates" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="171" type="stmt" count="0"/>
+        <line num="175" type="method" name="getFirstName" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="177" type="stmt" count="0"/>
-        <line num="183" type="method" name="addMicroclimates" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="183" type="method" name="getLastName" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="185" type="stmt" count="0"/>
-        <line num="186" type="stmt" count="0"/>
-        <line num="192" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="1" count="1"/>
-        <line num="195" type="stmt" count="1"/>
-        <line num="196" type="stmt" count="1"/>
-        <line num="197" type="stmt" count="1"/>
-        <line num="198" type="stmt" count="1"/>
-        <line num="199" type="stmt" count="1"/>
-        <line num="200" type="stmt" count="1"/>
-        <metrics loc="203" ncloc="145" classes="1" methods="21" coveredmethods="3" conditionals="0" coveredconditionals="0" statements="44" coveredstatements="17" elements="65" coveredelements="20"/>
+        <line num="188" type="method" name="setLastName" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="189" type="stmt" count="0"/>
+        <line num="190" type="stmt" count="0"/>
+        <line num="195" type="method" name="getMicroclimates" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="197" type="stmt" count="0"/>
+        <line num="203" type="method" name="addMicroclimates" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="205" type="stmt" count="0"/>
+        <line num="206" type="stmt" count="0"/>
+        <line num="212" type="method" name="jsonSerialize" visibility="public" complexity="1" crap="1" count="1"/>
+        <line num="215" type="stmt" count="1"/>
+        <line num="216" type="stmt" count="1"/>
+        <line num="217" type="stmt" count="1"/>
+        <line num="218" type="stmt" count="1"/>
+        <line num="219" type="stmt" count="1"/>
+        <line num="220" type="stmt" count="1"/>
+        <line num="221" type="stmt" count="1"/>
+        <metrics loc="224" ncloc="160" classes="1" methods="23" coveredmethods="4" conditionals="0" coveredconditionals="0" statements="49" coveredstatements="20" elements="72" coveredelements="24"/>
       </file>
       <file name="/home/antilef/uach/hidroponicaApi/src/Domain/User/UserNotFoundException.php">
         <class name="App\Domain\User\UserNotFoundException" namespace="App\Domain\User">
@@ -1181,6 +1283,40 @@
         <metrics loc="103" ncloc="100" classes="1" methods="8" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="48" coveredstatements="0" elements="56" coveredelements="0"/>
       </file>
     </package>
+    <package name="App\Infrastructure\Persistence\Infrastructure">
+      <file name="/home/antilef/uach/hidroponicaApi/src/Infrastructure/Persistence/Infrastructure/DoctrineInfrastructureRepository.php">
+        <class name="App\Infrastructure\Persistence\Infrastructure\DoctrineInfrastructureRepository" namespace="App\Infrastructure\Persistence\Infrastructure">
+          <metrics complexity="8" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="26" coveredelements="0"/>
+        </class>
+        <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="21" type="stmt" count="0"/>
+        <line num="22" type="stmt" count="0"/>
+        <line num="24" type="method" name="findAll" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="26" type="stmt" count="0"/>
+        <line num="27" type="stmt" count="0"/>
+        <line num="28" type="stmt" count="0"/>
+        <line num="30" type="stmt" count="0"/>
+        <line num="33" type="method" name="findById" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="35" type="stmt" count="0"/>
+        <line num="38" type="method" name="deleteInfrastructure" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="40" type="stmt" count="0"/>
+        <line num="41" type="stmt" count="0"/>
+        <line num="42" type="stmt" count="0"/>
+        <line num="43" type="stmt" count="0"/>
+        <line num="46" type="method" name="updateInfrastructure" visibility="public" complexity="1" crap="2.00" count="0"/>
+        <line num="49" type="stmt" count="0"/>
+        <line num="51" type="method" name="createInfrastructure" visibility="public" complexity="2" crap="6.00" count="0"/>
+        <line num="53" type="stmt" count="0"/>
+        <line num="54" type="stmt" count="0"/>
+        <line num="55" type="stmt" count="0"/>
+        <line num="57" type="stmt" count="0"/>
+        <line num="58" type="stmt" count="0"/>
+        <line num="59" type="stmt" count="0"/>
+        <line num="60" type="stmt" count="0"/>
+        <line num="61" type="stmt" count="0"/>
+        <metrics loc="62" ncloc="57" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="20" coveredstatements="0" elements="26" coveredelements="0"/>
+      </file>
+    </package>
     <package name="App\Infrastructure\Persistence\Measurement">
       <file name="/home/antilef/uach/hidroponicaApi/src/Infrastructure/Persistence/Measurement/DoctrineMeasurementRepository.php">
         <class name="App\Infrastructure\Persistence\Measurement\DoctrineMeasurementRepository" namespace="App\Infrastructure\Persistence\Measurement">
@@ -1215,7 +1351,7 @@
     <package name="App\Infrastructure\Persistence\Microclimate">
       <file name="/home/antilef/uach/hidroponicaApi/src/Infrastructure/Persistence/Microclimate/DoctrineMicroclimateRepository.php">
         <class name="App\Infrastructure\Persistence\Microclimate\DoctrineMicroclimateRepository" namespace="App\Infrastructure\Persistence\Microclimate">
-          <metrics complexity="6" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="0" elements="29" coveredelements="0"/>
+          <metrics complexity="13" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="0" elements="46" coveredelements="0"/>
         </class>
         <line num="19" type="method" name="__construct" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="21" type="stmt" count="0"/>
@@ -1246,7 +1382,24 @@
         <line num="58" type="stmt" count="0"/>
         <line num="61" type="method" name="getParams" visibility="public" complexity="1" crap="2.00" count="0"/>
         <line num="64" type="stmt" count="0"/>
-        <metrics loc="70" ncloc="67" classes="1" methods="6" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="23" coveredstatements="0" elements="29" coveredelements="0"/>
+        <line num="72" type="method" name="updateMicroclimate" visibility="public" complexity="7" crap="56.00" count="0"/>
+        <line num="74" type="stmt" count="0"/>
+        <line num="75" type="stmt" count="0"/>
+        <line num="76" type="stmt" count="0"/>
+        <line num="78" type="stmt" count="0"/>
+        <line num="79" type="stmt" count="0"/>
+        <line num="81" type="stmt" count="0"/>
+        <line num="82" type="stmt" count="0"/>
+        <line num="84" type="stmt" count="0"/>
+        <line num="85" type="stmt" count="0"/>
+        <line num="87" type="stmt" count="0"/>
+        <line num="88" type="stmt" count="0"/>
+        <line num="90" type="stmt" count="0"/>
+        <line num="91" type="stmt" count="0"/>
+        <line num="92" type="stmt" count="0"/>
+        <line num="94" type="stmt" count="0"/>
+        <line num="95" type="stmt" count="0"/>
+        <metrics loc="96" ncloc="93" classes="1" methods="7" coveredmethods="0" conditionals="0" coveredconditionals="0" statements="39" coveredstatements="0" elements="46" coveredelements="0"/>
       </file>
     </package>
     <package name="App\Infrastructure\Persistence\Rail">
@@ -1398,6 +1551,6 @@
         <metrics loc="81" ncloc="58" classes="1" methods="10" coveredmethods="2" conditionals="0" coveredconditionals="0" statements="18" coveredstatements="8" elements="28" coveredelements="10"/>
       </file>
     </package>
-    <metrics files="69" loc="3314" ncloc="2636" classes="61" methods="225" coveredmethods="13" conditionals="0" coveredconditionals="0" statements="730" coveredstatements="59" elements="955" coveredelements="72"/>
+    <metrics files="77" loc="3659" ncloc="2923" classes="68" methods="249" coveredmethods="14" conditionals="0" coveredconditionals="0" statements="808" coveredstatements="62" elements="1057" coveredelements="76"/>
   </project>
 </coverage>

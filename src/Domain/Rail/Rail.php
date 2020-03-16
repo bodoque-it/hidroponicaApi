@@ -90,6 +90,7 @@ class Rail implements JsonSerializable
             "location" =>$this->location,
             "name" => $this->name,
             "containers" => $this->getContainers()->getValues(),
+            "infrastructure"=>$this->getInfrastructure()
         ];
     }
 

@@ -79,6 +79,8 @@ class Infrastructure implements \JsonSerializable
      */
     public function jsonSerialize()
     {
-        // TODO: Implement jsonSerialize() method.
+        return [
+            'address'=>$this->getAddress()
+        ];
     }
 }

@@ -8,6 +8,8 @@ use App\Application\Actions\Cycle\DeleteCycleAction;
 use App\Application\Actions\Cycle\ListCycleAction;
 use App\Application\Actions\Cycle\UpdateCycleAction;
 use App\Application\Actions\Cycle\ViewCycleAction;
+use App\Application\Actions\Infrastructure\CreateInfrastructureAction;
+use App\Application\Actions\Infrastructure\ListInfrastructureAction;
 use App\Application\Actions\Measurement\CreateMeasurementAction;
 use App\Application\Actions\Measurement\ListMeasurementAction;
 use App\Application\Actions\Measurement\ViewMeasurementAction;
@@ -102,5 +104,10 @@ return function (App $app) {
        $group->post('/{id_user}',CreateMicroclimateAction::class);
        $group->delete('/{id_user}/{id_microclimate}',DeleteMicroclimateAction::class);
        $group->put('/{id_user}/{id_microclimate}',UpdateMicroclimateAction::class);
+    });
+
+    $app->group('/api/infrastructures',function(Group $group) use($container){
+       $group->get('/{id_user}',ListInfrastructureAction::class);
+       $group->post('/{id_user}',CreateInfrastructureAction::class);
     });
 };
