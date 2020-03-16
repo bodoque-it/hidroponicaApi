@@ -68,4 +68,30 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
             'lightStartTime'
         ];
     }
+
+    public function updateMicroclimate(int $id_microclimate,array $params): Microclimate
+    {
+        $microclimate =$this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
+        if(isset($params["name"])){
+            $microclimate->setName($params["name"]);
+        }
+        if(isset($params["intensity"])){
+            $microclimate->setIntensity($params["intensity"]);
+        }
+        if(isset($params["lightType"])){
+            $microclimate->setLightType($params["lightType"]);
+        }
+        if(isset($params["waterPH"])){
+            $microclimate->setWaterPH($params["waterPH"]);
+        }
+        if(isset($params["dailyHours"])){
+            $microclimate->setDailyHours($params["dailyHours"]);
+        }
+        if(isset($params["lightStartTime"])){
+            $lightStartTime = new \DateTime($params["lightStartTime"]);
+            $microclimate->setLightStartTime($lightStartTime);
+        }
+        $this->entityManager->flush();
+        return $microclimate;
+    }
 }
