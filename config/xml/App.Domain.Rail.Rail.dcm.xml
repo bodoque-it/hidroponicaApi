@@ -20,5 +20,8 @@
                 <cascade-remove/>
             </cascade>
         </one-to-many>
+        <many-to-one field="infrastructure" target-entity="App\Domain\Infrastructure\Infrastructure" >
+            <join-column name="infrastructure_address" referenced-column-name="address" />
+        </many-to-one>
     </entity>
 </doctrine-mapping>

@@ -11,5 +11,6 @@
                 <cascade-remove/>
             </cascade>
         </many-to-one>
+        <one-to-many field="rails" target-entity="App\Domain\Rail\Rail" mapped-by="infrastructure"/>
     </entity>
 </doctrine-mapping>

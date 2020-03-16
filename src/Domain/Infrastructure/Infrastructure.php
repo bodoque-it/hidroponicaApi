@@ -4,6 +4,7 @@
 namespace App\Domain\Infrastructure;
 
 
+use App\Domain\Rail\Rail;
 use App\Domain\User\User;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -68,9 +69,9 @@ class Infrastructure implements \JsonSerializable
     /**
      * @param mixed $rails
      */
-    public function setRails($rails): void
+    public function addRails(Rail $rail): void
     {
-        $this->rails = $rails;
+        $this->rails[] = $rail;
     }
 
     /**

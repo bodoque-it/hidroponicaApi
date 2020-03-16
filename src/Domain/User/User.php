@@ -105,7 +105,7 @@ class User implements JsonSerializable
     /**
      * @return ArrayCollection
      */
-    public function getInfrastructures(): ArrayCollection
+    public function getInfrastructures()
     {
         return $this->infrastructures;
     }
@@ -113,9 +113,9 @@ class User implements JsonSerializable
     /**
      * @param Infrastructure $infrastructures
      */
-    public function addInfrastructures(Infrastructure $infrastructures): void
+    public function addInfrastructures(Infrastructure $infrastructure): void
     {
-        $this->infrastructures[] = $infrastructures;
+        $this->infrastructures[] = $infrastructure;
     }
 
     public function getContainers()
