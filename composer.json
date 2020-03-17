@@ -49,7 +49,7 @@
     },
     "scripts": {
         "start": "php -S localhost:8080 -t public",
-        "test": "phpunit --colors --coverage-clover clover.xml",
+        "test": "phpunit",
         "coverage": "php-coveralls --coverage_clover=clover.xml -v"
     }
 }

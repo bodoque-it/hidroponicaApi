@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1584323373">
-  <project timestamp="1584323373">
+<coverage generated="1584325295">
+  <project timestamp="1584325295">
     <package name="App\Application\Actions">
       <file name="/home/antilef/uach/hidroponicaApi/src/Application/Actions/Action.php">
         <class name="App\Application\Actions\Action" namespace="App\Application\Actions">

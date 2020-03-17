@@ -72,7 +72,12 @@ class InMemoryUserRepository implements UserRepository
 
     public function updateUser(string $id, array $params): User
     {
-        // TODO: Implement updateUser() method.
+        if (!isset($this->users[$id])) {
+            throw new UserNotFoundException();
+        }
+
+        $this->users[$id]->setName($params["name"]);
+        return $this->users[$id];
     }
 
     public function deleteUser($id_user): bool
