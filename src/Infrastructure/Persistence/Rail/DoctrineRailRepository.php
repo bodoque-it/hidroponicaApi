@@ -55,7 +55,7 @@ class DoctrineRailRepository implements RailRepository
     public function createRail(?string $id, array $params): Rail
     {
         $user = $this->entityManager->find("App\Domain\User\User",(int)$id);
-        $rail = new Rail(null,$params["name"],$params["location"]);
+        $rail = new Rail(null,$params["name"]);
         $rail->setOwner($user);
         $this->entityManager->persist($rail);
         $this->entityManager->flush();
@@ -76,9 +76,6 @@ class DoctrineRailRepository implements RailRepository
         $rail = $this->entityManager->find("App\Domain\Rail\Rail",(int)$id_rail);
         if(isset($params["name"])){
             $rail->setName($params["name"]);
-        }
-        if(isset($params["location"])){
-            $rail->setLocation($params["location"]);
         }
         $this->entityManager->flush();
         return $rail;
