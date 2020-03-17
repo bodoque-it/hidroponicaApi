@@ -5,7 +5,9 @@ namespace App\Infrastructure\Persistence\Microclimate;
 
 
 use App\Domain\Microclimate\Microclimate;
+use App\Domain\Microclimate\MicroclimateNotFoundException;
 use App\Domain\Microclimate\MicroclimateRepository;
+use App\Domain\User\UserNotFoundException;
 use Psr\Container\ContainerInterface;
 
 class DoctrineMicroclimateRepository implements MicroclimateRepository
@@ -24,17 +26,27 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
     public function findAll(int $id_user): array
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
+        if($user===null){
+            throw new UserNotFoundException();
+        }
         return $user->getMicroclimates()->getValues();
     }
 
     public function findById(int $id_microclimate): Microclimate
     {
-        return $this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
+        $microclimate = $this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
+        if($microclimate===null){
+            throw new MicroclimateNotFoundException();
+        }
+        return $microclimate;
     }
 
     public function createMicroclimate(int $id_user, array $params): Microclimate
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
+        if($user===null){
+            throw new UserNotFoundException();
+        }
         $lightStartTime = new \DateTime($params["lightStartTime"]);
         $microclimate = new Microclimate(null,
             $params["name"],
@@ -53,6 +65,9 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
     public function deleteMicroclimate(int $id_microclimate): bool
     {
         $microclimate = $this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
+        if($microclimate===null){
+            throw new MicroclimateNotFoundException();
+        }
         $this->entityManager->remove($microclimate);
         $this->entityManager->flush();
         return true;
@@ -72,6 +87,9 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
     public function updateMicroclimate(int $id_microclimate,array $params): Microclimate
     {
         $microclimate =$this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
+        if($microclimate===null){
+            throw new MicroclimateNotFoundException();
+        }
         if(isset($params["name"])){
             $microclimate->setName($params["name"]);
         }

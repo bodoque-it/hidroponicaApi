@@ -5,6 +5,7 @@ namespace App\Infrastructure\Persistence\Infrastructure;
 
 
 use App\Domain\Infrastructure\Infrastructure;
+use App\Domain\Infrastructure\InfrastructureNotFoundException;
 use App\Domain\Infrastructure\InfrastructureRepository;
 use App\Domain\User\UserNotFoundException;
 use Psr\Container\ContainerInterface;
@@ -32,12 +33,19 @@ class DoctrineInfrastructureRepository implements InfrastructureRepository
 
     public function findById(int $id_infrastructure): Infrastructure
     {
-        return $this->entityManager->find("App\Domain\Infrastructure\Infrastructure",$id_infrastructure);
+        $infrastructure = $this->entityManager->find("App\Domain\Infrastructure\Infrastructure",$id_infrastructure);
+        if($infrastructure===null){
+            throw new InfrastructureNotFoundException();
+        }
+        return $infrastructure;
     }
 
     public function deleteInfrastructure(int $id_infrastructure): bool
     {
         $infrastructure = $this->entityManager->find("App\Domain\Infrastructure\Infrastructure",$id_infrastructure);
+        if($infrastructure===null){
+            throw new InfrastructureNotFoundException();
+        }
         $this->entityManager->remove($infrastructure);
         $this->entityManager->flush();
         return true;

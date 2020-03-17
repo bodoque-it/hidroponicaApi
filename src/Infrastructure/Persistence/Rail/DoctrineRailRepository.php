@@ -5,6 +5,7 @@ namespace App\Infrastructure\Persistence\Rail;
 
 
 use App\Domain\Rail\Rail;
+use App\Domain\Rail\RailNotFoundException;
 use App\Domain\Rail\RailRepository;
 use App\Domain\User\UserNotFoundException;
 use Psr\Container\ContainerInterface;
@@ -28,6 +29,9 @@ class DoctrineRailRepository implements RailRepository
     {
         $res = array();
         $user = $this->entityManager->find("App\Domain\User\User",$id);
+        if($user===null){
+            throw new UserNotFoundException();
+        }
         $rails = $user->getRails()->getValues();
         foreach ($rails as $rail){
             array_push($res,$rails->getContainers()->getValues());
@@ -55,6 +59,9 @@ class DoctrineRailRepository implements RailRepository
     public function createRail(?string $id, array $params): Rail
     {
         $user = $this->entityManager->find("App\Domain\User\User",(int)$id);
+        if($user===null){
+            throw new UserNotFoundException();
+        }
         $rail = new Rail(null,$params["name"]);
         $rail->setOwner($user);
         $this->entityManager->persist($rail);
@@ -64,7 +71,11 @@ class DoctrineRailRepository implements RailRepository
 
     public function getRailById(?string $id_user, ?string $id_rail): Rail
     {
-        return $this->entityManager->find("App\Domain\Rail\Rail",(int)$id_rail);
+        $rail = $this->entityManager->find("App\Domain\Rail\Rail",(int)$id_rail);
+        if($rail===null){
+            throw new RailNotFoundException();
+        }
+        return $rail;
         //return $rail->getContainers()->getValues();
         //$rail->setContainers($rail->getContainers()->getValues());
         //return $rail;
@@ -74,6 +85,9 @@ class DoctrineRailRepository implements RailRepository
     public function updateRail(?string $id_user, ?string $id_rail, array $params): Rail
     {
         $rail = $this->entityManager->find("App\Domain\Rail\Rail",(int)$id_rail);
+        if($rail==null){
+            throw new RailNotFoundException();
+        }
         if(isset($params["name"])){
             $rail->setName($params["name"]);
         }
@@ -84,6 +98,9 @@ class DoctrineRailRepository implements RailRepository
     public function deleteRail(?string $id_user, ?string $id_rail): bool
     {
         $rail = $this->entityManager->find("App\Domain\Rail\Rail",(int)$id_rail);
+        if($rail===null){
+            throw new RailNotFoundException();
+        }
         $this->entityManager->remove($rail);
         $this->entityManager->flush();
         return true;
