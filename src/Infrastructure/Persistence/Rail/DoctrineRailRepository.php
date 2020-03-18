@@ -4,6 +4,7 @@
 namespace App\Infrastructure\Persistence\Rail;
 
 
+use App\Domain\Infrastructure\InfrastructureNotFoundException;
 use App\Domain\Rail\Rail;
 use App\Domain\Rail\RailNotFoundException;
 use App\Domain\Rail\RailRepository;
@@ -63,6 +64,12 @@ class DoctrineRailRepository implements RailRepository
             throw new UserNotFoundException();
         }
         $rail = new Rail(null,$params["name"]);
+        $infrastructure_address = $params["infrastructure_address"];
+        $infrastructure = $this->entityManager->find("App\Domain\Infrastructure\Infrastructure",$infrastructure_address);
+        if($infrastructure==null){
+            throw new InfrastructureNotFoundException();
+        }
+        $rail->setInfrastructure($infrastructure);
         $rail->setOwner($user);
         $this->entityManager->persist($rail);
         $this->entityManager->flush();
