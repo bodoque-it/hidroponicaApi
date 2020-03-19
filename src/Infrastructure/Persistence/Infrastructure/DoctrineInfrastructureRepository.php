@@ -40,7 +40,7 @@ class DoctrineInfrastructureRepository implements InfrastructureRepository
         return $infrastructure;
     }
 
-    public function deleteInfrastructure(int $id_infrastructure): bool
+    public function deleteInfrastructure(string $id_infrastructure): bool
     {
         $infrastructure = $this->entityManager->find("App\Domain\Infrastructure\Infrastructure",$id_infrastructure);
         if($infrastructure===null){

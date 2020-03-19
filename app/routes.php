@@ -110,6 +110,6 @@ return function (App $app) {
     $app->group('/api/infrastructures',function(Group $group) use($container){
        $group->get('/{id_user}',ListInfrastructureAction::class);
        $group->post('/{id_user}',CreateInfrastructureAction::class);
-       $group->delete('/{id_infrastructure}',DeleteInfrastructureActison::class);
+       $group->delete('/{id_infrastructure}',DeleteInfrastructureAction::class);
     });
 };

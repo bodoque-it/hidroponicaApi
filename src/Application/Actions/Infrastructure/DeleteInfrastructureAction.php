@@ -18,6 +18,6 @@ class DeleteInfrastructureAction extends InfrastructureAction
     {
         $id_infrastructure = $this->resolveArg('id_infrastructure');
         $res = $this->infrastructureRepository->deleteInfrastructure($id_infrastructure);
-        $this->respondWithData($res);
+        return $this->respondWithData($res);
     }
 }
