@@ -13,8 +13,8 @@ class ViewRailAction extends RailAction
      */
     protected function action(): \Psr\Http\Message\ResponseInterface
     {
-        $id_user = $this->getUrlParam("id");
-        $id_rail = $this->getUrlParam("id_rail");
+        $id_user = $this->resolveArg("id");
+        $id_rail = $this->resolveArg("id_rail");
         $rail = $this->railRepository->getRailById($id_user,$id_rail);
         return $this->respondWithData($rail);
     }

@@ -18,7 +18,7 @@ class ListRailAction extends RailAction
         if(isset($jwt)){
 
         }*/
-        $id = $this->getUrlParam('id');
+        $id = $this->resolveArg('id');
         $allRails = $this->railRepository->getAllRails((int) $id);
 //        foreach ($allRails as $rail) {
 //            $containers = $rail->getContainers()->getValues();

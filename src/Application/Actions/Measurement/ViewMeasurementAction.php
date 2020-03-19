@@ -16,7 +16,7 @@ class ViewMeasurementAction extends MeasurementAction
      */
     protected function action(): Response
     {
-        $id_cycle = $this->getUrlParam('id_cycle');
+        $id_cycle = $this->resolveArg('id_cycle');
         $cycle = $this->measurementRepository->findById($id_cycle);
         return $this->respondWithData($cycle);
     }

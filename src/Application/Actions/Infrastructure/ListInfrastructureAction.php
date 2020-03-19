@@ -16,7 +16,7 @@ class ListInfrastructureAction extends InfrastructureAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam('id_user');
+        $id_user = $this->resolveArg('id_user');
         $infrastructures = $this->infrastructureRepository->findAll($id_user);
         return $this->respondWithData($infrastructures);
     }

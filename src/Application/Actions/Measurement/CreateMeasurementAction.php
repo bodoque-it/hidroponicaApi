@@ -16,7 +16,7 @@ class CreateMeasurementAction extends MeasurementAction
      */
     protected function action(): Response
     {
-        $id_cycle = $this->getUrlParam('id_cycle');
+        $id_cycle = $this->resolveArg('id_cycle');
         $params = $this->getFormData();
         $measurement = $this->measurementRepository->createMeasurement($id_cycle,$params);
         $this->logger->info($measurement->getId());

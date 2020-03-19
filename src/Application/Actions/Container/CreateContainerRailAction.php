@@ -14,8 +14,8 @@ class CreateContainerRailAction extends  ContainerAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam("id");
-        $id_rail = $this->getUrlParam("id_rail");
+        $id_user = $this->resolveArg("id");
+        $id_rail = $this->resolveArg("id_rail");
         $params = $this->getFormData();
         $container = $this->containerRepository->createContainerInRail((int)$id_user,(int)$id_rail,$params);
         return $this->respondWithData($container);

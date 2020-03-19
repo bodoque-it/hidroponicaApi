@@ -13,7 +13,7 @@ class CreateRailAction extends RailAction
 
     protected function action(): Response
     {
-        $id = $this->getUrlParam('id');
+        $id = $this->resolveArg('id');
         $params = $this->getFormData();
         $this->railRepository->createRail($id, $params);
         return $this->respondWithData();

@@ -18,8 +18,8 @@ class UpdateRailAction extends RailAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam("id");
-        $id_rail = $this->getUrlParam("id_rail");
+        $id_user = $this->resolveArg("id");
+        $id_rail = $this->resolveArg("id_rail");
         $params = $this->getFormData();
         $this->railRepository->updateRail($id_user,$id_rail,$params);
         return $this->respondWithData();

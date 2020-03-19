@@ -16,7 +16,7 @@ class DeleteMicroclimateAction extends MicroclimateAction
      */
     protected function action(): Response
     {
-        $id_microclimate = $this->getUrlParam('id_microclimate');
+        $id_microclimate = $this->resolveArg('id_microclimate');
         $res = $this->microclimateRepository->deleteMicroclimate($id_microclimate);
         return $this->respondWithData($res);
     }

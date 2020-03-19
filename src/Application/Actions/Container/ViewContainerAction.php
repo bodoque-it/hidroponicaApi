@@ -18,7 +18,7 @@ class ViewContainerAction extends ContainerAction
      */
     protected function action(): Response
     {
-        $id_cont = $this->getUrlParam("id_cont");
+        $id_cont = $this->resolveArg("id_cont");
         $id = $this->getUrlParam("id");
         $cont = $this->containerRepository->findById($id,$id_cont);
         return $this->respondWithData($cont);

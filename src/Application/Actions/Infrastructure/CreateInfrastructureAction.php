@@ -16,7 +16,7 @@ class CreateInfrastructureAction extends InfrastructureAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam('id_user');
+        $id_user = $this->resolveArg('id_user');
         $params = $this->getFormData();
         if(!isset($params["address"])){
             throw new HttpBadRequestException($this->request);

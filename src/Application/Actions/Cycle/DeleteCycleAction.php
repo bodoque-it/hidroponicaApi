@@ -16,7 +16,7 @@ class DeleteCycleAction extends CycleAction
      */
     protected function action(): Response
     {
-        $id_cycle = $this->getUrlParam('id_cycle');
+        $id_cycle = $this->resolveArg('id_cycle');
         $result = $this->cycleRepository->deleteCycle($id_cycle);
         return $this->respondWithData($result);
 

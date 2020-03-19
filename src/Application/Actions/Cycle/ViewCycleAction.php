@@ -15,8 +15,8 @@ class ViewCycleAction extends CycleAction
      */
     protected function action(): Response
     {
-        $id_cycle = $this->getUrlParam('id_cycle');
-        $id_user = $this->getUrlParam('id_user');
+        $id_cycle = $this->resolveArg('id_cycle');
+        $id_user = $this->resolveArg('id_user');
         $cycle = $this->cycleRepository->findById($id_cycle);
         if($id_user != $cycle->getOwner()->getId()){
             throw new HttpBadRequestException($this->request);

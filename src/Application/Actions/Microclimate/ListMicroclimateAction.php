@@ -16,7 +16,7 @@ class ListMicroclimateAction extends MicroclimateAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam('id_user');
+        $id_user = $this->resolveArg('id_user');
         $microclimate = $this->microclimateRepository->findAll($id_user);
         return $this->respondWithData($microclimate);
     }

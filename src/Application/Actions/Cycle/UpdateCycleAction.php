@@ -15,7 +15,7 @@ class UpdateCycleAction extends CycleAction
      */
     protected function action(): Response
     {
-        $id_cycle = $this->getUrlParam('id_cycle');
+        $id_cycle = $this->resolveArg('id_cycle');
         $params = $this->getFormData();
         $cycle = $this->cycleRepository->updateCycle($id_cycle,$params);
         return $this->respondWithData($cycle);

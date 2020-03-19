@@ -14,7 +14,7 @@ class ListCycleAction extends CycleAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam("id_user");
+        $id_user = $this->resolveArg("id_user");
         $cycles = $this->cycleRepository->findAll($id_user);
         return $this->respondWithData($cycles);
     }

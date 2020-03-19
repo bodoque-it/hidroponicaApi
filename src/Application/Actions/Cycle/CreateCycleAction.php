@@ -16,7 +16,7 @@ class CreateCycleAction extends CycleAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam('id_user');
+        $id_user = $this->resolveArg('id_user');
         $params = $this->getFormData();
         $cycle = $this->cycleRepository->createCycle($id_user,$params);
         $this->logger->info($cycle->getId());

@@ -18,7 +18,7 @@ class ListContainersAction extends ContainerAction
      */
     protected function action(): Response
     {
-        $id = $this->getUrlParam("id");
+        $id = $this->resolveArg("id");
 /*
         $jwt = $this->auth();
 

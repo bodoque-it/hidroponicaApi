@@ -19,7 +19,7 @@ class UpdateUserAction extends UserAction
     protected function action(): Response
     {
         $contents = $this->getFormData();
-        $id_user = $this->getUrlParam("id");
+        $id_user = $this->resolveArg("id");
         $newUser = $this->userRepository->updateUser($id_user,$contents);
         return $this->respondWithData($newUser);
     }
