@@ -9,6 +9,7 @@ use App\Application\Actions\Cycle\ListCycleAction;
 use App\Application\Actions\Cycle\UpdateCycleAction;
 use App\Application\Actions\Cycle\ViewCycleAction;
 use App\Application\Actions\Infrastructure\CreateInfrastructureAction;
+use App\Application\Actions\Infrastructure\DeleteInfrastructureAction;
 use App\Application\Actions\Infrastructure\ListInfrastructureAction;
 use App\Application\Actions\Measurement\CreateMeasurementAction;
 use App\Application\Actions\Measurement\ListMeasurementAction;
@@ -109,5 +110,6 @@ return function (App $app) {
     $app->group('/api/infrastructures',function(Group $group) use($container){
        $group->get('/{id_user}',ListInfrastructureAction::class);
        $group->post('/{id_user}',CreateInfrastructureAction::class);
+       $group->delete('/{id_infrastructure}',DeleteInfrastructureActison::class);
     });
 };
