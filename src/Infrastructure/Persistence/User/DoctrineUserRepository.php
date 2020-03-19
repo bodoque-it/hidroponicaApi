@@ -9,7 +9,7 @@ use App\Domain\User\UserRepository;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
-class UserDoctrineRepository implements UserRepository
+class DoctrineUserRepository implements UserRepository
 {
     /**
      * @var doctrine

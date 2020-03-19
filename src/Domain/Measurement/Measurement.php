@@ -117,6 +117,12 @@ class Measurement implements JsonSerializable{
      */
     public function jsonSerialize()
     {
-        // TODO: Implement jsonSerialize() method.
+        return [
+            'id'=>$this->getId(),
+            'humidity'=>$this->getHumidity(),
+            'temperature'=>$this->getTemperature(),
+            'date'=>$this->getDate(),
+            'cycle'=>$this->getCycle()
+        ];
     }
 }

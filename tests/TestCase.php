@@ -36,7 +36,7 @@ class TestCase extends PHPUnit_TestCase
         $dependencies($containerBuilder);
 
         // Set up repositories
-        $repositories = require __DIR__ . '/../app/repositories.php';
+        $repositories = require __DIR__ . '/repositories.php';
         $repositories($containerBuilder);
 
         // Build PHP-DI Container instance
@@ -81,6 +81,6 @@ class TestCase extends PHPUnit_TestCase
             $h->addHeader($name, $value);
         }
 
-        return new SlimRequest($method, $uri, $h, $serverParams, $cookies, $stream);
+        return new SlimRequest($method, $uri, $h, $serverParams, $cookies,$stream);
     }
 }

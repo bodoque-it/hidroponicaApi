@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Domain\Rail;
 
 use App\Domain\Container\Container;
+use App\Domain\Infrastructure\Infrastructure;
 use Doctrine\Common\Collections\ArrayCollection;
 use JsonSerializable;
 use App\Domain\User\User;
@@ -12,15 +13,14 @@ class Rail implements JsonSerializable
 {
     private $id;
     private $name;
-    private $location;
     private $containers;
     private $owner;
+    private $infrastructure;
 
-    public function __construct(?int $id,string $name,string $location)
+    public function __construct(?int $id,string $name)
     {
         $this->id = $id;
         $this->name = $name;
-        $this->location = $location;
         $this->containers = new ArrayCollection();
     }
     /**
@@ -42,19 +42,6 @@ class Rail implements JsonSerializable
     /**
      * @return string
      */
-    public function getLocation(): string
-    {
-        return $this->location;
-    }
-
-    /**
-     * @param string $location
-     */
-    public function setLocation(string $location): void
-    {
-        $this->location = $location;
-    }
-
 
     /**
      * @return int
@@ -85,9 +72,9 @@ class Rail implements JsonSerializable
     {
         return [
             "id"=>$this->id,
-            "location" =>$this->location,
             "name" => $this->name,
             "containers" => $this->getContainers()->getValues(),
+            "infrastructure"=>$this->getInfrastructure()
         ];
     }
 
@@ -106,5 +93,23 @@ class Rail implements JsonSerializable
     {
         $this->containers[] = $containers;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getInfrastructure()
+    {
+        return $this->infrastructure;
+    }
+
+    /**
+     * @param mixed $infrastructure
+     */
+    public function setInfrastructure(Infrastructure $infrastructure): void
+    {
+        $infrastructure->addRails($this);
+        $this->infrastructure = $infrastructure;
+    }
+
 
 }

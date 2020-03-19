@@ -30,10 +30,14 @@
             </cascade>
         </one-to-many>
 
-        <one-to-many target-entity="App\Domain\Cycle\Cycle" field="cycles" mapped-by="owner" />
+        <one-to-many target-entity="App\Domain\Cycle\Cycle" field="cycles" mapped-by="owner" >
+            <cascade>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
 
         <one-to-many target-entity="App\Domain\Microclimate\Microclimate" field="microclimates" mapped-by="owner" />
 
-
+        <one-to-many field="infrastructures" target-entity="App\Domain\Infrastructure\Infrastructure" mapped-by="owner"/>
     </entity>
 </doctrine-mapping>

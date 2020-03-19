@@ -5,7 +5,10 @@ namespace App\Infrastructure\Persistence\Container;
 
 
 use App\Domain\Container\Container;
+use App\Domain\Container\ContainerNotFoundException;
 use App\Domain\Container\ContainerRepository;
+use App\Domain\Rail\RailNotFoundException;
+use App\Domain\User\UserNotFoundException;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -26,17 +29,27 @@ class DoctrineContainerRepository implements ContainerRepository
     public function findAll(int $user_id): array
     {
         $user = $this->entityManager->find("App\Domain\User\User",$user_id);
+        if($user===null){
+            throw new UserNotFoundException();
+        }
         return $user->getContainers()->getValues();
     }
 
     public function findById(int $id_user, int $id): Container
     {
-        return $this->entityManager->find("App\Domain\Container\Container",$id);
+        $container =  $this->entityManager->find("App\Domain\Container\Container",$id);
+        if($container===null){
+            throw new ContainerNotFoundException();
+        }
+        return $container;
     }
 
     public function createContainer(int $id, array $params): Container
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id);
+        if($user===null){
+            throw new UserNotFoundException();
+        }
         $container = new Container(null,$params["volume"],$params["name"]);
         $container->setOwner($user);
         $this->entityManager->persist($container);
@@ -47,6 +60,9 @@ class DoctrineContainerRepository implements ContainerRepository
     public function deleteContainer(int $id): bool
     {
         $container = $this->entityManager->find("App\Domain\Container\Container",$id);
+        if($container===null){
+            throw new ContainerNotFoundException();
+        }
         $this->entityManager->remove($container);
         $this->entityManager->flush();
         return true;
@@ -55,6 +71,9 @@ class DoctrineContainerRepository implements ContainerRepository
     public function updateContainer(int $id, array $params): Container
     {
         $container = $this->entityManager->find("App\Domain\Container\Container",$id);
+        if($container===null){
+            throw new ContainerNotFoundException();
+        }
         if(isset($params["name"])){
             $container->setName($params["name"]);
         }
@@ -89,7 +108,13 @@ class DoctrineContainerRepository implements ContainerRepository
     public function createContainerInRail(int $id_user, int $id_rail, array $params):Container
     {
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
+        if($user===null){
+            throw new UserNotFoundException();
+        }
         $rail = $this->entityManager->find("App\Domain\Rail\Rail",$id_rail);
+        if($rail===null){
+            throw new RailNotFoundException();
+        }
         $container = new Container(null,$params["volume"],$params["name"]);
         $container->setOwner($user);
         $container->setRail($rail);

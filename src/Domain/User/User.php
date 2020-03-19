@@ -5,6 +5,7 @@ namespace App\Domain\User;
 
 use App\Domain\Container\Container;
 use App\Domain\Cycle\Cycle;
+use App\Domain\Infrastructure\Infrastructure;
 use App\Domain\Microclimate\Microclimate;
 use App\Domain\Rail\Rail;
 use JsonSerializable;
@@ -50,6 +51,8 @@ class User implements JsonSerializable
     private $cycles;
 
     private $microclimates;
+
+    private $infrastructures;
     /**
      * @return mixed
      */
@@ -96,6 +99,23 @@ class User implements JsonSerializable
         $this->rails = new ArrayCollection();
         $this->cycles = new ArrayCollection();
         $this->microclimates = new ArrayCollection();
+        $this->infrastructures = new ArrayCollection();
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getInfrastructures()
+    {
+        return $this->infrastructures;
+    }
+
+    /**
+     * @param Infrastructure $infrastructure
+     */
+    public function addInfrastructures(Infrastructure $infrastructure): void
+    {
+        $this->infrastructures[] = $infrastructure;
     }
 
     public function getContainers()
@@ -172,7 +192,7 @@ class User implements JsonSerializable
     /**
      * @return mixed
      */
-    public function getMicroclimates():array
+    public function getMicroclimates()
     {
         return $this->microclimates;
     }
@@ -197,7 +217,8 @@ class User implements JsonSerializable
             'firstName' => $this->firstName,
             'lastName' => $this->lastName,
             'email' => $this->email,
-            'rails' => $this->getRails()->getValues()
+            'rails' => $this->getRails()->getValues(),
+            'infrastructures'=>$this->getInfrastructures()->getValues()
         ];
     }
 }

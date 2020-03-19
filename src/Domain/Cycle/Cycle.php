@@ -156,7 +156,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getMeasurements():array
+    public function getMeasurements()
     {
         return $this->measurements;
     }
@@ -175,6 +175,11 @@ class Cycle implements JsonSerializable {
      */
     public function jsonSerialize()
     {
-        // TODO: Implement jsonSerialize() method.
+        return [
+            'id' => $this->getId(),
+            'estimated_date' => $this->getEstimatedDate(),
+            'finish_date' => $this->getFinishDate(),
+            'start_date' => $this->getStartDate(),
+        ];
     }
 }

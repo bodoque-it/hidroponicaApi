@@ -10,6 +10,7 @@ interface MicroclimateRepository
     public function findById(int $id_microclimate):Microclimate;
     public function createMicroclimate(int $id_user,array $params):Microclimate;
     public function deleteMicroclimate(int $id_measurement):bool ;
+    public function updateMicroclimate(int $id_microclimate,array $params):Microclimate;
     public function getParams():array;
 
 }

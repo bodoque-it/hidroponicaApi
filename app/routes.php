@@ -2,6 +2,22 @@
 declare(strict_types=1);
 
 use App\Application\Actions\Container\CreateContainerRailAction;
+use App\Application\Actions\Cycle\CreateCycleAction;
+use App\Application\Actions\Cycle\CreateCycleComplete;
+use App\Application\Actions\Cycle\DeleteCycleAction;
+use App\Application\Actions\Cycle\ListCycleAction;
+use App\Application\Actions\Cycle\UpdateCycleAction;
+use App\Application\Actions\Cycle\ViewCycleAction;
+use App\Application\Actions\Infrastructure\CreateInfrastructureAction;
+use App\Application\Actions\Infrastructure\ListInfrastructureAction;
+use App\Application\Actions\Measurement\CreateMeasurementAction;
+use App\Application\Actions\Measurement\ListMeasurementAction;
+use App\Application\Actions\Measurement\ViewMeasurementAction;
+use App\Application\Actions\Microclimate\CreateMicroclimateAction;
+use App\Application\Actions\Microclimate\DeleteMicroclimateAction;
+use App\Application\Actions\Microclimate\ListMicroclimateAction;
+use App\Application\Actions\Microclimate\UpdateMicroclimateAction;
+use App\Application\Actions\Microclimate\ViewMicroclimateAction;
 use App\Application\Actions\Rail\ListRailAction;
 use App\Application\Actions\Rail\MakeRailAction;
 use App\Application\Actions\Rail\EditRailAction;
@@ -57,6 +73,15 @@ return function (App $app) {
         $group->post('/{id}/{id_rail}',CreateContainerRailAction::class);
     });
 
+    $app->group('/api/cycles',function(Group $group) use ($container){
+        $group->get('/{id_user}',ListCycleAction::class);
+        $group->get('/{id_user}/{id_cycle}',ViewCycleAction::class);
+        $group->post('/{id_user}',CreateCycleAction::class);
+        $group->put('/{id_cycle}',UpdateCycleAction::class);
+        $group->delete('/{id_cycle}',DeleteCycleAction::class);
+        $group->post('/{id_user}/{id_container}/{id_microclimate}',CreateCycleComplete::class);
+    });
+
     $app->group('/api/rails',function (Group $group) use($container){
         $group->get('/edit',EditRailAction::class);
         $group->get('/new',MakeRailAction::class);
@@ -65,5 +90,24 @@ return function (App $app) {
         $group->get('/{id}/{id_rail}',ViewRailAction::class);
         $group->put('/{id}/{id_rail}',UpdateRailAction::class);
         $group->delete('/{id}/{id_rail}',DeleteRailAction::class);
+    });
+
+    $app->group('/api/measurements',function(Group $group) use ($container){
+        $group->get('/{id_cycle}',ListMeasurementAction::class);
+        $group->post('/{id_cycle}',CreateMeasurementAction::class);
+        $group->get('/{id_user}/{id_cycle}',ViewMeasurementAction::class);
+    });
+
+    $app->group('/api/microclimates',function(Group $group) use ($container){
+       $group->get('/{id_user}',ListMicroclimateAction::class);
+       $group->get('/{id_user}/{id_microclimate}',ViewMicroclimateAction::class);
+       $group->post('/{id_user}',CreateMicroclimateAction::class);
+       $group->delete('/{id_user}/{id_microclimate}',DeleteMicroclimateAction::class);
+       $group->put('/{id_user}/{id_microclimate}',UpdateMicroclimateAction::class);
+    });
+
+    $app->group('/api/infrastructures',function(Group $group) use($container){
+       $group->get('/{id_user}',ListInfrastructureAction::class);
+       $group->post('/{id_user}',CreateInfrastructureAction::class);
     });
 };

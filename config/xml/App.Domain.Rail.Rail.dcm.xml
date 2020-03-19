@@ -10,8 +10,6 @@
 
         <field name="name" type="string"/>
 
-        <field name="location" type="string"/>
-
         <many-to-one target-entity="App\Domain\User\User" field="owner" inversed-by="rails" />
 
         <one-to-many target-entity="App\Domain\Container\Container" field="containers" mapped-by="rail" >
@@ -20,5 +18,8 @@
                 <cascade-remove/>
             </cascade>
         </one-to-many>
+        <many-to-one field="infrastructure" target-entity="App\Domain\Infrastructure\Infrastructure" >
+            <join-column name="infrastructure_address" referenced-column-name="address" />
+        </many-to-one>
     </entity>
 </doctrine-mapping>

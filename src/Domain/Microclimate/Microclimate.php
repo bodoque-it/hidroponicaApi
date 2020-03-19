@@ -197,6 +197,14 @@ class Microclimate implements JsonSerializable{
      */
     public function jsonSerialize()
     {
-        // TODO: Implement jsonSerialize() method.
+        return [
+            'id'=>$this->getId(),
+            'name' =>$this->getName(),
+            'dailyHours' =>$this->getDailyHours(),
+            'intensity' =>$this->getIntensity(),
+            'lightType' =>$this->getLightType(),
+            'lightStartTime' =>$this->getLightStartTime(),
+            'waterPH' => $this->getWaterPH()
+        ];
     }
 }
