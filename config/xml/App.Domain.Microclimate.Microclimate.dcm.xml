@@ -18,6 +18,10 @@
         <field name="dailyHours" type="integer" />
         
         <field name="lightStartTime" type="datetime" />
+        
+        <field name="temperature" type="float" />
+        
+        <field name="humidity" type="float" />
 
         <many-to-one field="owner" target-entity="App\Domain\User\User" inversed-by="microclimates"/>
         <one-to-many field="cycles" target-entity="App\Domain\Cycle\Cycle" mapped-by="microclimate"/>

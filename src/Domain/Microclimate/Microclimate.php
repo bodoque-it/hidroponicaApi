@@ -19,19 +19,23 @@ class Microclimate implements JsonSerializable{
     private $dailyHours;
     private $lightStartTime;
     private $cycles;
+    private $humidity;
+    private $temperature;
 
     /**
      * Microclimate constructor.
-     * @param $id
-     * @param $owner
-     * @param $name
-     * @param $intensity
-     * @param $lightType
-     * @param $waterPH
-     * @param $dailyHours
-     * @param $lightStartTime
+     * @param int|null $id
+     * @param string $name
+     * @param float $intensity
+     * @param string $lightType
+     * @param float $waterPH
+     * @param int $dailyHours
+     * @param DateTime $lightStartTime
+     * @param float $humidity
+     * @param float $temperature
      */
-    public function __construct(?int $id,string $name,float $intensity,string $lightType,float $waterPH,int $dailyHours,DateTime $lightStartTime)
+    public function __construct(?int $id,string $name,float $intensity,string $lightType,float $waterPH,int $dailyHours,DateTime $lightStartTime
+    ,float $humidity,float $temperature)
     {
         $this->id = $id;
         $this->name = $name;
@@ -40,6 +44,8 @@ class Microclimate implements JsonSerializable{
         $this->waterPH = $waterPH;
         $this->dailyHours = $dailyHours;
         $this->lightStartTime = $lightStartTime;
+        $this->humidity = $this->setHumidity($humidity);
+        $this->temperature = $temperature;
         $this->cycles = new ArrayCollection();
     }
 
@@ -190,6 +196,43 @@ class Microclimate implements JsonSerializable{
         $this->cycles[] = $cycle;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getHumidity():float
+    {
+        return $this->humidity;
+    }
+
+    /**
+     * @param mixed $humidity
+     * @throws MicroclimateInvalidParameter
+     */
+    public function setHumidity(float $humidity): void
+    {
+        if($humidity>100 or $humidity<0){
+            throw new MicroclimateInvalidParameter();
+        }
+        $this->humidity = $humidity;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getTemperature():float
+    {
+        return $this->temperature;
+    }
+
+    /**
+     * @param mixed $temperature
+     */
+    public function setTemperature(float $temperature): void
+    {
+        $this->temperature = $temperature;
+    }
+
+
 
 
     /**
@@ -204,7 +247,9 @@ class Microclimate implements JsonSerializable{
             'intensity' =>$this->getIntensity(),
             'lightType' =>$this->getLightType(),
             'lightStartTime' =>$this->getLightStartTime(),
-            'waterPH' => $this->getWaterPH()
+            'waterPH' => $this->getWaterPH(),
+            'humidity'=>$this->getHumidity(),
+            'temperature' =>$this->getTemperature()
         ];
     }
 }

@@ -54,7 +54,9 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
             $params["lightType"],
             $params["waterPH"],
             $params["dailyHours"],
-            $lightStartTime
+            $lightStartTime,
+            $params["temperature"],
+            $params["humidity"]
         );
         $microclimate->setOwner($user);
         $this->entityManager->persist($microclimate);
@@ -104,6 +106,12 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
         }
         if(isset($params["dailyHours"])){
             $microclimate->setDailyHours($params["dailyHours"]);
+        }
+        if(isset($params["humidity"])){
+            $microclimate->setHumidity($params["humidity"]);
+        }
+        if(isset($params["temperature"])){
+            $microclimate->setTemperature($params["temperature"]);
         }
         if(isset($params["lightStartTime"])){
             $lightStartTime = new \DateTime($params["lightStartTime"]);
