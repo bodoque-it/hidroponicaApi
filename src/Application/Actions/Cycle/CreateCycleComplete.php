@@ -16,9 +16,9 @@ class CreateCycleComplete extends CycleAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam('id_user');
-        $id_container = $this->getUrlParam('id_container');
-        $id_microclimate = $this->getUrlParam('id_microclimate');
+        $id_user = $this->resolveArg('id_user');
+        $id_container = $this->resolveArg('id_container');
+        $id_microclimate = $this->resolveArg('id_microclimate');
         $params = $this->getFormData();
         $cycle = $this->cycleRepository->createCycleContainerMicroclimate($id_user,$id_container,$id_microclimate,$params);
         return $this->respondWithData($cycle);

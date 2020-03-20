@@ -18,7 +18,7 @@ class DeleteContainerAction extends ContainerAction
      */
     protected function action(): Response
     {
-        $id = $this->getUrlParam("id");
+        $id = $this->resolveArg("id");
         $res = $this->containerRepository->deleteContainer($id);
         return $this->respondWithData($res);
     }

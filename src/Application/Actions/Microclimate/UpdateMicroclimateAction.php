@@ -16,7 +16,7 @@ class UpdateMicroclimateAction extends MicroclimateAction
      */
     protected function action(): Response
     {
-        $id_microclimate = $this->getUrlParam('id_microclimate');
+        $id_microclimate = $this->resolveArg('id_microclimate');
         $params = $this->getFormData();
         $microclimate = $this->microclimateRepository->updateMicroclimate($id_microclimate,$params);
         return $this->respondWithData($microclimate);

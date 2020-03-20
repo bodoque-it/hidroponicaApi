@@ -18,7 +18,7 @@ class UpdateContainerAction extends ContainerAction
      */
     protected function action(): Response
     {
-        $id_cont = $this->getUrlParam("id");
+        $id_cont = $this->resolveArg("id");
         $params = $this->getFormData();
         $this->containerRepository->updateContainer($id_cont,$params);
         return $this->respondWithData();

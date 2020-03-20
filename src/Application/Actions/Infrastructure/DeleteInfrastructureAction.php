@@ -8,7 +8,7 @@ use App\Domain\DomainException\DomainRecordNotFoundException;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Exception\HttpBadRequestException;
 
-class ListInfrastructureAction extends InfrastructureAction
+class DeleteInfrastructureAction extends InfrastructureAction
 {
 
     /**
@@ -16,8 +16,8 @@ class ListInfrastructureAction extends InfrastructureAction
      */
     protected function action(): Response
     {
-        $id_user = $this->resolveArg('id_user');
-        $infrastructures = $this->infrastructureRepository->findAll($id_user);
-        return $this->respondWithData($infrastructures);
+        $id_infrastructure = $this->resolveArg('id_infrastructure');
+        $res = $this->infrastructureRepository->deleteInfrastructure($id_infrastructure);
+        return $this->respondWithData($res);
     }
 }

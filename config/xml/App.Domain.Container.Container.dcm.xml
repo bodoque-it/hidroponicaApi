@@ -17,6 +17,10 @@
         <many-to-one target-entity="App\Domain\User\User" field="owner" inversed-by="containers" />
         <many-to-one target-entity="App\Domain\Rail\Rail" field="rail" inversed-by="containers" />
 
-        <one-to-many field="cycles" target-entity="App\Domain\Cycle\Cycle" mapped-by="container"/>
+        <one-to-many field="cycles" target-entity="App\Domain\Cycle\Cycle" mapped-by="container">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
     </entity>
 </doctrine-mapping>

@@ -7,10 +7,11 @@
         <id name="address" type="string">
         </id>
         <many-to-one field="owner" target-entity="App\Domain\User\User" inversed-by="infrastructures">
+        </many-to-one>
+        <one-to-many field="rails" target-entity="App\Domain\Rail\Rail" mapped-by="infrastructure" >
             <cascade>
                 <cascade-remove/>
             </cascade>
-        </many-to-one>
-        <one-to-many field="rails" target-entity="App\Domain\Rail\Rail" mapped-by="infrastructure"/>
+        </one-to-many>
     </entity>
 </doctrine-mapping>

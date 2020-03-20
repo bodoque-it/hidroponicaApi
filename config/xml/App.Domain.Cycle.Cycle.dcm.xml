@@ -15,7 +15,11 @@
 
         <many-to-one target-entity="App\Domain\User\User" field="owner" inversed-by="cycles" >
         </many-to-one>
-        <one-to-many field="measurements" target-entity="App\Domain\Measurement\Measurement" mapped-by="cycle"/>
+        <one-to-many field="measurements" target-entity="App\Domain\Measurement\Measurement" mapped-by="cycle">
+            <cascade>
+                <cascade-remove/>
+            </cascade>
+        </one-to-many>
         <many-to-one target-entity="App\Domain\Container\Container" field="container" inversed-by="cycles" />
         <many-to-one field="microclimate" target-entity="App\Domain\Microclimate\Microclimate" inversed-by="cycles"/>
     </entity>

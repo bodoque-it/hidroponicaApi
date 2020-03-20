@@ -16,7 +16,7 @@ class CreateMicroclimateAction extends MicroclimateAction
      */
     protected function action(): Response
     {
-        $id_user = $this->getUrlParam('id_user');
+        $id_user = $this->resolveArg('id_user');
         $params = $this->getFormData();
         $microclimate = $this->microclimateRepository->createMicroclimate($id_user,$params);
         return $this->respondWithData($microclimate);
