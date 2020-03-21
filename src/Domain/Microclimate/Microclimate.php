@@ -44,7 +44,7 @@ class Microclimate implements JsonSerializable{
         $this->waterPH = $waterPH;
         $this->dailyHours = $dailyHours;
         $this->lightStartTime = $lightStartTime;
-        $this->humidity = $this->setHumidity($humidity);
+        $this->setHumidity($humidity);
         $this->temperature = $temperature;
         $this->cycles = new ArrayCollection();
     }
@@ -210,6 +210,7 @@ class Microclimate implements JsonSerializable{
      */
     public function setHumidity(float $humidity): void
     {
+        var_dump($humidity);
         if($humidity>100 or $humidity<0){
             throw new MicroclimateInvalidParameter();
         }
