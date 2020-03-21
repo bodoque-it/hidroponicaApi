@@ -98,6 +98,13 @@ class DoctrineRailRepository implements RailRepository
         if(isset($params["name"])){
             $rail->setName($params["name"]);
         }
+        if(isset($params["infrastructure"])){
+            $infrastructure = $this->entityManager->find("App\Domain\Infrastructure\Infrastructure",$params["infrastructure"]);
+            if($infrastructure===null){
+                throw new InfrastructureNotFoundException();
+            }
+            $rail->setInfrastructure($infrastructure);
+        }
         $this->entityManager->flush();
         return $rail;
     }
