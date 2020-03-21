@@ -67,7 +67,7 @@ return function (App $app) {
     $app->group('/api/containers', function (Group $group) use ($container) {
         $group->get('/new',MakeContainerAction::class);
         $group->get('/{id}', ListContainersAction::class);
-        $group->post('/{id}',CreateContainerAction::class);
+        //$group->post('/{id}',CreateContainerAction::class);
         $group->get('/{id}/{id_cont}',ViewContainerAction::class);
         $group->put('/{id}',UpdateContainerAction::class);
         $group->delete('/{id}',DeleteContainerAction::class);
