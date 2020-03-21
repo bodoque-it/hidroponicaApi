@@ -121,7 +121,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getContainer():Container
+    public function getContainer():?Container
     {
         return $this->container;
     }
@@ -138,7 +138,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getMicroclimate():Microclimate
+    public function getMicroclimate():?Microclimate
     {
         return $this->microclimate;
     }
@@ -179,6 +179,8 @@ class Cycle implements JsonSerializable {
             'estimated_date' => $this->getEstimatedDate(),
             'finish_date' => $this->getFinishDate(),
             'start_date' => $this->getStartDate(),
+            'microclimate' => $this->getMicroclimate(),
+            'container'=>$this->getContainer()
         ];
     }
 }

@@ -79,14 +79,20 @@ class DoctrineCycleRepository implements CycleRepository
             $estimated_date = new \DateTime($params["estimated_date"]);
             $cycle->setEstimatedDate($estimated_date);
         }
-        if(isset($params["container_id"])){
-            $container_id =(int) $params["container_id"];
+        if(isset($params["id_container"])){
+            $container_id =(int) $params["id_container"];
             $container = $this->entityManager->find("App\Domain\Container\Container",$container_id);
+            if($container===null){
+                throw new ContainerNotFoundException();
+            }
             $cycle->setContainer($container);
         }
-        if(isset($params["microclimate_id"])){
-            $microclimate_id =(int) $params["microclimate_id"];
+        if(isset($params["id_microclimate"])){
+            $microclimate_id =(int) $params["id_microclimate"];
             $microclimate = $this->entityManager->find("App\Domain\Microclimate\Microclimate",$microclimate_id);
+            if($microclimate===null){
+                throw new MicroclimateNotFoundException();
+            }
             $cycle->setMicroclimate($microclimate);
         }
         if(isset($params["isFinish"])){
