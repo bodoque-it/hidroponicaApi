@@ -55,8 +55,8 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
             $params["waterPH"],
             $params["dailyHours"],
             $lightStartTime,
-            $params["temperature"],
-            $params["humidity"]
+            $params["humidity"],
+            $params["temperature"]
         );
         $microclimate->setOwner($user);
         $this->entityManager->persist($microclimate);
