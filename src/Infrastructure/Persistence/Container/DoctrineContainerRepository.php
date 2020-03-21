@@ -32,6 +32,7 @@ class DoctrineContainerRepository implements ContainerRepository
         if($user===null){
             throw new UserNotFoundException();
         }
+        $this->logger->info("antes de pedir el valor");
         return $user->getContainers()->getValues();
     }
 
