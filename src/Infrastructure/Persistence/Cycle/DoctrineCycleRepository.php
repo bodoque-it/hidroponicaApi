@@ -51,8 +51,7 @@ class DoctrineCycleRepository implements CycleRepository
         }
         $start_date = new \DateTime($params["start_date"]);
         $estimated_date = new \DateTime($params["estimated_date"]);
-        $finish_date = new \DateTime($params["finish_date"]);
-        $cycle = new Cycle(null,$start_date,$estimated_date,$finish_date);
+        $cycle = new Cycle(null,$start_date,$estimated_date);
         $cycle->setOwner($user);
         $this->entityManager->persist($cycle);
         $this->entityManager->flush();
@@ -89,6 +88,19 @@ class DoctrineCycleRepository implements CycleRepository
             $microclimate_id =(int) $params["microclimate_id"];
             $microclimate = $this->entityManager->find("App\Domain\Microclimate\Microclimate",$microclimate_id);
             $cycle->setMicroclimate($microclimate);
+        }
+        if(isset($params["isFinish"])){
+            $nowDateTime = new DateTime('NOW');
+            $cycle->setFinishDate($nowDateTime);
+            $container_id =(int) $params["container_id"];
+            $container = $this->entityManager->find("App\Domain\Container\Container",$container_id);
+            if($container===null){
+                throw new ContainerNotFoundException();
+            }
+            if(!$container->isActive()){
+                throw new \Exception("What brother??");
+            }
+            $container->setActive(false);
         }
         $this->entityManager->flush();
         return $cycle;
