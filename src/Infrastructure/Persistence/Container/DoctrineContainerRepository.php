@@ -7,6 +7,7 @@ namespace App\Infrastructure\Persistence\Container;
 use App\Domain\Container\Container;
 use App\Domain\Container\ContainerNotFoundException;
 use App\Domain\Container\ContainerRepository;
+use App\Domain\Cycle\CycleNotFoundException;
 use App\Domain\Rail\RailNotFoundException;
 use App\Domain\User\UserNotFoundException;
 use Psr\Container\ContainerInterface;
@@ -83,6 +84,13 @@ class DoctrineContainerRepository implements ContainerRepository
         }
         if(isset($params["active"])){
             $container->setActive($params["active"]);
+        }
+        if(isset($params["id_cycle"])){
+            $cycle = $this->entityManager->find("App\Domain\Cycle\Cycle",$params["id_cycle"]);
+            if($cycle===null){
+                throw new CycleNotFoundException();
+            }
+            $container->addCycles($cycle);
         }
         $this->entityManager->flush();
         return $container;
