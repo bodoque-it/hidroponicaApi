@@ -221,4 +221,38 @@ class User implements JsonSerializable
             'infrastructures'=>$this->getInfrastructures()->getValues()
         ];
     }
+
+    public function getCountActiveContainers():int
+    {
+        $activeCountersQuantity = 0;
+        foreach ($this->getContainers()->getValues() as $container){
+            if($container->isActivate()){
+                $activeCountersQuantity++;
+            }
+        }
+        return $activeCountersQuantity;
+    }
+
+    public function getCountInactiveContainers()
+    {
+        $inactiveCountersQuantity = 0;
+        foreach ($this->getContainers()->getValues() as $container){
+            if(!$container->isActivate()){
+                $inactiveCountersQuantity++;
+            }
+        }
+        return $inactiveCountersQuantity;
+    }
+
+    public function getCountRails():int
+    {
+        return count($this->getRails()->getValues());
+    }
+
+    public function getCountMicroclimates()
+    {
+        return count($this->getMicroclimates()->getValues());
+    }
+
+
 }
