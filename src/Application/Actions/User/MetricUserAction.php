@@ -22,7 +22,8 @@ class MetricUserAction extends UserAction
             'active_container' => $user->getCountActiveContainers(),
             'inactivate_container' =>$user->getCountInactiveContainers(),
             'rails_quantity'=>$user->getCountRails(),
-            'microclimate_quantity'=>$user->getCountMicroclimates()
+            'microclimate_quantity'=>$user->getCountMicroclimates(),
+            'cycle_not_finish' =>$user->getCountCycleNotFinish()
         ];
         return $this->respondWithData($metrics);
     }

@@ -88,7 +88,7 @@ class Cycle implements JsonSerializable {
     /**
      * @return mixed
      */
-    public function getFinishDate():DateTime
+    public function getFinishDate():?DateTime
     {
         return $this->finishDate;
     }

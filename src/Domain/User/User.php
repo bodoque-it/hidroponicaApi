@@ -254,5 +254,16 @@ class User implements JsonSerializable
         return count($this->getMicroclimates()->getValues());
     }
 
+    public function getCountCycleNotFinish()
+    {
+        $counter= 0;
+        foreach ($this->getCycles()->getValues() as $cycle){
+            if($cycle->getFinishDate()=== null){
+                $counter++;
+            }
+        }
+        return $counter;
+    }
+
 
 }
