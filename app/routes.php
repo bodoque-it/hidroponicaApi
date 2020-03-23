@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 use App\Application\Actions\Container\CreateContainerRailAction;
+use App\Application\Actions\Cycle\AvailableContainerMicroclimateAction;
 use App\Application\Actions\Cycle\CreateCycleAction;
 use App\Application\Actions\Cycle\CreateCycleComplete;
 use App\Application\Actions\Cycle\DeleteCycleAction;
@@ -26,6 +27,7 @@ use App\Application\Actions\Rail\ViewRailAction;
 use App\Application\Actions\Rail\DeleteRailAction;
 use App\Application\Actions\Rail\UpdateRailAction;
 use App\Application\Actions\Rail\CreateRailAction;
+use App\Application\Actions\User\AvailableResourcesUserAction;
 use App\Application\Actions\User\CreateUserAction;
 use App\Application\Actions\User\DeleteUserAction;
 use App\Application\Actions\User\EditUserAction;
@@ -65,6 +67,7 @@ return function (App $app) {
         $group->put('/{id}',UpdateUserAction::class);
         $group->delete('/{id}',DeleteUserAction::class);
         $group->get('/metrics/{id}',MetricUserAction::class);
+        $group->get('/available/{id}',AvailableResourcesUserAction::class);
     });
     $app->group('/api/containers', function (Group $group) use ($container) {
         $group->get('/new',MakeContainerAction::class);
