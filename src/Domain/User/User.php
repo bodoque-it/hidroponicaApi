@@ -8,6 +8,7 @@ use App\Domain\Cycle\Cycle;
 use App\Domain\Infrastructure\Infrastructure;
 use App\Domain\Microclimate\Microclimate;
 use App\Domain\Rail\Rail;
+use Doctrine\Common\Collections\Criteria;
 use JsonSerializable;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -146,6 +147,13 @@ class User implements JsonSerializable
     public function getCycles(){
         return $this->cycles;
     }
+
+    public function getCyclesOrdered(){
+        $criteria = new Criteria();
+        $criteria->orderBy(['startDate' => Criteria::ASC]);
+        return  $this->getCycles()->matching($criteria);
+
+    }
     /**
      * @return int|null
      */
@@ -221,4 +229,49 @@ class User implements JsonSerializable
             'infrastructures'=>$this->getInfrastructures()->getValues()
         ];
     }
+
+    public function getCountActiveContainers():int
+    {
+        $activeCountersQuantity = 0;
+        foreach ($this->getContainers()->getValues() as $container){
+            if($container->isActivate()){
+                $activeCountersQuantity++;
+            }
+        }
+        return $activeCountersQuantity;
+    }
+
+    public function getCountInactiveContainers()
+    {
+        $inactiveCountersQuantity = 0;
+        foreach ($this->getContainers()->getValues() as $container){
+            if(!$container->isActivate()){
+                $inactiveCountersQuantity++;
+            }
+        }
+        return $inactiveCountersQuantity;
+    }
+
+    public function getCountRails():int
+    {
+        return count($this->getRails()->getValues());
+    }
+
+    public function getCountMicroclimates()
+    {
+        return count($this->getMicroclimates()->getValues());
+    }
+
+    public function getCountCycleNotFinish()
+    {
+        $counter= 0;
+        foreach ($this->getCycles()->getValues() as $cycle){
+            if($cycle->getFinishDate()=== null){
+                $counter++;
+            }
+        }
+        return $counter;
+    }
+
+
 }

@@ -31,7 +31,7 @@ class DoctrineCycleRepository implements CycleRepository
         if($user=== null){
             throw  new UserNotFoundException();
         }
-        return $user->getCycles()->getValues();
+        return $user->getCyclesOrdered()->getValues();
     }
 
     public function findById(int $id_cycle): Cycle

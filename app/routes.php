@@ -32,6 +32,7 @@ use App\Application\Actions\User\EditUserAction;
 use App\Application\Actions\User\ListUsersAction;
 use App\Application\Actions\User\LoginUserAction;
 use App\Application\Actions\User\LogoutUserAction;
+use App\Application\Actions\User\MetricUserAction;
 use App\Application\Actions\User\UpdateUserAction;
 use App\Application\Actions\User\ViewUserAction;
 use App\Application\Actions\Container\ListContainersAction;
@@ -63,6 +64,7 @@ return function (App $app) {
         $group->get('/{id}/edit',EditUserAction::class);
         $group->put('/{id}',UpdateUserAction::class);
         $group->delete('/{id}',DeleteUserAction::class);
+        $group->get('/metrics/{id}',MetricUserAction::class);
     });
     $app->group('/api/containers', function (Group $group) use ($container) {
         $group->get('/new',MakeContainerAction::class);
