@@ -8,6 +8,7 @@ use App\Domain\Cycle\Cycle;
 use App\Domain\Infrastructure\Infrastructure;
 use App\Domain\Microclimate\Microclimate;
 use App\Domain\Rail\Rail;
+use Doctrine\Common\Collections\Criteria;
 use JsonSerializable;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -145,6 +146,13 @@ class User implements JsonSerializable
 
     public function getCycles(){
         return $this->cycles;
+    }
+
+    public function getCyclesOrdered(){
+        $criteria = new Criteria();
+        $criteria->orderBy(['startDate' => Criteria::ASC]);
+        return  $this->getCycles()->matching($criteria);
+
     }
     /**
      * @return int|null
