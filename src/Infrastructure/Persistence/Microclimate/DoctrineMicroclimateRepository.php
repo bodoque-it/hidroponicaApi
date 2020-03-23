@@ -5,6 +5,7 @@ namespace App\Infrastructure\Persistence\Microclimate;
 
 
 use App\Domain\Microclimate\Microclimate;
+use App\Domain\Microclimate\MicroclimateAlreadyExists;
 use App\Domain\Microclimate\MicroclimateNotFoundException;
 use App\Domain\Microclimate\MicroclimateRepository;
 use App\Domain\User\UserNotFoundException;
@@ -46,6 +47,10 @@ class DoctrineMicroclimateRepository implements MicroclimateRepository
         $user = $this->entityManager->find("App\Domain\User\User",$id_user);
         if($user===null){
             throw new UserNotFoundException();
+        }
+        $container = $this->entityManager->getRepository('App\Domain\Microclimate\Microclimate')->findOneBy(array('name' => $params["name"]));
+        if(isset($container)){
+            throw new MicroclimateAlreadyExists();
         }
         $lightStartTime = new \DateTime($params["lightStartTime"]);
         $microclimate = new Microclimate(null,
