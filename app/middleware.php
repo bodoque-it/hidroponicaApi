@@ -16,15 +16,15 @@ return function (App $app) {
         "credentials" => true,
         "cache" => 86400
     ]));
-    $app->add(new Tuupola\Middleware\JwtAuthentication([
-        "secret" => getenv('SECRET_KEY'),
-        "path" => "/api",
-        "error" => function ($response, $arguments) {
-            $data["status"] = "error";
-            $data["message"] = $arguments["message"];
-            return $response
-                ->withHeader("Content-Type", "application/json")
-                ->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
-        }
-    ]));
+//    $app->add(new Tuupola\Middleware\JwtAuthentication([
+//        "secret" => getenv('SECRET_KEY'),
+//        "path" => "/api",
+//        "error" => function ($response, $arguments) {
+//            $data["status"] = "error";
+//            $data["message"] = $arguments["message"];
+//            return $response
+//                ->withHeader("Content-Type", "application/json")
+//                ->getBody()->write(json_encode($data, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT));
+//        }
+//    ]));
 };
