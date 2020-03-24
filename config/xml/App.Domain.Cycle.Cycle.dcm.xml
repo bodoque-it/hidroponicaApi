@@ -11,7 +11,7 @@
         
         <field name="estimatedDate" type="datetime" />
         
-        <field name="finishDate" type="datetime" />
+        <field name="finishDate" type="datetime" nullable="true"/>
 
         <many-to-one target-entity="App\Domain\User\User" field="owner" inversed-by="cycles" >
         </many-to-one>
