@@ -5,11 +5,13 @@ namespace App\Infrastructure\Persistence\Container;
 
 
 use App\Domain\Container\Container;
+use App\Domain\Container\ContainerAlreadyExists;
 use App\Domain\Container\ContainerNotFoundException;
 use App\Domain\Container\ContainerRepository;
 use App\Domain\Cycle\CycleNotFoundException;
 use App\Domain\Rail\RailNotFoundException;
 use App\Domain\User\UserNotFoundException;
+use mysql_xdevapi\Exception;
 use Psr\Container\ContainerInterface;
 use Psr\Log\LoggerInterface;
 
@@ -51,6 +53,10 @@ class DoctrineContainerRepository implements ContainerRepository
         $user = $this->entityManager->find("App\Domain\User\User",$id);
         if($user===null){
             throw new UserNotFoundException();
+        }
+        $container = $this->entityManager->getRepository('App\Domain\Container\Container')->findOneBy(array('name' => $params["name"]));
+        if(isset($container)){
+            throw new Exception('User exits');
         }
         $container = new Container(null,$params["volume"],$params["name"]);
         $container->setOwner($user);
@@ -123,6 +129,10 @@ class DoctrineContainerRepository implements ContainerRepository
         $rail = $this->entityManager->find("App\Domain\Rail\Rail",$id_rail);
         if($rail===null){
             throw new RailNotFoundException();
+        }
+        $container = $this->entityManager->getRepository('App\Domain\Container\Container')->findOneBy(array('name' => $params["name"]));
+        if(isset($container)){
+            throw new ContainerAlreadyExists();
         }
         $container = new Container(null,$params["volume"],$params["name"]);
         $container->setOwner($user);

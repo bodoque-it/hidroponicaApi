@@ -34,17 +34,13 @@ class LoginUserAction extends UserAction
                 "nbf" => $notbefore_claim,
                 "exp" => $expire_claim,
                 "data" => array(
-                    "id" => $user->getHashPassword(),
+                    "user" => $user,
                 ));
 
 
-            $jwt = JWT::encode($token, getenv("SECRET_KEY"));
-            $res = array(
-                "message"=>"Succesfully Login ",
-                "jwt"=>$jwt,
-                "expireAt"=>$expire_claim
-            );
-            return $this->respondWithData($res);
+            $jwt = JWT::encode($token, getenv('SECRET_KEY'));
+            $this->response =  $this->response->withHeader('Authorization','Bearer '.$jwt);
+            return $this->respondWithData("your ar login successfully");
         }else{
             return $this->respondWithError(404,"sale mono sapo");
         }

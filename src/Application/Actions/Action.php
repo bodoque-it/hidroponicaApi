@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 namespace App\Application\Actions;
 
+use App\Domain\DomainException\DomainRecordAlreadyExists;
 use App\Domain\DomainException\DomainRecordNotFoundException;
 use Firebase\JWT\JWT;
 use Psr\Http\Message\ResponseInterface as Response;
@@ -60,6 +61,8 @@ abstract class Action
             return $this->action();
         } catch (DomainRecordNotFoundException $e) {
             throw new HttpNotFoundException($this->request, $e->getMessage());
+        } catch( DomainRecordAlreadyExists $e){
+            throw new HttpBadRequestException($this->request,$e->getMessage());
         }
     }
     public function getUrlParam(string $param){

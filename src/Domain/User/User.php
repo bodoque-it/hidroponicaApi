@@ -273,5 +273,23 @@ class User implements JsonSerializable
         return $counter;
     }
 
+    public function getAvailableContainers():array
+    {
+        $containersAvailable = array();
+        foreach ($this->getContainers()->getValues() as $container){
+            if(!$container->isActivate()){
+                $containersAvailable[$container->getId()]= $container->getName();
+            }
+        }
+        return $containersAvailable;
+
+    }
+
+    public function getAvailableMicroclimates():array
+    {
+        return $this->getMicroclimates()->getValues();
+
+    }
+
 
 }

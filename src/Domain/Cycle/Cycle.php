@@ -6,6 +6,7 @@ use App\Domain\Container\Container;
 use App\Domain\Measurement\Measurement;
 use App\Domain\Microclimate\Microclimate;
 use App\Domain\User\User;
+use Cassandra\Date;
 use Doctrine\Common\Collections\ArrayCollection;
 use JsonSerializable;
 use DateTime;
@@ -31,7 +32,7 @@ class Cycle implements JsonSerializable {
     public function __construct(?int $id,DateTime $start_date,DateTime $estimated_date)
     {
         $this->id = $id;
-        $this->startDate = $start_date;
+        $this->startDate = new DateTime('NOW');
         $this->estimatedDate = $estimated_date;
         $this->measurements = new ArrayCollection();
     }

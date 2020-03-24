@@ -18,13 +18,9 @@ class LogoutUserAction extends UserAction
      */
     protected function action(): Response
     {
-        $jwt = $this->auth();
-        $res = array();
-        if(isset($jwt)){
-            $res["result"] = "logout";
-        }else{
-            $res["result"] = "Wtf Men";
+        if($this->request->hasHeader('Authorization')){
+            $this->response = $this->response->withoutHeader('Authorization');
         }
-        return $this->respondWithData($res);
+        return $this->respondWithData("Your are logged out");
     }
 }
