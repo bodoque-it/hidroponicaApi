@@ -56,7 +56,7 @@ return function (App $app) {
         $response->getBody()->write('Hello world!');
         return $response;
     });
-    $app->get('/login', LoginUserAction::class);
+    $app->post('/login', LoginUserAction::class);
     $app->get('/logout', LogoutUserAction::class);
 
     $app->group('/api/users', function (Group $group) use ($container) {
