@@ -278,7 +278,8 @@ class User implements JsonSerializable
         $containersAvailable = array();
         foreach ($this->getContainers()->getValues() as $container){
             if(!$container->isActivate()){
-                $containersAvailable[$container->getId()]= $container->getName();
+                //$containersAvailable[$container->getId()]= $container->getName();
+                array_push($containersAvailable,[$container->getId(),$container->getName()]);
             }
         }
         return $containersAvailable;
