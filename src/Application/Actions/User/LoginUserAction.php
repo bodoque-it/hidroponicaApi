@@ -40,7 +40,7 @@ class LoginUserAction extends UserAction
 
             $jwt = JWT::encode($token, getenv('SECRET_KEY'));
             $this->response =  $this->response->withHeader('Authorization','Bearer '.$jwt);
-            return $this->respondWithData("your ar login successfully");
+            return $this->respondWithData($jwt);
         }else{
             return $this->respondWithError(404,"sale mono sapo");
         }
