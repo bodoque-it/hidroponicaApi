@@ -116,9 +116,9 @@ class DoctrineCycleRepository implements CycleRepository
             if($container===null){
                 throw new ContainerNotFoundException();
             }
-            if(!$container->isActivate()){
-                throw new \Exception("What brother??");
-            }
+//            if(!$container->isActivate()){
+//                throw new \Exception("What brother??");
+//            }
             $container->setActive(false);
         }
         $this->entityManager->flush();
