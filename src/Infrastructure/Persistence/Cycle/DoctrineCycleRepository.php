@@ -108,15 +108,15 @@ class DoctrineCycleRepository implements CycleRepository
             }
             $cycle->setMicroclimate($microclimate);
         }
-        if(isset($params["isFinish"]) and $params["isFinish"]==true){
-            $nowDateTime = new DateTime('NOW');
+        if(isset($params["isFinish"]) and $params["isFinish"] == "1"  ){
+            $nowDateTime = new \DateTime('NOW');
             $cycle->setFinishDate($nowDateTime);
-            $container_id =(int) $params["container_id"];
+            $container_id =(int) $params["id_container"];
             $container = $this->entityManager->find("App\Domain\Container\Container",$container_id);
             if($container===null){
                 throw new ContainerNotFoundException();
             }
-            if(!$container->isActive()){
+            if(!$container->isActivate()){
                 throw new \Exception("What brother??");
             }
             $container->setActive(false);
