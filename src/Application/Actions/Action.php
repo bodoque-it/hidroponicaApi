@@ -90,6 +90,7 @@ abstract class Action
         }
 
         return $input;
+//        return $this->request->getParsedBody();
     }
 
     /**

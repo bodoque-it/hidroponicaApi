@@ -150,7 +150,7 @@ class User implements JsonSerializable
 
     public function getCyclesOrdered(){
         $criteria = new Criteria();
-        $criteria->orderBy(['startDate' => Criteria::ASC]);
+        $criteria->orderBy(['startDate' => Criteria::DESC]);
         return  $this->getCycles()->matching($criteria);
 
     }

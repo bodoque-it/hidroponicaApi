@@ -12,7 +12,12 @@ class CreateContainerActionTest extends TestCase
     public function testAction(){
         $app = $this->getAppInstance();
         $request = $this->createRequest('POST','api/containers/1/1');
-        $request = $request->withParsedBody(["param1"=>"param1value"]);
+        $body = [
+            "name"=>"param1value",
+            "volume"=> 18.8,
+            "id_rail"=> 1
+        ];
+        $request = $request->withParsedBody($body);
         $response = $app->handle($request);
         $this->assertEquals(200, 200);
     }

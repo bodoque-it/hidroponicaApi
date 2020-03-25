@@ -6,6 +6,7 @@ namespace App\Infrastructure\Persistence\Container;
 
 use App\Domain\Container\Container;
 use App\Domain\Container\ContainerRepository;
+use App\Domain\Rail\Rail;
 
 class InMemoryContainerRepository implements ContainerRepository
 {
@@ -58,6 +59,7 @@ class InMemoryContainerRepository implements ContainerRepository
 
     public function createContainerInRail(int $id_user, int $id_rail, array $params): Container
     {
-        // TODO: Implement createContainerInRail() method.
+        $this->containers[3] = new Container(3,$params["volume"],$params["name"]);
+        return $this->containers[3];
     }
 }
