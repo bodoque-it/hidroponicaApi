@@ -133,10 +133,9 @@ class DoctrineCycleRepository implements CycleRepository
         if($microclimate===null){
             throw new MicroclimateNotFoundException();
         }
-        $start_date = new \DateTime($params["start_date"]);
+        $start_date = new \DateTime('NOW');
         $estimated_date = new \DateTime($params["estimated_date"]);
-        $finish_date = new \DateTime($params["finish_date"]);
-        $cycle = new Cycle(null,$start_date,$estimated_date,$finish_date);
+        $cycle = new Cycle(null,$start_date,$estimated_date);
         $cycle->setOwner($user);
         $cycle->setContainer($container);
         $cycle->setMicroclimate($microclimate);
