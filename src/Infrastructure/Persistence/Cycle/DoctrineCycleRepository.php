@@ -49,15 +49,21 @@ class DoctrineCycleRepository implements CycleRepository
         if($user===null){
             throw new UserNotFoundException();
         }
-        $start_date = new \DateTime($params["start_date"]);
+        $start_date = new \DateTime('NOW');
         $estimated_date = new \DateTime($params["estimated_date"]);
         $id_container =(int)$params["id_container"];
         $container = $user = $this->entityManager->find("App\Domain\Container\Container",$id_container);
         if($container===null){
             throw new ContainerNotFoundException();
         }
+        $id_microclimate =(int)$params["id_microclimate"];
+        $microclimate = new $this->entityManager->find("App\Domain\Microclimate\Microclimate",$id_microclimate);
+        if($microclimate===null){
+            throw new MicroclimateNotFoundException();
+        }
         $cycle = new Cycle(null,$start_date,$estimated_date);
         $cycle->setContainer($container);
+        $cycle->setMicroclimate($microclimate);
         $container->setActive(true);
         $cycle->setOwner($user);
         $this->entityManager->persist($cycle);
