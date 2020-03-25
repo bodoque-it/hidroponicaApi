@@ -51,7 +51,14 @@ class DoctrineCycleRepository implements CycleRepository
         }
         $start_date = new \DateTime($params["start_date"]);
         $estimated_date = new \DateTime($params["estimated_date"]);
+        $id_container =(int)$params["id_container"];
+        $container = $user = $this->entityManager->find("App\Domain\Container\Container",$id_container);
+        if($container===null){
+            throw new ContainerNotFoundException();
+        }
         $cycle = new Cycle(null,$start_date,$estimated_date);
+        $cycle->setContainer($container);
+        $container->setActive(true);
         $cycle->setOwner($user);
         $this->entityManager->persist($cycle);
         $this->entityManager->flush();
