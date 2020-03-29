@@ -93,11 +93,14 @@ class DoctrineCycleRepository implements CycleRepository
             $cycle->setEstimatedDate($estimated_date);
         }
         if(isset($params["id_container"])){
+            $old_container = $cycle->getContainer();
             $container_id =(int) $params["id_container"];
             $container = $this->entityManager->find("App\Domain\Container\Container",$container_id);
             if($container===null){
                 throw new ContainerNotFoundException();
             }
+            $old_container->setActive(false);
+            $container->setActive(true);
             $cycle->setContainer($container);
         }
         if(isset($params["id_microclimate"])){
