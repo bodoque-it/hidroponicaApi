@@ -150,6 +150,7 @@ class DoctrineCycleRepository implements CycleRepository
         $estimated_date = new \DateTime($params["estimated_date"]);
         $cycle = new Cycle(null,$start_date,$estimated_date);
         $cycle->setOwner($user);
+        $container->setActive(true);
         $cycle->setContainer($container);
         $cycle->setMicroclimate($microclimate);
         $this->entityManager->persist($cycle);

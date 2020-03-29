@@ -82,7 +82,7 @@ return function (App $app) {
     $app->group('/api/cycles',function(Group $group) use ($container){
         $group->get('/{id_user}',ListCycleAction::class);
         $group->get('/{id_user}/{id_cycle}',ViewCycleAction::class);
-        $group->post('/{id_user}',CreateCycleAction::class);
+        //$group->post('/{id_user}',CreateCycleAction::class);
         $group->put('/{id_cycle}',UpdateCycleAction::class);
         $group->delete('/{id_cycle}',DeleteCycleAction::class);
         $group->post('/{id_user}/{id_container}/{id_microclimate}',CreateCycleComplete::class);
